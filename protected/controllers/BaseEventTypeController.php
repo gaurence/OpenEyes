@@ -556,6 +556,17 @@ class BaseEventTypeController extends BaseModuleController
     }
 
     /**
+     * Run this function after soft delete happened
+     *
+     * @param $event
+     * @return bool
+     */
+    public function afterSoftDelete($event)
+    {
+        return true;
+    }
+
+    /**
      * Initialise the controller prior to a create action.
      *
      * @throws CHttpException
@@ -625,6 +636,9 @@ class BaseEventTypeController extends BaseModuleController
     protected function initActionDelete()
     {
         $this->initWithEventId(@$_GET['id']);
+
+        //on soft delete we call the afterSoftDelete method
+        $this->event->getEventHandlers('onAfterSoftDelete')->add(array($this, 'afterSoftDelete'));
     }
 
     /**
@@ -1701,7 +1715,9 @@ class BaseEventTypeController extends BaseModuleController
         if (!empty($_POST)) {
             $transaction = Yii::app()->db->beginTransaction();
             try {
-                $this->event->softDelete();
+
+                $delete_reason = Yii::app()->request->getPost('delete_reason', false);
+                $this->event->softDelete($delete_reason);
 
                 $this->event->audit('event', 'delete', false);
 

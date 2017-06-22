@@ -697,4 +697,14 @@ class DefaultController extends BaseEventTypeController
         Yii::app()->end();
     }
 
+    /**
+     * Callback fucntion after the event's softDelete fucntion
+     * @param $event
+     */
+    public function afterSoftDelete($event)
+    {
+        // update document_output table here after
+        // we have to set the PENDING status to DELETED
+    }
+
 }

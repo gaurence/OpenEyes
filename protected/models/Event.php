@@ -343,12 +343,22 @@ class Event extends BaseActiveRecordVersioned
             if ($transaction) {
                 $transaction->commit();
             }
+            $this->onAfterSoftDelete( new CEvent($this) );
         } catch (Exception $e) {
             if ($transaction) {
                 $transaction->rollback();
             }
             throw $e;
         }
+    }
+
+    /**
+     * Raising the afterSoftDelete event
+     * @param $yii_event
+     */
+    public function onAfterSoftDelete($yii_event)
+    {
+        $this->raiseEvent('onAfterSoftDelete', $yii_event);
     }
 
     /**
