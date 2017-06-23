@@ -698,13 +698,37 @@ class DefaultController extends BaseEventTypeController
     }
 
     /**
-     * Callback fucntion after the event's softDelete fucntion
-     * @param $event
+     * After the event was soft deleted, we need to set the output_status' to DELETED
+     * @param $yii_event
+     * @return bool
+     * @throws Exception
      */
-    public function afterSoftDelete($event)
+    public function afterSoftDelete($yii_event)
     {
-        // update document_output table here after
-        // we have to set the PENDING status to DELETED
+
+        $letter = ElementLetter::model()->findByPk( $this->event->id );
+
+        $document_targets = isset($letter->document_instance[0]->document_target) ? $letter->document_instance[0]->document_target : array();
+
+        foreach($document_targets as $document_target){
+            foreach($document_target->document_output as $document_output) {
+                $document_output->output_status = 'DELETED';
+
+                if ($document_output->save()) {
+                    Audit::add('admin', 'delete', null, null,
+                        array(
+                            'module' => $this->module->id,
+                            'model' => get_class($document_target->document_output),
+                        )
+                    );
+                } else {
+                    OELog::log(print_r($document_output->getErrors(), true));
+                    throw new Exception('Unable to save DocumentOutput: '.print_r($document_output->getErrors(), true));
+                }
+            }
+        }
+
+        return true;
     }
 
 }
