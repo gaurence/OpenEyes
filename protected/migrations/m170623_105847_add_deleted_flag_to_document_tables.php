@@ -10,6 +10,12 @@ class m170623_105847_add_deleted_flag_to_document_tables extends CDbMigration
         $this->addColumn('document_instance_data', 'deleted', "tinyint(1) unsigned NOT NULL DEFAULT '0'");
         $this->addColumn('document_output', 'deleted', "tinyint(1) unsigned NOT NULL DEFAULT '0'");
 
+        $this->addColumn('document_set_version', 'deleted', "tinyint(1) unsigned NOT NULL DEFAULT '0'");
+        $this->addColumn('document_instance_version', 'deleted', "tinyint(1) unsigned NOT NULL DEFAULT '0'");
+        $this->addColumn('document_target_version', 'deleted', "tinyint(1) unsigned NOT NULL DEFAULT '0'");
+        $this->addColumn('document_instance_data_version', 'deleted', "tinyint(1) unsigned NOT NULL DEFAULT '0'");
+        $this->addColumn('document_output_version', 'deleted', "tinyint(1) unsigned NOT NULL DEFAULT '0'");
+
         // loop over all the events to check if they are deleted
         // get all correspondence where the status is not COMPLETED - completed document cannot be deleted
         $document_outputs = DocumentOutput::model()->findAll();
@@ -73,5 +79,12 @@ class m170623_105847_add_deleted_flag_to_document_tables extends CDbMigration
         $this->dropColumn('document_target', 'deleted');
         $this->dropColumn('document_instance_data', 'deleted');
         $this->dropColumn('document_output', 'deleted');
+
+        $this->dropColumn('document_set_version', 'deleted');
+        $this->dropColumn('document_instance_version', 'deleted');
+        $this->dropColumn('document_target_version', 'deleted');
+        $this->dropColumn('document_instance_data_version', 'deleted');
+        $this->dropColumn('document_output_version', 'deleted');
+
 	}
 }
