@@ -1914,4 +1914,15 @@ class OphCiExamination_API extends \BaseAPI
 
         return "";
     }
+    
+    public function printEvent( $eventid )
+    {
+        $event = \Event::model()->findByPk($eventid);
+      
+        $examController = new \OEModule\OphCiExamination\controllers\DefaultController('default', \Yii::app()->getModule($event->eventType->class_name));
+        $sas = $examController->actionPrint($eventid);
+        var_dump($sas);
+        exit;
+        
+    }
 }

@@ -588,11 +588,11 @@ class BaseEventTypeController extends BaseModuleController
     {
         $criteria = new CDbCriteria();
         $criteria->addCondition('event_type_id = ?');
-        $criteria->params = array($this->event_type->id);
+        $criteria->params = array($this->event_type->id);    
         if (!$id || !$this->event = Event::model()->findByPk($id, $criteria)) {
             throw new CHttpException(404, 'Invalid event id.');
         }
-
+       
         $this->patient = $this->event->episode->patient;
         $this->episode = $this->event->episode;
     }
@@ -849,7 +849,7 @@ class BaseEventTypeController extends BaseModuleController
         ), $this->extraViewProperties);
 
         $this->jsVars['OE_event_last_modified'] = strtotime($this->event->last_modified_date);
-
+        
         $this->render('view', $viewData);
     }
 
@@ -1809,6 +1809,7 @@ class BaseEventTypeController extends BaseModuleController
         if ($this->patient) {
             $this->jsVars['OE_patient_id'] = $this->patient->id;
         }
+      
         if ($this->event) {
             $this->jsVars['OE_event_id'] = $this->event->id;
 
@@ -1817,6 +1818,7 @@ class BaseEventTypeController extends BaseModuleController
             } else {
                 $this->jsVars['OE_print_url'] = Yii::app()->createUrl($this->getModule()->name.'/default/print/'.$this->event->id);
             }
+            $this->jsVars['OE_print_url2'] = Yii::app()->createUrl($this->getModule()->name.'/default/print2/'.$this->event->id);
         }
         $this->jsVars['OE_asset_path'] = $this->assetPath;
         $firm = Firm::model()->findByPk(Yii::app()->session['selected_firm_id']);

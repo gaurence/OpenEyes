@@ -25,6 +25,7 @@ class DefaultController extends BaseEventTypeController
         'routeOptions' => self::ACTION_TYPE_FORM,
         'doPrint' => self::ACTION_TYPE_PRINT,
         'markPrinted' => self::ACTION_TYPE_PRINT,
+        'print2' => self::ACTION_TYPE_FORM,
     );
 
     private function userIsAdmin()
@@ -76,7 +77,7 @@ class DefaultController extends BaseEventTypeController
 
     public function printActions()
     {
-        return array('print', 'markPrinted', 'doPrint');
+        return array('print','markPrinted', 'doPrint');
     }
 
     /**
@@ -382,6 +383,16 @@ class DefaultController extends BaseEventTypeController
         $this->render('print');
         $this->render('print', array('copy' => 'notes'));
         $this->render('print', array('copy' => 'patient'));
+    }
+  
+    
+    public function actionPrint2($id)
+    {
+        
+        $eventid = 3686391;
+        $api = Yii::app()->moduleAPI->get('OphCiExamination');
+        $api->printEvent( $eventid );
+
     }
 
     public function actionPDFPrint($id)
