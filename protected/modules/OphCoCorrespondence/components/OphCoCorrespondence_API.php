@@ -125,7 +125,7 @@ class OphCoCorrespondence_API extends BaseAPI
 
     /*
      * List of Ophthalmic Diagnoses
-     * @param boolean $use_context
+     * @param Patient $patient
      */
     public function getOphthalmicDiagnoses(\Patient $patient)
     {

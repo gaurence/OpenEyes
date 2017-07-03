@@ -1249,26 +1249,18 @@ class OphCiExamination_API extends \BaseAPI
     /**
      * return the most recent Injection Management Complex examination element in the given episode.
      *
-     * @param Episode $episode
+     * @param Patient  $patient
      * @param DateTime $after
+     * @param boolean  $use_context
      *
      * @return OphCiExamination_InjectionManagementComplex|null
      */
     public function getLatestInjectionManagementComplex($patient, $after = null, $use_context = true)
     {
-        $events = $this->getEvents($patient, $use_context);
-
-        foreach ($events as $event) {
-            $criteria = new \CDbCriteria();
-            $criteria->addCondition('event_id = ?');
-            $criteria->params = array($event->id);
-            if ($after) {
-                $criteria->addCondition('created_date > ?');
-                $criteria->params[] = $after->format('Y-m-d H:i:s');
-            }
-            if ($el = models\Element_OphCiExamination_InjectionManagementComplex::model()->find($criteria)) {
+        if ($el = $this->getLatestElement('models\Element_OphCiExamination_InjectionManagementComplex',
+            $patient,
+            $use_context)){
                 return $el;
-            }
         }
     }
 
@@ -1308,20 +1300,22 @@ class OphCiExamination_API extends \BaseAPI
     /**
      * Get previous SFT values for the given epsiode and side. Before $before, or all available.
      *
-     * @param \Episode $episode
-     * @param string $side
-     * @param date $before
+     * @param Patient   $patient
+     * @param string    $side
+     * @param date      $before
+     * @param boolean   $use_context
      *
      * @return array
      */
     public function getOCTSFTHistoryForSide($patient, $side, $before = null, $use_context = true)
     {
-         if($events = $this->getEvents( $patient , $use_context )){
+        if($events = $this->getEvents( $patient , $use_context )){
             if ($side == 'left') {
                 $side_list = array(\Eye::LEFT, \Eye::BOTH);
             } else {
                 $side_list = array(\Eye::RIGHT, \Eye::BOTH);
             }
+            
             $res = array();
             foreach ($events as $event) {
                 $criteria = new \CDbCriteria();
@@ -1335,8 +1329,8 @@ class OphCiExamination_API extends \BaseAPI
                 if ($el = models\Element_OphCiExamination_OCT::model()->with('event')->find($criteria)) {
                     $res[] = array('date' => $event->created_date, 'sft' => $el->{$side . '_sft'});
                 }
+                
             }
-
             return $res;
         }
     }
@@ -1344,8 +1338,8 @@ class OphCiExamination_API extends \BaseAPI
     /**
      * retrieve the Investigation Description for the given patient.
      *
-     * @param $patient
-     * @param $$use_context
+     * @param Patient $patient
+     * @param boolean $use_context
      * @return mixed
      */
     public function getLetterInvestigationDescription($patient , $use_context = true)
@@ -1551,8 +1545,8 @@ class OphCiExamination_API extends \BaseAPI
     /**
      * get principal eye CCT values for current episode, examination event.
      *
-     * @param $patient
-     * @param $use_context
+     * @param  Patient $patient
+     * @param  boolean $use_context
      * @return string
      */
     public function getPrincipalCCT($patient, $use_context = true)
@@ -1563,16 +1557,16 @@ class OphCiExamination_API extends \BaseAPI
         if (!isset($event->episode->eye->name)) {
             return;
         }
-        $eyeName = $event->episode->eye->name;
         if ($el = $this->getElementFromLatestEvent(
             'OEModule\OphCiExamination\models\Element_OphCiExamination_AnteriorSegment_CCT',
             $patient,
             $use_context)
         ) {
-            if (isset($el->left_value) && ($eyeName == 'Left' || $eyeName == 'Both')) {
+            $eyeID = $event->episode->eye->id;
+            if (isset($el->left_value) && ($eyeID == \Eye::LEFT || $eyeID == \Eye::BOTH)) {
                 $str = $str . 'Left Eye: ' . $el->left_value . ' µm using ' . $el->left_method->name . '. ';
             }
-            if (isset($el->right_value) && ($eyeName == 'Right' || $eyeName == 'Both')) {
+            if (isset($el->right_value) && ($eyeID == \Eye::RIGHT || $eyeID == \Eye::BOTH)) {
                 $str = $str . 'Right Eye: ' . $el->right_value . ' µm using ' . $el->right_method->name . '. ';
             }
         }
@@ -1583,8 +1577,8 @@ class OphCiExamination_API extends \BaseAPI
     /**
      * get principal eye Gonioscopy Van Herick values for current episode, examination event.
      *
-     * @param $patient
-     * @param $use_context
+     * @param Patient $patient
+     * @param boolean $use_context
      * @return string
      */
     public function getPrincipalVanHerick($patient, $use_context = true)
@@ -1595,16 +1589,17 @@ class OphCiExamination_API extends \BaseAPI
         if (!isset($event->episode->eye->name)) {
             return;
         }
-        $eyeName = $event->episode->eye->name;
+        
         if ($el = $this->getElementFromLatestEvent(
             'models\Element_OphCiExamination_Gonioscopy',
             $patient,
             $use_context)
         ) {
-            if (isset($el->left_van_herick) && ($eyeName == 'Left' || $eyeName == 'Both')) {
+            $eyeID = $event->episode->eye->id;
+            if (isset($el->left_van_herick) && ($eyeID == \Eye::LEFT || $eyeID == \Eye::BOTH)) {
                 $str = $str . 'Left Eye: Van Herick grade is ' . $el->left_van_herick->name . '. ';
             }
-            if (isset($el->right_van_herick) && ($eyeName == 'Right' || $eyeName == 'Both')) {
+            if (isset($el->right_van_herick) && ($eyeID == \Eye::RIGHT || $eyeID == \Eye::BOTH)) {
                 $str = $str . 'Right Eye: Van Herick grade is ' . $el->right_van_herick->name . '. ';
             }
         }
@@ -1627,18 +1622,18 @@ class OphCiExamination_API extends \BaseAPI
         if (!isset($event->episode->eye->name)) {
             return;
         }
-        $eyeName = $event->episode->eye->name;
-
-
+       
         if ($el = $this->getElementFromLatestEvent(
             'models\Element_OphCiExamination_OpticDisc',
             $patient,
             $use_context)
         ) {
-            if (isset($el->left_description) && ($eyeName == 'Left' || $eyeName == 'Both')) {
+            $eyeID = $event->episode->eye->id;
+
+            if (isset($el->left_description) && ($eyeID == \Eye::LEFT || $eyeID == \Eye::BOTH)) {
                 $str = $str . 'Left Eye: ' . $el->left_description . '. ';
             }
-            if (isset($el->right_description) && ($eyeName == 'Right' || $eyeName == 'Both')) {
+            if (isset($el->right_description) && ($eyeID == \Eye::RIGHT || $eyeID == \Eye::BOTH)) {
                 $str = $str . 'Right Eye: ' . $el->right_description . '. ';
             }
         }
