@@ -1309,27 +1309,10 @@ class OphCiExamination_API extends \BaseAPI
      */
     public function getOCTSFTHistoryForSide($patient, $side, $before = null, $use_context = true)
     {
-        if($events = $this->getEvents( $patient , $use_context )){
-            if ($side == 'left') {
-                $side_list = array(\Eye::LEFT, \Eye::BOTH);
-            } else {
-                $side_list = array(\Eye::RIGHT, \Eye::BOTH);
-            }
-            
+        if($elements = $this->getElements('OEModule\OphCiExamination\models\Element_OphCiExamination_OCT', $patient, $use_context, $before)){
             $res = array();
-            foreach ($events as $event) {
-                $criteria = new \CDbCriteria();
-                $criteria->compare('event_id', $event->id);
-                $criteria->addInCondition('eye_id', $side_list);
-                if ($before) {
-                    $criteria->addCondition('event.created_date < :edt');
-                    $criteria->params[':edt'] = $before;
-                }
-
-                if ($el = models\Element_OphCiExamination_OCT::model()->with('event')->find($criteria)) {
-                    $res[] = array('date' => $event->created_date, 'sft' => $el->{$side . '_sft'});
-                }
-                
+            foreach($elements as $element){
+                $res[] = array('date' => $element->created_date, 'sft' => $element->{$side . '_sft'});
             }
             return $res;
         }
