@@ -265,4 +265,38 @@ SET ed.processed_canvas_intersection_tuple = (
 WHERE ed.eyedraw_class_mnemonic != "*" -- Unsafe mode workaround
 EOSQL;
     }
+
+    private function create_level_1($canvas_name){
+      $result =
+      "<li class='result_item_containers'>"
+      ."<div class='result_items'>"
+      ."<span data-allias='".$canvas_name."'"
+      ."data-action-id='EASTB' data-lvl='1'>"
+      .$canvas_name."</span>"
+      ."</div><ul>";
+      return $result;
+    }
+
+    private function create_level_2($doodle_title,$image_src){
+      $result =
+      "<li class='result_item_containers'>"
+      ."<div class='result_items' "
+      ."style='background-image: url(".$image_src.")'>"
+      ."<span data-allias='".$doodle_title."'"
+      ."data-action-id='EASTB' data-lvl='2'>"
+      .$doodle_title."</span>"
+      ."</div><ul>";
+      return $result;
+    }
+
+    private function create_level_3($property_name){
+      $result =
+      "<li class='result_item_containers'>"
+      ."<div class='result_items'>"
+      ."<span data-allias='".$property_name."'"
+      ."data-action-id='EASTB' data-lvl='3'>"
+      .$property_name."</span>"
+      ."</div>";
+      return $result;
+    }
 }
