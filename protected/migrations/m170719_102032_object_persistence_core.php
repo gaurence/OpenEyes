@@ -7,7 +7,9 @@ class m170719_102032_object_persistence_core extends OEMigration
 	    $this->createTable('eyedraw_doodle', array(
             'eyedraw_class_mnemonic' => 'varchar(80) NOT NULL',
             'init_doodle_json' => 'text',
-            'processed_canvas_intersection_tuple' => 'varchar(2000)' // automatically generated internally
+            'processed_canvas_intersection_tuple' => 'varchar(2000)', // automatically generated internally
+            'title' => 'varchar(80)',
+            'properties' => 'text'
         ));
 
         $this->addPrimaryKey('eyedraw_doodle_pk', 'eyedraw_doodle', 'eyedraw_class_mnemonic');

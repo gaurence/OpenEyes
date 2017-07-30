@@ -81,6 +81,7 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
             $this->processCanvasDoodleDefinition($canvas_doodle);
         }
         $this->refreshTuples();
+
     }
 
     /**
@@ -138,10 +139,12 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
         } else {
             $cmd = $this->getDb()->createCommand('INSERT INTO '
                 . static::DOODLE_TBL .
-                '(eyedraw_class_mnemonic, init_doodle_json) VALUES (:mnm, :init)');
+                '(eyedraw_class_mnemonic, init_doodle_json, title, properties) VALUES (:mnm, :init, :t, :ps)');
         }
         $cmd->bindValue(':mnm', $doodle->EYEDRAW_CLASS_MNEMONIC)
             ->bindValue(':init', json_encode($doodle->INIT_DOODLE_JSON)) //check this
+            ->bindValue(':t',$doodle->TITLE)
+            ->bindValue(':ps',$doodle->PROPERTIES)
             ->query();
     }
 
@@ -247,14 +250,14 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
 -- Update the Doodle Tuples
 UPDATE $doodle_tbl ed
 SET ed.processed_canvas_intersection_tuple = (
-    SELECT GROUP_CONCAT(DISTINCT ecd.canvas_mnemonic ORDER BY ecd.canvas_mnemonic) -- canvas_mnenonic 
+    SELECT GROUP_CONCAT(DISTINCT ecd.canvas_mnemonic ORDER BY ecd.canvas_mnemonic) -- canvas_mnenonic
   FROM $doodle_canvas_tbl ecd
   WHERE ecd.eyedraw_class_mnemonic = ed.eyedraw_class_mnemonic
     AND EXISTS (
         SELECT 1
     FROM $doodle_canvas_tbl in_ecd
     WHERE in_ecd.canvas_mnemonic = ecd.canvas_mnemonic
-    AND in_ecd.eyedraw_carry_forward_canvas_flag = 1 
+    AND in_ecd.eyedraw_carry_forward_canvas_flag = 1
   )
   GROUP BY ecd.eyedraw_class_mnemonic
   HAVING SUM(ecd.eyedraw_carry_forward_canvas_flag) != 0
