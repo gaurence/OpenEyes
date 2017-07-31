@@ -88,28 +88,43 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
 
 
         $result_lvl_1 = Yii::app()->db->createCommand(
-            "SELECT canvas_mnemonic "
+            "SELECT canvas_mnemonic, canvas_name "
             ."FROM openeyes.eyedraw_canvas "
-            ."WHERE canvas_mnemonic LIKE 'EXAM%'"
+            ."WHERE canvas_mnemonic LIKE 'EXAM%'" //does EXAM% need to be 'EXAM%'?
         )->query();
 
-        $HTMLFileString = "";
+        $html_file_string = "";
 
-        while($row = $result_lvl_1->fetch_assoc()) {
-          $canvas_mnemonic = $row['canvas_mnemonic'];
-          $canvas_name = $row['canvas_name'];
-          create_level_1($canvas_name);
+
+
+        foreach($result_lvl_1 as $row_lvl_1) {
+          $canvas_mnemonic = $row_lvl_1['canvas_mnemonic'];
+          $canvas_name = $row_lvl_1['canvas_name'];
+          $html_file_string .= create_level_1($canvas_name); //add
 
           $result_lvl_2 = Yii::app()->db->createCommand(
-              "SELECT "
-              ."FROM openeyes.eyedraw_canvas "
-              ."WHERE canvas_mnemonic LIKE 'EXAM%'"
-          )->query();
-
-          //do another loop
-          //do another loop
-          $HTMLFileString += "</ul></li>";
+              "SELECT openeyes.eyedraw_doodle.title, openeyes.eyedraw_doodle.properties "
+              ."FROM openeyes.eyedraw_canvas_doodle, openeyes.eyedraw_doodle "
+              ."WHERE openeyes.eyedraw_canvas_doodle.canvas_mnemonic = :cvm "
+              ."AND openeyes.eyedraw_canvas_doodle.eyedraw_class_mnemonic "
+              ."= openeyes.eyedraw_doodle.eyedraw_class_mnemonic"
+          )
+          ->bindValue(':cvm',$canvas_mnemonic)
+          ->query();
+          //add
+          foreach($result_lvl_2 as $row_lvl_2) {
+            $title = $row_lvl_2['title'];
+            $properties = json_decode($row_lvl_2['properties']);
+            $img_src = ""; //get from file path + mnemonic
+            $html_file_string .= create_level_2($title,$img_src);
+            foreach ($property_name as $properties) {
+              $html_file_string .= create_level_3($property_name);
+            }
+            $html_file_string .= "</ul></li>"; //close the level 2 element
+          }
+          $html_file_string .= "</ul></li>"; //close the level 3 element
     }
+    echo $html_file_string;
 
     }
 
@@ -158,7 +173,7 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
      */
     private function insertOrUpdateDoodle($doodle)
     {
-        $current = $this->getDb()
+      /*  $current = $this->getDb()
             ->createCommand('SELECT count(*) FROM ' . static::DOODLE_TBL . ' WHERE eyedraw_class_mnemonic = :mnm')
             ->bindValue(':mnm', $doodle->EYEDRAW_CLASS_MNEMONIC)
             ->queryScalar();
@@ -174,7 +189,7 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
             ->bindValue(':init', json_encode($doodle->INIT_DOODLE_JSON)) //check this
             ->bindValue(':t',$doodle->TITLE)
             ->bindValue(':ps',$doodle->PROPERTIES)
-            ->query();
+            ->query(); */
     }
 
     /**
@@ -325,7 +340,7 @@ EOSQL;
       ."<span data-allias='".$property_name."'"
       ."data-action-id='EASTB' data-lvl='3'>"
       .$property_name."</span>"
-      ."</div>";
+      ."</div></li>";
       return $result;
     }
 }
