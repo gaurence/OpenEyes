@@ -27,6 +27,8 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
     const DOODLE_TBL        = 'eyedraw_doodle';
     const CANVS_TBL         = 'eyedraw_canvas';
     const CANVAS_DOODLE_TBL = 'eyedraw_canvas_doodle';
+
+
     public function getName()
     {
         return 'Load eyedraw configuration';
@@ -100,7 +102,7 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
         foreach($result_lvl_1 as $row_lvl_1) {
           $canvas_mnemonic = $row_lvl_1['canvas_mnemonic'];
           $canvas_name = $row_lvl_1['canvas_name'];
-          $html_file_string .= create_level_1($canvas_name); //add
+          $html_file_string .= $this->create_level_1($canvas_name); //add
 
           $result_lvl_2 = Yii::app()->db->createCommand(
               "SELECT openeyes.eyedraw_doodle.title, openeyes.eyedraw_doodle.properties "
@@ -116,9 +118,11 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
             $title = $row_lvl_2['title'];
             $properties = json_decode($row_lvl_2['properties']);
             $img_src = ""; //get from file path + mnemonic
-            $html_file_string .= create_level_2($title,$img_src);
-            foreach ($property_name as $properties) {
-              $html_file_string .= create_level_3($property_name);
+            $html_file_string .= $this->create_level_2($title,$img_src);
+            if (sizeof($properties) > 0) {
+                foreach ($properties as $property_name) {
+                  $html_file_string .= $this->create_level_3($property_name);
+                }
             }
             $html_file_string .= "</ul></li>"; //close the level 2 element
           }
@@ -310,37 +314,49 @@ WHERE ed.eyedraw_class_mnemonic != "*" -- Unsafe mode workaround
 EOSQL;
     }
 
-    private function create_level_1($canvas_name){
+
+    /**
+     * @param $canvas_name
+     * @return string
+     */
+    public function create_level_1($canvas_name){
       $result =
-      "<li class='result_item_containers'>"
-      ."<div class='result_items'>"
+      "<li style>"
+      ."<div class='result_item'>"
       ."<span data-allias='".$canvas_name."'"
-      ."data-action-id='EASTB' data-lvl='1'>"
+      ."data-action-id='EASTB' data-lvl='1' class='lvl1'>"
       .$canvas_name."</span>"
-      ."</div><ul>";
+      ."</div><ul class='results_list'>";
       return $result;
     }
 
-    private function create_level_2($doodle_title,$image_src){
+    public function create_level_2($doodle_title,$image_src){
       $result =
-      "<li class='result_item_containers'>"
-      ."<div class='result_items' "
+      "<li style'>"
+      ."<div class='result_item, result_item_with_icon' "
       ."style='background-image: url(".$image_src.")'>"
       ."<span data-allias='".$doodle_title."'"
-      ."data-action-id='EASTB' data-lvl='2'>"
+      ."data-action-id='EASTB' data-lvl='2' class='lvl2'>"
       .$doodle_title."</span>"
-      ."</div><ul>";
+      ."</div><ul class='results_list'>";
       return $result;
     }
 
-    private function create_level_3($property_name){
+    public function create_level_3($property_name){
       $result =
-      "<li class='result_item_containers'>"
-      ."<div class='result_items'>"
+      "<li style'>"
+      ."<div class='result_item'>"
       ."<span data-allias='".$property_name."'"
-      ."data-action-id='EASTB' data-lvl='3'>"
+      ."data-action-id='EASTB' data-lvl='3' class='lvl3'>"
       .$property_name."</span>"
       ."</div></li>";
       return $result;
     }
+
+    public function get_img_url($doodle_mnemonic){
+      
+    }
+
+
+
 }
