@@ -105,7 +105,8 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
           $html_file_string .= $this->create_level_1($canvas_name); //add
 
           $result_lvl_2 = Yii::app()->db->createCommand(
-              "SELECT openeyes.eyedraw_doodle.title, openeyes.eyedraw_doodle.properties "
+              "SELECT openeyes.eyedraw_doodle.title, openeyes.eyedraw_doodle.properties, "
+              ."openeyes.eyedraw_doodle.eyedraw_class_mnemonic "
               ."FROM openeyes.eyedraw_canvas_doodle, openeyes.eyedraw_doodle "
               ."WHERE openeyes.eyedraw_canvas_doodle.canvas_mnemonic = :cvm "
               ."AND openeyes.eyedraw_canvas_doodle.eyedraw_class_mnemonic "
@@ -117,7 +118,8 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
           foreach($result_lvl_2 as $row_lvl_2) {
             $title = $row_lvl_2['title'];
             $properties = json_decode($row_lvl_2['properties']);
-            $img_src = ""; //get from file path + mnemonic
+            $doodle_mnemonic = $row_lvl_2['eyedraw_class_mnemonic'];
+            $img_src = $this->get_img_url($doodle_mnemonic); //get from file path + mnemonic
             $html_file_string .= $this->create_level_2($title,$img_src);
             if (sizeof($properties) > 0) {
                 foreach ($properties as $property_name) {
@@ -354,7 +356,8 @@ EOSQL;
     }
 
     public function get_img_url($doodle_mnemonic){
-      
+      $result = "/assets/tom/".$doodle_mnemonic.".png";
+      return $result;
     }
 
 
