@@ -56,9 +56,9 @@ text box and results box
 #results {
 	outline: 0px;
 	z-index: 1002;
-	height: 460px;
+	height: 620px;
 	width: 1024px;
-	top: 52px;
+	top: 48px;
 	left: 12px;
 	display: block;
 	overflow:scroll;
@@ -82,10 +82,10 @@ text box and results box
 .results_list {
 margin: 0;
 list-style: none;
-padding-left: 0;
+padding-left: 0px;
 }
 .results_list .results_list {
-padding-left: 20px;
+padding-left: 45px;
 }
 .icon {
 height: 25px;
@@ -95,29 +95,29 @@ bottom: 5px;
 }
 
 .result_item,.result_item_with_icon {
-width: 222.22px;
+width: 444.44px;
 display: block;
-margin: 0 0 2px 0;
-height: 19px;
-line-height: 19px;
+margin: 0 0 4px 0;
+height: 38px;
+line-height: 38px;
 background-color: #EEEEED;
 background-size: 500px 500px;
 background-repeat: no-repeat;
 background-position: left;
-background-size: 19px 19px;
+background-size: 32px 32px;
 color: #0b59da;
 cursor: pointer;
-font-size: 0.8125rem;
+font-size: 1.0rem;
 box-sizing: border-box;
 text-align: -webkit-match-parent;
 margin-bottom: 6px;
 list-style-position: outside;
 font-family: inherit;
-padding-left: 10px; /* higher for level 2 as icon on left */
-border-radius: 0px;
+padding-left: 25px; /* higher for level 2 as icon on left */
+border-radius: 5px;
 }
 .result_item_with_icon{
-padding-left: 25px;
+padding-left: 45px;
 }
 
 

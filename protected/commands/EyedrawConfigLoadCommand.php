@@ -95,7 +95,7 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
             ."WHERE canvas_mnemonic LIKE 'EXAM%'" //does EXAM% need to be 'EXAM%'?
         )->query();
 
-        $html_file_string = "";
+        $html_file_string = "<INDEX_LIST>";
 
 
 
@@ -126,10 +126,11 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
                   $html_file_string .= $this->create_level_3($property_name);
                 }
             }
-            $html_file_string .= "</ul></li>"; //close the level 2 element
+            $html_file_string .= "</INDEX_LIST></INDEX>"; //close the level 2 element
           }
-          $html_file_string .= "</ul></li>"; //close the level 3 element
+          $html_file_string .= "</INDEX_LIST></INDEX>"; //close the level 3 element
     }
+    $html_file_string .= "</INDEX_LIST>";
     echo $html_file_string;
 
     }
@@ -323,35 +324,32 @@ EOSQL;
      */
     public function create_level_1($canvas_name){
       $result =
-      "<li style>"
-      ."<div class='result_item'>"
-      ."<span data-allias='".$canvas_name."'"
-      ."data-action-id='EASTB' data-lvl='1' class='lvl1'>"
-      .$canvas_name."</span>"
-      ."</div><ul class='results_list'>";
+      "<INDEX>"
+      ."<TERM_LIST>"
+      ."<TERM>".$canvas_name."</TERM>"
+      ."</TERM_LIST>"
+      ."<INDEX_LIST>";
       return $result;
     }
 
     public function create_level_2($doodle_title,$image_src){
       $result =
-      "<li style'>"
-      ."<div class='result_item, result_item_with_icon' "
-      ."style='background-image: url(".$image_src.")'>"
-      ."<span data-allias='".$doodle_title."'"
-      ."data-action-id='EASTB' data-lvl='2' class='lvl2'>"
-      .$doodle_title."</span>"
-      ."</div><ul class='results_list'>";
+      "<INDEX>"
+      ."<TERM_LIST>"
+      ."<TERM>".$doodle_title."</TERM>"
+      ."</TERM_LIST>"
+      ."<IMG_URL>".$image_src."</IMG_URL>"
+      ."<INDEX_LIST>";
       return $result;
     }
 
     public function create_level_3($property_name){
       $result =
-      "<li style'>"
-      ."<div class='result_item'>"
-      ."<span data-allias='".$property_name."'"
-      ."data-action-id='EASTB' data-lvl='3' class='lvl3'>"
-      .$property_name."</span>"
-      ."</div></li>";
+      "<INDEX>"
+      ."<TERM_LIST>"
+      ."<TERM>".$property_name."</TERM>"
+      ."</TERM_LIST>"
+      ."</INDEX>";
       return $result;
     }
 
