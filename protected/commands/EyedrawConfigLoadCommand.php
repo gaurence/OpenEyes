@@ -83,96 +83,10 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
             $this->processCanvasDoodleDefinition($canvas_doodle);
         }
         $this->refreshTuples();
-
-        //only create EXAM HTML for now
-        //repalce EXAM with placeholder to create multiple
-        //ORDER?
-
-
-        $result_lvl_1 = Yii::app()->db->createCommand(
-            "SELECT canvas_mnemonic, canvas_name "
-            ."FROM openeyes.eyedraw_canvas "
-            ."WHERE canvas_mnemonic LIKE 'EXAM%'" //does EXAM% need to be 'EXAM%'?
-        )->query();
-
-        $html_file_string = "<INDEX_LIST>";
-
-
-
-        foreach($result_lvl_1 as $row_lvl_1) {
-          $canvas_mnemonic = $row_lvl_1['canvas_mnemonic'];
-          $canvas_name = $row_lvl_1['canvas_name'];
-          $html_file_string .= $this->create_level_1($canvas_name); //add
-
-          $result_lvl_2 = Yii::app()->db->createCommand(
-              "SELECT openeyes.eyedraw_doodle.title, openeyes.eyedraw_doodle.properties, "
-              ."openeyes.eyedraw_doodle.eyedraw_class_mnemonic "
-              ."FROM openeyes.eyedraw_canvas_doodle, openeyes.eyedraw_doodle "
-              ."WHERE openeyes.eyedraw_canvas_doodle.canvas_mnemonic = :cvm "
-              ."AND openeyes.eyedraw_canvas_doodle.eyedraw_class_mnemonic "
-              ."= openeyes.eyedraw_doodle.eyedraw_class_mnemonic"
-          )
-          ->bindValue(':cvm',$canvas_mnemonic)
-          ->query();
-          //add
-          foreach($result_lvl_2 as $row_lvl_2) {
-            $title = $row_lvl_2['title'];
-            $properties = json_decode($row_lvl_2['properties']);
-            $doodle_mnemonic = $row_lvl_2['eyedraw_class_mnemonic'];
-            $img_src = $this->get_img_url($doodle_mnemonic); //get from file path + mnemonic
-            $html_file_string .= $this->create_level_2($title,$img_src);
-            if (sizeof($properties) > 0) {
-                foreach ($properties as $property_name) {
-                  $html_file_string .= $this->create_level_3($property_name);
-                }
-            }
-            $html_file_string .= "</INDEX_LIST></INDEX>"; //close the level 2 element
-          }
-          $html_file_string .= "</INDEX_LIST></INDEX>"; //close the level 3 element
-    }
-    $html_file_string .= "</INDEX_LIST>";
-    //echo $html_file_string;
-
-    //do it recursively
-    $html_string = "<ul class='results_list>";
-    foreach ($data->INDEX_LIST->INDEX as $index_lvl_1){
-      $allias_lvl_1 = "";
-
-      //extracts the allias from xml (first allias is the title)
-      foreach ($index_lvl_1->TERM_LIST->TERM as $term_lvl_1) {
-        $allias_lvl_1 .= $term_lvl_1;
-      }
-      //creates html for the level 1 element without </ul></li>
-      $html_string .= $this->create_level_1($allias_lvl_1);
-    //  echo $html_string;
-      foreach ($index_lvl_1->INDEX_LIST->INDEX as $index_lvl_2){
-        $allias_lvl_2 = "";
-        foreach ($index_lvl_2->TERM_LIST->TERM as $term_lvl_2) {
-          $allias_lvl_2 .= $term_lvl_2;
-        }
-        $html_string .= $this->create_level_2($allias_lvl_2,$index_lvl_2->IMG_URL);
-        if (sizeof($index_lvl_2->INDEX_LIST) > 0){
-          $html_string .= "<ul>";
-          foreach ($index_lvl_2->INDEX_LIST->INDEX as $index_lvl_3){
-            $allias_lvl_3 = "";
-            foreach ($index_lvl_3->TERM_LIST->TERM as $term_lvl_3) {
-              $allias_lvl_3 .= $term_lvl_3;
-            }
-            $html_string .= $this->create_level_3($allias_lvl_3);
-          }
-          $html_string .= "</ul>";
-        }
-        $html_string .= "</li>";
-      }
-      $html_string .= "</ul></li>";
-    }
-
-    $html_string .= "</ul>";
-  //  echo $html_string;
-
-  echo $this->create($data->INDEX_LIST->INDEX[0]);
-
-
+        $html_string = $this->generateHTML($data->INDEX_LIST->INDEX[0]);
+        $my_file = 'exam.html';
+        $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
+        fwrite($handle, "<ul class='results_list'>".$html_string."</ul>");
 
     }
 
@@ -358,51 +272,7 @@ WHERE ed.eyedraw_class_mnemonic != "*" -- Unsafe mode workaround
 EOSQL;
     }
 
-
-    /**
-     * @param $canvas_name
-     * @return string
-     */
-     public function create_level_1($canvas_name){
-       $result =
-       "<li style>"
-       ."<div class='result_item'>"
-       ."<span data-allias='".$canvas_name."' "
-       ."data-action-id='EASTB' data-lvl='1' class='lvl1'>"
-       .$canvas_name."</span>"
-       ."</div><ul class='results_list'>";
-       return $result;
-     }
-
-     public function create_level_2($doodle_title,$image_src){
-       $result =
-       "<li style'>"
-       ."<div class='result_item, result_item_with_icon' "
-       ."style='background-image: url(".$image_src.")'>"
-       ."<span data-allias='".$doodle_title."'"
-       ."data-action-id='EASTB' data-lvl='2' class='lvl2'>"
-       .$doodle_title."</span>"
-       ."</div>";
-       return $result;
-     }
-
-     public function create_level_3($property_name){
-       $result =
-       "<li style'>"
-       ."<div class='result_item'>"
-       ."<span data-allias='".$property_name."'"
-       ."data-action-id='EASTB' data-lvl='3' class='lvl3'>"
-       .$property_name."</span>"
-       ."</div></li>";
-       return $result;
-     }
-
-    public function get_img_url($doodle_mnemonic){
-      $result = "/assets/tom/".$doodle_mnemonic.".png";
-      return $result;
-    }
-
-    public function create($index, $lvl=1){
+    private function generateHTML($index, $lvl=1){
       $term = $index->TERM_LIST->TERM[0];
       $img = $index->IMG_URL;
       $result =
@@ -415,8 +285,8 @@ EOSQL;
       ."</div>";
       if (isset($index->INDEX_LIST)) {
         $result .= "<ul class='results_list'>";
-        foreach ($index->INDEX_LIST->INDEX as $index2) {
-          $result .= $this->create($index2,$lvl+1);
+        foreach ($index->INDEX_LIST->INDEX as $nested_index) {
+          $result .= $this->generateHTML($nested_index,$lvl+1);
         }
         $result .= "</ul>";
       }
