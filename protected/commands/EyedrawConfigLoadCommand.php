@@ -82,6 +82,35 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
         }
         $this->refreshTuples();
 
+        //only create EXAM HTML for now
+        //repalce EXAM with placeholder to create multiple
+        //ORDER?
+
+
+        $result_lvl_1 = Yii::app()->db->createCommand(
+            "SELECT canvas_mnemonic "
+            ."FROM openeyes.eyedraw_canvas "
+            ."WHERE canvas_mnemonic LIKE 'EXAM%'"
+        )->query();
+
+        $HTMLFileString = "";
+
+        while($row = $result_lvl_1->fetch_assoc()) {
+          $canvas_mnemonic = $row['canvas_mnemonic'];
+          $canvas_name = $row['canvas_name'];
+          create_level_1($canvas_name);
+
+          $result_lvl_2 = Yii::app()->db->createCommand(
+              "SELECT "
+              ."FROM openeyes.eyedraw_canvas "
+              ."WHERE canvas_mnemonic LIKE 'EXAM%'"
+          )->query();
+
+          //do another loop
+          //do another loop
+          $HTMLFileString += "</ul></li>";
+    }
+
     }
 
     /**
