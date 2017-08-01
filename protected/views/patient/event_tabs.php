@@ -240,13 +240,53 @@ $("#search_bar").focus(function(){
 $("#search_bar").blur(function(){
 	//$('#results').hide();
 });
-$('.result_item').click(function(){
-	var item_name = $(this).find('span').html();
-	var item = $('.oe-event-sidebar-edit li a:contains(Anterior)');
-	console.log(item);
+function get_element_name($this){
+	return $this.find("span:first").text();
+}
+function click_lvl_1($this) {
+	let name = get_element_name($this);
+	console.log(name);
+	let name_on_btn= {'Examination Anterior Segment':'Anterior Segment'};
+	let btn_name = name_on_btn[name];
+	let $item = $(".oe-event-sidebar-edit li a:contains("+btn_name+")")
+	$item.click();
+}
+$('.result_item, .result_item_with_icon').click(function(){
+	let $this = $(this);
+	let $span = $this.find("span:first");
+	let lvl = $span.attr("class");
+	let name = $span.text();
+	switch (lvl) {
+		case "lvl1":
+			click_lvl_1($this);
+			break;
+		case "lvl2":
+			let $parent = $this.parent().parent().parent();
+			let parent_name = get_element_name($parent);
+			//let element_id =	element_id_map[parent_name];
+			let element_id = 315;
+			click_lvl_1($parent);
 
+			//bad solution
+			var checkExist = setInterval(function() {
+   		if ($("#PCIOLright_315").length) {
+      	clearInterval(checkExist);
+   		}
+		}, 100);
+		setTimeout(function(){
+			let $item_2 = $("#PCIOLright_315").children();
+			$item_2.click();
+		},5000);
+			//replace left or right or position
+		//	let $item2 = $("#"+"PCIOLright_315").children();
+		//	$item2.click();
+		break;
+		case "lvl3":
+			alert("3");
+		break;
+		default:
 
-	tomNeeds.loadClickedItem(item);
+	}
 	$('#results').hide();
 });
 
