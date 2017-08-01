@@ -93,7 +93,7 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
         */
         $html_string = "";
         foreach ($data->INDEX_LIST->INDEX as $key => $index) {
-          $html_string .= $this->generateHTML($data->INDEX_LIST->INDEX[0]);
+          $html_string .= $this->generateIndexHTML($data->INDEX_LIST->INDEX[0]);
         }
         // TODO: find appropriate HTML file location - currently in protected
         $file = 'exam2.html';
@@ -293,23 +293,25 @@ EOSQL;
     /**
     * @param $index
     * @param $lvl
-    * @return String
+    * @return string
     */
-    private function generateHTML($index, $lvl=1){
-      $allias = $index->TERM_LIST->TERM[0];
+    private function generateIndexHTML($index, $lvl=1){
+      $allias = implode(",",(array)$index->TERM_LIST->TERM);
       $img = $index->IMG_URL;
+      $children = $index->INDEX_LIST;
       $result =
-      "<li style'>"
-      ."<div class='result_item, result_item_with_icon' "
-      ."style='background-image: url(".$img.")'>"
-      ."<span data-allias='".$allias."'"
+      "<li style>"
+      ."<div class=\"result_item"
+      .($img ? (", result_item_with_icon\" style=\"background-image: url(".$img.")") : (""))
+      ."\">"
+      ."<span data-allias='".$allias."' "
       ."data-action-id='EASTB' class='lvl".$lvl."'>"
       .$allias."</span>"
       ."</div>";
-      if (isset($index->INDEX_LIST)) {
+      if ($children) {
         $result .= "<ul class='results_list'>";
-        foreach ($index->INDEX_LIST->INDEX as $nested_index) {
-          $result .= $this->generateHTML($nested_index,$lvl+1);
+        foreach ($children->INDEX as $child) {
+          $result .= $this->generateIndexHTML($child,$lvl+1);
         }
         $result .= "</ul>";
       }
