@@ -232,13 +232,28 @@ color: #32cd32;
         return $this;
     }
 }(jQuery));
+var tomNeeds;
 $("#search_bar").search();
 $("#search_bar").focus(function(){
 	$('#results').show();
 });
 $("#search_bar").blur(function(){
+	//$('#results').hide();
+});
+$('.result_item').click(function(){
+	var item_name = $(this).find('span').html();
+	var item = $('.oe-event-sidebar-edit li a:contains(Anterior)');
+	console.log(item);
+
+
+	tomNeeds.loadClickedItem(item);
 	$('#results').hide();
 });
+
+$( document ).ready(function() {
+	//$('.oe-event-sidebar-edit li a:contains(Anterior)').hide(4000);
+});
+
 </script>
 	<!-- temp stuff enclosed -->
 

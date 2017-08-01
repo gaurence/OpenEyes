@@ -11,9 +11,10 @@
     new OpenEyes.UI.Sidebar(
       $('.sidebar .oe-scroll-wrapper')
     );
-    
+
     $(document).ready(function() {
-        new OpenEyes.UI.PatientSidebar($('aside.episodes-and-events'), {
+      //alert('is called');
+            tomNeeds = new OpenEyes.UI.PatientSidebar($('aside.episodes-and-events'), {
             patient_sidebar_json: '<?php echo $this->getElementTree() ?>',
             tree_id: 'patient-sidebar-elements'
             <?php if ($this->event->id) {?>,
@@ -29,4 +30,3 @@
         color: #c90000;
     }
 </style>
-
