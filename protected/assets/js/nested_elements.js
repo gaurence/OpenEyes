@@ -47,7 +47,7 @@ function addElement(element, animate, is_child, previous_id, params, callback) {
 	};
 
 	$.extend(params, core_params);
-	
+
 	$.get(baseUrl + "/" + moduleName + "/Default/ElementForm", params, function(data) {
 		var new_element = $(data);
 		var elClass = $(element).data('element-type-class');
@@ -148,7 +148,7 @@ function addElement(element, animate, is_child, previous_id, params, callback) {
 		}
 
 	});
-
+	canvas_eyedraw_loaded = true;
 }
 
 function removeElement(element, is_child) {
