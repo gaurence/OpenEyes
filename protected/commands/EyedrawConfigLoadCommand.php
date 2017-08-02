@@ -96,7 +96,7 @@ class EyedrawConfigLoadCommand extends CConsoleCommand
           $html_string .= $this->generateIndexHTML($index);
         }
         // TODO: find appropriate HTML file location - currently in protected
-        $file = 'exam2.html';
+        $file = 'exam3.html';
         $file_handle = fopen($file, 'w') or die('Cannot open file:  '.$file);
         fwrite($file_handle, "<ul class='results_list'>".$html_string."</ul>");
 
