@@ -277,6 +277,9 @@
 			tomNeeds.loadClickedItem($item,{},callback);
 		}
 		function click_lvl_2($this, callback){
+			// TODO: use select box if length == 0
+			// so that non toolbar doodles can be
+			// selected
 			let name = get_element_name($this);
 			let $parent = $this.parent().parent().parent();
 			let parent_name = get_element_name($parent);
@@ -287,7 +290,7 @@
 					if (typeof(callback) == "function") {
 						callback();
 					}
-				},500);
+				},200);
 			});
 		}
 		function get_doodle_button(parent_name, name, position) {
@@ -299,10 +302,18 @@
 			return $item;
 		}
 		function click_lvl_3($this, callback){
+			//see if popup exists else select it on select box
 			let name = get_element_name($this);
 			$parent = $this.parent().parent().parent();
+			let parent_name = get_element_name($parent);
 			click_lvl_2($parent,function(){
 				//highlight property here
+				setTimeout(function(){
+					$("#ed_example_selected_doodle").children().find("option").removeAttr('selected');
+					let $thiss = $("#ed_example_selected_doodle").children().find("option:contains('"+parent_name+"')");
+					$thiss.attr('selected','selected');
+					$("#ed_example_selected_doodle").trigger('change');
+				},410);
 			});
 		}
 
