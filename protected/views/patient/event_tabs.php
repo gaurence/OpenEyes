@@ -32,7 +32,7 @@
 		font-family:Helvetica;
 		position: absolute;
 		left: 130px;
-		top: 6px;
+		top: 5px;
 		box-sizing: border-box;
 		font-size: 12px;
 		vertical-align: top;
@@ -47,17 +47,17 @@
 	#search_button {
 		font-family:Helvetica;
 		position: absolute;
-		left: 331px;
+		left: 329px;
 		top:6px;
 		cursor: pointer;
 		border: none;
 		background: url("http://thesuiteworld.com/wp-admin/maint/search-icon-white-png-540.png") no-repeat center center, #747782;
 		background-size: 15px 15px;
 		border-radius: 0 20px 20px 0;
-		padding: 15px 25px;
+		padding: 10px 25px;
 		display: inline-block;
 		width: 20px;
-		height: 30px;
+		height: 28px;
 		z-index: 1004
 	}
 
