@@ -296,6 +296,9 @@ EOSQL;
     * @return string
     */
     private function generateIndexHTML($index, $lvl=1){
+      $description = $index->DESCRIPTION;
+      $warning = $index->WARNING_NOTE;
+      $info = $index->GENERAL_NOTE;
       $fake_array = (array)$index->TERM_LIST->TERM;
       $allias = implode(",",$fake_array);
       $name = array_shift($fake_array);
@@ -313,15 +316,30 @@ EOSQL;
       ."</div>"
       .($allias_minus_name ? (
         "<div class=\"index_row\">"
-        ."<div class=\"index_col\">"
+        ."<div class=\"index_col_left\">"
         ."<span class=\"allias\">"
         .$allias_minus_name
         ."</span>"
         ."</div>"
-        ."<div class=\"index_col\">"
-        ."<span class=\"allias\">"
-        ."Description"
-        ."</span>"
+        ."<div class=\"index_col_right\">"
+        .($description ? (
+          "<span class=\"description_icon\">Description:</span>"
+          ."<span class=\"description_note\">"
+          .$description
+          ."</span><br>"
+          ) : (""))
+        .($warning ? (
+          "<span class=\"warning_icon\"></span>"
+          ."<span class=\"warning_note\">"
+          .$warning
+          ."</span><br>"
+          ) : (""))
+        .($info ? (
+          "<span class=\"info_icon\"></span>"
+          ."<span class=\"info_note\">"
+          .$info
+          ."</span><br>"
+          ) : (""))
         ."</div>"
         ."</div>"
         ) : (""));

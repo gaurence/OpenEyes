@@ -1680,6 +1680,9 @@ The CARRY_FORWARD_FLAG=false is a fudge to prevent lens from copying forward int
 						<TERM>ACIOL</TERM>
 					</TERM_LIST>
 					<IMG_URL>/assets/tom/ACIOL.png</IMG_URL>
+					<DESCRIPTION>This is a description</DESCRIPTION>
+					<GENERAL_NOTE>This is a general note</GENERAL_NOTE>
+					<WARNING_NOTE>This is a warning note</WARNING_NOTE>
 				</INDEX>
 				<INDEX>
 					<TERM_LIST>
