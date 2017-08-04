@@ -296,7 +296,10 @@ EOSQL;
     * @return string
     */
     private function generateIndexHTML($index, $lvl=1){
-      $allias = implode(",",(array)$index->TERM_LIST->TERM);
+      $fake_array = (array)$index->TERM_LIST->TERM;
+      $allias = implode(",",$fake_array);
+      $name = array_shift($fake_array);
+      $allias_minus_name = implode(",",$fake_array);
       $img = $index->IMG_URL;
       $children = $index->INDEX_LIST;
       $result =
@@ -306,8 +309,9 @@ EOSQL;
       ."\">"
       ."<span data-allias='".$allias."' "
       ."data-action-id='EASTB' class='lvl".$lvl."'>"
-      .$allias."</span>"
-      ."</div>";
+      .$name."</span>"
+      ."</div>"
+      .($allias_minus_name ? ("<span class=\"allias\">".$allias_minus_name."</span>") : (""));
       if ($children) {
         $result .= "<ul class='results_list'>";
         foreach ($children->INDEX as $child) {

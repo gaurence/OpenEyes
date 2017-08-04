@@ -65,14 +65,14 @@
 	#results {
 		outline: 0px;
 		z-index: 1005;
-		height: 445px;
+		height: 539px;
 		width: 1024px;
 		top: 48px;
 		left: 12px;
 		display: none;
 		overflow:scroll;
 		background-color: #fff;
-		padding: 20px;
+		padding: 0px;
 		font-size: .8rem;
 		box-shadow: 2px 2px 2px 2px #666666;
 		border-radius: 7px;
@@ -148,7 +148,8 @@
 	.search_highlight {
 		font-style: normal;
 		font-weight: normal;
-		color: #32cd32;
+		background-color: yellow;
+		color : black;
 	}
 
 	#big_cross {
@@ -156,9 +157,37 @@
 		background: #fff url(/assets/tom/bigCross.png) center no-repeat;
 		display: block;
 		cursor: pointer;
-		left: 1200px;
+		left: 1185px;
 		top: 133px;
 		width: 32px;
+	}
+
+	li ul li ul li .result_item {
+		background-color: transparent;
+	}
+
+	#results > ul >  li > div {
+		position: sticky;
+		top: 0;
+		background-color: #9e9e9e;
+		z-index: 1000;
+	}
+
+	#results > ul >  li > div:hover {
+		background-color: #3665ff;
+		color: #fff;
+		cursor: pointer;
+	}
+
+	.allias {
+		font-size: 0.7em;
+		font-style: italic;
+		color: grey;
+		padding-left: 32px;
+		top: -6px;
+		position: relative;
+		width: 500px;
+		max-width: 500px;
 	}
 
 	</style>
@@ -174,8 +203,10 @@
 
 
 
-		<ul class='results_list'><li style><div class="result_item"><span data-allias='Examination Anterior Segment' data-action-id='EASTB' class='lvl1'>Examination Anterior Segment</span></div><ul class='results_list'><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/ACIOL.png)"><span data-allias='Anterior chamber IOL' data-action-id='EASTB' class='lvl2'>Anterior chamber IOL</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/AdenoviralKeratitis.png)"><span data-allias='Adenoviral keratitis' data-action-id='EASTB' class='lvl2'>Adenoviral keratitis</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/AntSeg.png)"><span data-allias='Anterior segment' data-action-id='EASTB' class='lvl2'>Anterior segment</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Pupil size' data-action-id='EASTB' class='lvl3'>Pupil size</span></div></li><li style><div class="result_item"><span data-allias='PXE' data-action-id='EASTB' class='lvl3'>PXE</span></div></li><li style><div class="result_item"><span data-allias='Coloboma' data-action-id='EASTB' class='lvl3'>Coloboma</span></div></li><li style><div class="result_item"><span data-allias='Colour' data-action-id='EASTB' class='lvl3'>Colour</span></div></li><li style><div class="result_item"><span data-allias='Ectropion uveae' data-action-id='EASTB' class='lvl3'>Ectropion uveae</span></div></li><li style><div class="result_item"><span data-allias='Corneal size' data-action-id='EASTB' class='lvl3'>Corneal size</span></div></li><li style><div class="result_item"><span data-allias='Cells' data-action-id='EASTB' class='lvl3'>Cells</span></div></li><li style><div class="result_item"><span data-allias='Flare' data-action-id='EASTB' class='lvl3'>Flare</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Bleb.png)"><span data-allias='Trabeculectomy bleb' data-action-id='EASTB' class='lvl2'>Trabeculectomy bleb</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/ConjunctivalSuture.png)"><span data-allias='Conjunctival suture' data-action-id='EASTB' class='lvl2'>Conjunctival suture</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Orientated' data-action-id='EASTB' class='lvl3'>Orientated</span></div></li><li style><div class="result_item"><span data-allias='Type' data-action-id='EASTB' class='lvl3'>Type</span></div></li><li style><div class="result_item"><span data-allias='Material' data-action-id='EASTB' class='lvl3'>Material</span></div></li><li style><div class="result_item"><span data-allias='Size' data-action-id='EASTB' class='lvl3'>Size</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Conjunctivitis.png)"><span data-allias='Conjunctivitis' data-action-id='EASTB' class='lvl2'>Conjunctivitis</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Type' data-action-id='EASTB' class='lvl3'>Type</span></div></li><li style><div class="result_item"><span data-allias='Mucopurulent' data-action-id='EASTB' class='lvl3'>Mucopurulent</span></div></li><li style><div class="result_item"><span data-allias='Hyperaemia' data-action-id='EASTB' class='lvl3'>Hyperaemia</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealEpithelialDefect.png)"><span data-allias='Corneal epithelial defect' data-action-id='EASTB' class='lvl2'>Corneal epithelial defect</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Height' data-action-id='EASTB' class='lvl3'>Height</span></div></li><li style><div class="result_item"><span data-allias='Width' data-action-id='EASTB' class='lvl3'>Width</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealLaceration.png)"><span data-allias='Corneal laceration' data-action-id='EASTB' class='lvl2'>Corneal laceration</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Laceration Depth %' data-action-id='EASTB' class='lvl3'>Laceration Depth %</span></div></li><li style><div class="result_item"><span data-allias='Iris prolapse' data-action-id='EASTB' class='lvl3'>Iris prolapse</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealOedema.png)"><span data-allias='Corneal oedema' data-action-id='EASTB' class='lvl2'>Corneal oedema</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Intensity' data-action-id='EASTB' class='lvl3'>Intensity</span></div></li><li style><div class="result_item"><span data-allias='Epithelial' data-action-id='EASTB' class='lvl3'>Epithelial</span></div></li><li style><div class="result_item"><span data-allias='Stromal' data-action-id='EASTB' class='lvl3'>Stromal</span></div></li><li style><div class="result_item"><span data-allias='Endothelial' data-action-id='EASTB' class='lvl3'>Endothelial</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealOpacity.png)"><span data-allias='Corneal opacity' data-action-id='EASTB' class='lvl2'>Corneal opacity</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Height' data-action-id='EASTB' class='lvl3'>Height</span></div></li><li style><div class="result_item"><span data-allias='Width' data-action-id='EASTB' class='lvl3'>Width</span></div></li><li style><div class="result_item"><span data-allias='Depth (%)' data-action-id='EASTB' class='lvl3'>Depth (%)</span></div></li><li style><div class="result_item"><span data-allias='Infiltrate width' data-action-id='EASTB' class='lvl3'>Infiltrate width</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealPigmentation.png)"><span data-allias='Corneal pigmentation' data-action-id='EASTB' class='lvl2'>Corneal pigmentation</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Level' data-action-id='EASTB' class='lvl3'>Level</span></div></li><li style><div class="result_item"><span data-allias='Type' data-action-id='EASTB' class='lvl3'>Type</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealScar.png)"><span data-allias='Corneal scar' data-action-id='EASTB' class='lvl2'>Corneal scar</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealSuture.png)"><span data-allias='Corneal suture' data-action-id='EASTB' class='lvl2'>Corneal suture</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Removed' data-action-id='EASTB' class='lvl3'>Removed</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/DendriticUlcer.png)"><span data-allias='Dendritic ulcer' data-action-id='EASTB' class='lvl2'>Dendritic ulcer</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Episcleritis.png)"><span data-allias='Episcleritis' data-action-id='EASTB' class='lvl2'>Episcleritis</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Severity' data-action-id='EASTB' class='lvl3'>Severity</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Fuchs.png)"><span data-allias='Guttata' data-action-id='EASTB' class='lvl2'>Guttata</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Hyphaema.png)"><span data-allias='Hyphaema' data-action-id='EASTB' class='lvl2'>Hyphaema</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Hypopyon.png)"><span data-allias='Hypopyon' data-action-id='EASTB' class='lvl2'>Hypopyon</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/KeraticPrecipitates.png)"><span data-allias='Keratic precipitates' data-action-id='EASTB' class='lvl2'>Keratic precipitates</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/LasikFlap.png)"><span data-allias='LASIK flap' data-action-id='EASTB' class='lvl2'>LASIK flap</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Hinge' data-action-id='EASTB' class='lvl3'>Hinge</span></div></li><li style><div class="result_item"><span data-allias='Femto laser' data-action-id='EASTB' class='lvl3'>Femto laser</span></div></li><li style><div class="result_item"><span data-allias='Diameter' data-action-id='EASTB' class='lvl3'>Diameter</span></div></li><li style><div class="result_item"><span data-allias='Depth' data-action-id='EASTB' class='lvl3'>Depth</span></div></li><li style><div class="result_item"><span data-allias='Sidecut angle' data-action-id='EASTB' class='lvl3'>Sidecut angle</span></div></li><li style><div class="result_item"><span data-allias='Spot separation' data-action-id='EASTB' class='lvl3'>Spot separation</span></div></li><li style><div class="result_item"><span data-allias='Line separation' data-action-id='EASTB' class='lvl3'>Line separation</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Lens.png)"><span data-allias='Lens' data-action-id='EASTB' class='lvl2'>Lens</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Nuclear' data-action-id='EASTB' class='lvl3'>Nuclear</span></div></li><li style><div class="result_item"><span data-allias='Cortical' data-action-id='EASTB' class='lvl3'>Cortical</span></div></li><li style><div class="result_item"><span data-allias='Posterior subcapsular' data-action-id='EASTB' class='lvl3'>Posterior subcapsular</span></div></li><li style><div class="result_item"><span data-allias='Anterior polar' data-action-id='EASTB' class='lvl3'>Anterior polar</span></div></li><li style><div class="result_item"><span data-allias='Posterior polar' data-action-id='EASTB' class='lvl3'>Posterior polar</span></div></li><li style><div class="result_item"><span data-allias='Coronary' data-action-id='EASTB' class='lvl3'>Coronary</span></div></li><li style><div class="result_item"><span data-allias='Phacodonesis' data-action-id='EASTB' class='lvl3'>Phacodonesis</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/MarginalKeratitis.png)"><span data-allias='Marginal keratitis' data-action-id='EASTB' class='lvl2'>Marginal keratitis</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='% Epithelial defect of corneal infiltrate' data-action-id='EASTB' class='lvl3'>% Epithelial defect of corneal infiltrate</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/MetallicForeignBody.png)"><span data-allias='Metallic foreign body' data-action-id='EASTB' class='lvl2'>Metallic foreign body</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Metallic foreign body' data-action-id='EASTB' class='lvl3'>Metallic foreign body</span></div></li><li style><div class="result_item"><span data-allias='Rust ring' data-action-id='EASTB' class='lvl3'>Rust ring</span></div></li><li style><div class="result_item"><span data-allias='Coats ring' data-action-id='EASTB' class='lvl3'>Coats ring</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Patch.png)"><span data-allias='Tube patch' data-action-id='EASTB' class='lvl2'>Tube patch</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Material' data-action-id='EASTB' class='lvl3'>Material</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/PCIOL.png)"><span data-allias='Posterior chamber IOL' data-action-id='EASTB' class='lvl2'>Posterior chamber IOL</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Fixation' data-action-id='EASTB' class='lvl3'>Fixation</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/PI.png)"><span data-allias='Peripheral iridectomy' data-action-id='EASTB' class='lvl2'>Peripheral iridectomy</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Type' data-action-id='EASTB' class='lvl3'>Type</span></div></li><li style><div class="result_item"><span data-allias='Patent' data-action-id='EASTB' class='lvl3'>Patent</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Pingueculum.png)"><span data-allias='Pingueculum' data-action-id='EASTB' class='lvl2'>Pingueculum</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/PosteriorCapsule.png)"><span data-allias='Posterior capsule' data-action-id='EASTB' class='lvl2'>Posterior capsule</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Opacity' data-action-id='EASTB' class='lvl3'>Opacity</span></div></li><li style><div class="result_item"><span data-allias='Capsulotomy' data-action-id='EASTB' class='lvl3'>Capsulotomy</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/PosteriorSynechia.png)"><span data-allias='Posterior synechia' data-action-id='EASTB' class='lvl2'>Posterior synechia</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Pterygium.png)"><span data-allias='Pterygium' data-action-id='EASTB' class='lvl2'>Pterygium</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Injection' data-action-id='EASTB' class='lvl3'>Injection</span></div></li><li style><div class="result_item"><span data-allias='Stocker's line' data-action-id='EASTB' class='lvl3'>Stocker's line</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/RK.png)"><span data-allias='Radial keratotomy' data-action-id='EASTB' class='lvl2'>Radial keratotomy</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Number of Cuts' data-action-id='EASTB' class='lvl3'>Number of Cuts</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Rubeosis.png)"><span data-allias='Rubeosis iridis' data-action-id='EASTB' class='lvl2'>Rubeosis iridis</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/SectorIridectomy.png)"><span data-allias='Sector iridectomy' data-action-id='EASTB' class='lvl2'>Sector iridectomy</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/SidePort.png)"><span data-allias='Side port' data-action-id='EASTB' class='lvl2'>Side port</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/SPEE.png)"><span data-allias='SPEE' data-action-id='EASTB' class='lvl2'>SPEE</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Supramid.png)"><span data-allias='Supramid suture' data-action-id='EASTB' class='lvl2'>Supramid suture</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Percentage of tube' data-action-id='EASTB' class='lvl3'>Percentage of tube</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/TrabyFlap.png)"><span data-allias='Trabeculectomy flap' data-action-id='EASTB' class='lvl2'>Trabeculectomy flap</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/TrabySuture.png)"><span data-allias='Trabeculectomy suture' data-action-id='EASTB' class='lvl2'>Trabeculectomy suture</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Shape' data-action-id='EASTB' class='lvl3'>Shape</span></div></li><li style><div class="result_item"><span data-allias='Material' data-action-id='EASTB' class='lvl3'>Material</span></div></li><li style><div class="result_item"><span data-allias='Size' data-action-id='EASTB' class='lvl3'>Size</span></div></li><li style><div class="result_item"><span data-allias='Removed' data-action-id='EASTB' class='lvl3'>Removed</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/TransilluminationDefect.png)"><span data-allias='Transillumination defect' data-action-id='EASTB' class='lvl2'>Transillumination defect</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Tube.png)"><span data-allias='Drainage tube' data-action-id='EASTB' class='lvl2'>Drainage tube</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Type' data-action-id='EASTB' class='lvl3'>Type</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/TubeExtender.png)"><span data-allias='Tube extender' data-action-id='EASTB' class='lvl2'>Tube extender</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/TubeLigation.png)"><span data-allias='Ligation suture' data-action-id='EASTB' class='lvl2'>Ligation suture</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Material' data-action-id='EASTB' class='lvl3'>Material</span></div></li></ul></li></ul></li></ul>
 
+
+
+<ul class='results_list'><li style><div class="result_item"><span data-allias='Examination Anterior Segment' data-action-id='EASTB' class='lvl1'>Examination Anterior Segment</span></div><ul class='results_list'><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/ACIOL.png)"><span data-allias='Anterior chamber IOL' data-action-id='EASTB' class='lvl2'>Anterior chamber IOL</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/AdenoviralKeratitis.png)"><span data-allias='Adenoviral keratitis' data-action-id='EASTB' class='lvl2'>Adenoviral keratitis</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/AntSeg.png)"><span data-allias='Anterior segment' data-action-id='EASTB' class='lvl2'>Anterior segment</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Pupil size' data-action-id='EASTB' class='lvl3'>Pupil size</span></div></li><li style><div class="result_item"><span data-allias='PXE' data-action-id='EASTB' class='lvl3'>PXE</span></div></li><li style><div class="result_item"><span data-allias='Coloboma' data-action-id='EASTB' class='lvl3'>Coloboma</span></div></li><li style><div class="result_item"><span data-allias='Colour' data-action-id='EASTB' class='lvl3'>Colour</span></div></li><li style><div class="result_item"><span data-allias='Ectropion uveae' data-action-id='EASTB' class='lvl3'>Ectropion uveae</span></div></li><li style><div class="result_item"><span data-allias='Corneal size' data-action-id='EASTB' class='lvl3'>Corneal size</span></div></li><li style><div class="result_item"><span data-allias='Cells' data-action-id='EASTB' class='lvl3'>Cells</span></div></li><li style><div class="result_item"><span data-allias='Flare' data-action-id='EASTB' class='lvl3'>Flare</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Bleb.png)"><span data-allias='Trabeculectomy bleb' data-action-id='EASTB' class='lvl2'>Trabeculectomy bleb</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/ConjunctivalSuture.png)"><span data-allias='Conjunctival suture' data-action-id='EASTB' class='lvl2'>Conjunctival suture</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Orientated' data-action-id='EASTB' class='lvl3'>Orientated</span></div></li><li style><div class="result_item"><span data-allias='Type' data-action-id='EASTB' class='lvl3'>Type</span></div></li><li style><div class="result_item"><span data-allias='Material' data-action-id='EASTB' class='lvl3'>Material</span></div></li><li style><div class="result_item"><span data-allias='Size' data-action-id='EASTB' class='lvl3'>Size</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Conjunctivitis.png)"><span data-allias='Conjunctivitis' data-action-id='EASTB' class='lvl2'>Conjunctivitis</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Type' data-action-id='EASTB' class='lvl3'>Type</span></div></li><li style><div class="result_item"><span data-allias='Mucopurulent' data-action-id='EASTB' class='lvl3'>Mucopurulent</span></div></li><li style><div class="result_item"><span data-allias='Hyperaemia' data-action-id='EASTB' class='lvl3'>Hyperaemia</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealEpithelialDefect.png)"><span data-allias='Corneal epithelial defect' data-action-id='EASTB' class='lvl2'>Corneal epithelial defect</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Height' data-action-id='EASTB' class='lvl3'>Height</span></div></li><li style><div class="result_item"><span data-allias='Width' data-action-id='EASTB' class='lvl3'>Width</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealLaceration.png)"><span data-allias='Corneal laceration' data-action-id='EASTB' class='lvl2'>Corneal laceration</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Laceration Depth %' data-action-id='EASTB' class='lvl3'>Laceration Depth %</span></div></li><li style><div class="result_item"><span data-allias='Iris prolapse' data-action-id='EASTB' class='lvl3'>Iris prolapse</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealOedema.png)"><span data-allias='Corneal oedema' data-action-id='EASTB' class='lvl2'>Corneal oedema</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Intensity' data-action-id='EASTB' class='lvl3'>Intensity</span></div></li><li style><div class="result_item"><span data-allias='Epithelial' data-action-id='EASTB' class='lvl3'>Epithelial</span></div></li><li style><div class="result_item"><span data-allias='Stromal' data-action-id='EASTB' class='lvl3'>Stromal</span></div></li><li style><div class="result_item"><span data-allias='Endothelial' data-action-id='EASTB' class='lvl3'>Endothelial</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealOpacity.png)"><span data-allias='Corneal opacity' data-action-id='EASTB' class='lvl2'>Corneal opacity</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Height' data-action-id='EASTB' class='lvl3'>Height</span></div></li><li style><div class="result_item"><span data-allias='Width' data-action-id='EASTB' class='lvl3'>Width</span></div></li><li style><div class="result_item"><span data-allias='Depth (%)' data-action-id='EASTB' class='lvl3'>Depth (%)</span></div></li><li style><div class="result_item"><span data-allias='Infiltrate width' data-action-id='EASTB' class='lvl3'>Infiltrate width</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealPigmentation.png)"><span data-allias='Corneal pigmentation' data-action-id='EASTB' class='lvl2'>Corneal pigmentation</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Level' data-action-id='EASTB' class='lvl3'>Level</span></div></li><li style><div class="result_item"><span data-allias='Type' data-action-id='EASTB' class='lvl3'>Type</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealScar.png)"><span data-allias='Corneal scar' data-action-id='EASTB' class='lvl2'>Corneal scar</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/CornealSuture.png)"><span data-allias='Corneal suture' data-action-id='EASTB' class='lvl2'>Corneal suture</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Removed' data-action-id='EASTB' class='lvl3'>Removed</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/DendriticUlcer.png)"><span data-allias='Dendritic ulcer' data-action-id='EASTB' class='lvl2'>Dendritic ulcer</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Episcleritis.png)"><span data-allias='Episcleritis' data-action-id='EASTB' class='lvl2'>Episcleritis</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Severity' data-action-id='EASTB' class='lvl3'>Severity</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Fuchs.png)"><span data-allias='Guttata' data-action-id='EASTB' class='lvl2'>Guttata</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Hyphaema.png)"><span data-allias='Hyphaema' data-action-id='EASTB' class='lvl2'>Hyphaema</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Hypopyon.png)"><span data-allias='Hypopyon' data-action-id='EASTB' class='lvl2'>Hypopyon</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/KeraticPrecipitates.png)"><span data-allias='Keratic precipitates' data-action-id='EASTB' class='lvl2'>Keratic precipitates</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/LasikFlap.png)"><span data-allias='LASIK flap' data-action-id='EASTB' class='lvl2'>LASIK flap</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Hinge' data-action-id='EASTB' class='lvl3'>Hinge</span></div></li><li style><div class="result_item"><span data-allias='Femto laser' data-action-id='EASTB' class='lvl3'>Femto laser</span></div></li><li style><div class="result_item"><span data-allias='Diameter' data-action-id='EASTB' class='lvl3'>Diameter</span></div></li><li style><div class="result_item"><span data-allias='Depth' data-action-id='EASTB' class='lvl3'>Depth</span></div></li><li style><div class="result_item"><span data-allias='Sidecut angle' data-action-id='EASTB' class='lvl3'>Sidecut angle</span></div></li><li style><div class="result_item"><span data-allias='Spot separation' data-action-id='EASTB' class='lvl3'>Spot separation</span></div></li><li style><div class="result_item"><span data-allias='Line separation' data-action-id='EASTB' class='lvl3'>Line separation</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Lens.png)"><span data-allias='Lens' data-action-id='EASTB' class='lvl2'>Lens</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Nuclear cataract' data-action-id='EASTB' class='lvl3'>Nuclear cataract</span></div></li><li style><div class="result_item"><span data-allias='Cortical cataract' data-action-id='EASTB' class='lvl3'>Cortical cataract</span></div></li><li style><div class="result_item"><span data-allias='Posterior subcapsular cataract' data-action-id='EASTB' class='lvl3'>Posterior subcapsular cataract</span></div></li><li style><div class="result_item"><span data-allias='Anterior polar' data-action-id='EASTB' class='lvl3'>Anterior polar</span></div></li><li style><div class="result_item"><span data-allias='Posterior polar' data-action-id='EASTB' class='lvl3'>Posterior polar</span></div></li><li style><div class="result_item"><span data-allias='Coronary' data-action-id='EASTB' class='lvl3'>Coronary</span></div></li><li style><div class="result_item"><span data-allias='Phacodonesis' data-action-id='EASTB' class='lvl3'>Phacodonesis</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/MarginalKeratitis.png)"><span data-allias='Marginal keratitis' data-action-id='EASTB' class='lvl2'>Marginal keratitis</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='% Epithelial defect of corneal infiltrate' data-action-id='EASTB' class='lvl3'>% Epithelial defect of corneal infiltrate</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/MetallicForeignBody.png)"><span data-allias='Metallic foreign body' data-action-id='EASTB' class='lvl2'>Metallic foreign body</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Metallic foreign body' data-action-id='EASTB' class='lvl3'>Metallic foreign body</span></div></li><li style><div class="result_item"><span data-allias='Rust ring' data-action-id='EASTB' class='lvl3'>Rust ring</span></div></li><li style><div class="result_item"><span data-allias='Coats ring' data-action-id='EASTB' class='lvl3'>Coats ring</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Patch.png)"><span data-allias='Tube patch' data-action-id='EASTB' class='lvl2'>Tube patch</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Material' data-action-id='EASTB' class='lvl3'>Material</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/PCIOL.png)"><span data-allias='Posterior chamber IOL' data-action-id='EASTB' class='lvl2'>Posterior chamber IOL</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Fixation' data-action-id='EASTB' class='lvl3'>Fixation</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/PI.png)"><span data-allias='Peripheral iridectomy' data-action-id='EASTB' class='lvl2'>Peripheral iridectomy</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Type' data-action-id='EASTB' class='lvl3'>Type</span></div></li><li style><div class="result_item"><span data-allias='Patent' data-action-id='EASTB' class='lvl3'>Patent</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Pingueculum.png)"><span data-allias='Pingueculum' data-action-id='EASTB' class='lvl2'>Pingueculum</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/PosteriorCapsule.png)"><span data-allias='Posterior capsule' data-action-id='EASTB' class='lvl2'>Posterior capsule</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Opacity' data-action-id='EASTB' class='lvl3'>Opacity</span></div></li><li style><div class="result_item"><span data-allias='Capsulotomy' data-action-id='EASTB' class='lvl3'>Capsulotomy</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/PosteriorSynechia.png)"><span data-allias='Posterior synechia' data-action-id='EASTB' class='lvl2'>Posterior synechia</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Pterygium.png)"><span data-allias='Pterygium' data-action-id='EASTB' class='lvl2'>Pterygium</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Injection' data-action-id='EASTB' class='lvl3'>Injection</span></div></li><li style><div class="result_item"><span data-allias='Stocker's line' data-action-id='EASTB' class='lvl3'>Stocker's line</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/RK.png)"><span data-allias='Radial keratotomy' data-action-id='EASTB' class='lvl2'>Radial keratotomy</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Number of Cuts' data-action-id='EASTB' class='lvl3'>Number of Cuts</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Rubeosis.png)"><span data-allias='Rubeosis iridis' data-action-id='EASTB' class='lvl2'>Rubeosis iridis</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/SectorIridectomy.png)"><span data-allias='Sector iridectomy' data-action-id='EASTB' class='lvl2'>Sector iridectomy</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/SidePort.png)"><span data-allias='Side port' data-action-id='EASTB' class='lvl2'>Side port</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/SPEE.png)"><span data-allias='SPEE' data-action-id='EASTB' class='lvl2'>SPEE</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Supramid.png)"><span data-allias='Supramid suture' data-action-id='EASTB' class='lvl2'>Supramid suture</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Percentage of tube' data-action-id='EASTB' class='lvl3'>Percentage of tube</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/TrabyFlap.png)"><span data-allias='Trabeculectomy flap' data-action-id='EASTB' class='lvl2'>Trabeculectomy flap</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/TrabySuture.png)"><span data-allias='Trabeculectomy suture' data-action-id='EASTB' class='lvl2'>Trabeculectomy suture</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Shape' data-action-id='EASTB' class='lvl3'>Shape</span></div></li><li style><div class="result_item"><span data-allias='Material' data-action-id='EASTB' class='lvl3'>Material</span></div></li><li style><div class="result_item"><span data-allias='Size' data-action-id='EASTB' class='lvl3'>Size</span></div></li><li style><div class="result_item"><span data-allias='Removed' data-action-id='EASTB' class='lvl3'>Removed</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/TransilluminationDefect.png)"><span data-allias='Transillumination defect' data-action-id='EASTB' class='lvl2'>Transillumination defect</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/Tube.png)"><span data-allias='Drainage tube' data-action-id='EASTB' class='lvl2'>Drainage tube</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Type' data-action-id='EASTB' class='lvl3'>Type</span></div></li></ul></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/TubeExtender.png)"><span data-allias='Tube extender' data-action-id='EASTB' class='lvl2'>Tube extender</span></div></li><li style><div class="result_item, result_item_with_icon" style="background-image: url(/assets/tom/TubeLigation.png)"><span data-allias='Ligation suture' data-action-id='EASTB' class='lvl2'>Ligation suture</span></div><ul class='results_list'><li style><div class="result_item"><span data-allias='Material' data-action-id='EASTB' class='lvl3'>Material</span></div></li></ul></li></ul></li></ul>
 
 
 
@@ -257,339 +288,339 @@
 	$("#search_bar").search();
 	$("#search_bar").focus(function(){
 		var body = document.body,
-    html = document.documentElement;
+		html = document.documentElement;
 
 		var height = Math.max( body.scrollHeight, body.offsetHeight,
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );
-		$('#dim_rest').css("height", height);
-		$('#dim_rest').show();
-		$('#search_bar').val('');
-		$('#search_bar').trigger("keyup");
-		$('#results').show();
-	});
-	$("#search_bar").blur(function(){
-		//$('#results').hide();
-	});
+			html.clientHeight, html.scrollHeight, html.offsetHeight );
+			$('#dim_rest').css("height", height);
+			$('#dim_rest').show();
+			$('#search_bar').val('');
+			$('#search_bar').trigger("keyup");
+			$('#results').show();
+		});
+		$("#search_bar").blur(function(){
+			//$('#results').hide();
+		});
 
-	$('.result_item, .result_item_with_icon').click(function(){
-		let $this = $(this);
-		let $span = $this.find("span:first");
-		let lvl = $span.attr("class");
-		let name = $span.text();
-		switch (lvl) {
-			case "lvl1":
-			click_lvl_1($this);
-			break;
-			case "lvl2":
-			click_lvl_2($this);
-			break;
-			case "lvl3":
-			click_lvl_3($this);
-			break;
-			default:
+		$('.result_item, .result_item_with_icon').click(function(){
+			let $this = $(this);
+			let $span = $this.find("span:first");
+			let lvl = $span.attr("class");
+			let name = $span.text();
+			switch (lvl) {
+				case "lvl1":
+				click_lvl_1($this);
+				break;
+				case "lvl2":
+				click_lvl_2($this);
+				break;
+				case "lvl3":
+				click_lvl_3($this);
+				break;
+				default:
 
+			}
+			$('#results').scrollTop(0);
+			$('#dim_rest').hide();
+			$('#results').hide();
+		});
+
+		function get_element_name($this){
+			return $this.find("span:first").text();
 		}
+		function click_lvl_1($this, callback) {
+			let name = get_element_name($this);
+			let btn_name = name_on_btn[name];
+			let $item = $(".oe-event-sidebar-edit li a:contains("+btn_name+")");
+			tomNeeds.loadClickedItem($item,{},callback);
+		}
+		function click_lvl_2($this, callback){
+			// TODO: use select box if length == 0
+			// so that non toolbar doodles can be
+			// selected
+			//check it exists before creating it
+			let name = get_element_name($this);
+			let $parent = $this.parent().parent().parent();
+			let parent_name = get_element_name($parent);
+			click_lvl_1($parent,function(){
+				setTimeout (function(){
+					let $lvl_2_item = get_doodle_button(parent_name,name,"right");
+					let $thiss = $("#ed_example_selected_doodle").children().find("option:contains('"+name+"')");
+					if ($thiss.length == 0) {
+						console.log(name);
+						console.log("doodle not present");
+						$lvl_2_item.trigger("click");
+						if (typeof(callback) == "function") {
+							callback();
+						}
+					} else {
+						console.log("doodle present");
+						$("#ed_example_selected_doodle").children().find("option").removeAttr('selected');
+						$thiss.attr('selected','selected');
+						$("#ed_example_selected_doodle").trigger('change');
+						if (typeof(callback) == "function") {
+							callback();
+						}
+					}
+				},1000);
+			});
+		}
+		function get_doodle_button(parent_name, name, position) {
+			let canvas_id = lvl_1_to_section_id[parent_name];
+			let doodle_id = lvl_2_to_doodle_id[name];
+			let canvas_doodle_id = "#"+doodle_id+position+"_"+canvas_id;
+			console.log(canvas_doodle_id);
+			let $item = $(canvas_doodle_id).children();
+			return $item;
+		}
+		function click_lvl_3($this, callback){
+			//see if popup exists else select it on select box
+			let name = get_element_name($this);
+			$parent = $this.parent().parent().parent();
+			$grand_parent = $parent.parent().parent().parent();
+			let parent_name = get_element_name($parent);
+			let grand_parent_name = get_element_name($grand_parent);
+			click_lvl_2($parent,function(){
+				console.log("run");
+				let control_id = get_controls_id(grand_parent_name);
+				//	$(control_id).hide(3000);
+				$(control_id).find("div:contains("+name+")").effect("highlight", {}, 6000);
+				//highlight property here
+				/*setTimeout(function(){
+				$("#ed_example_selected_doodle").children().find("option").removeAttr('selected');
+				let $thiss = $("#ed_example_selected_doodle").children().find("option:contains('"+parent_name+"')");
+				$thiss.attr('selected','selected');
+				$("#ed_example_selected_doodle").trigger('change');
+			},410); */
+		});
+	}
+
+	function get_controls_id(name,position){
+		return "#ed_canvas_edit_right_315_controls";
+	}
+
+
+	let name_on_btn= {'Examination Anterior Segment':'Anterior Segment'};
+	var lvl_1_to_section_id = {'Examination Anterior Segment' : 315};
+	var lvl_2_to_doodle_id = {
+		'Adenoviral keratitis' : 'AdenoviralKeratitis',
+		'Conjunctivitis' : 'Conjunctivitis',
+		'Corneal epithelial defect' : 'CornealEpithelialDefect',
+		'Corneal laceration' : 'CornealLaceration',
+		'Corneal opacity' : 'CornealOpacity',
+		'Corneal pigmentation' : 'CornealPigmentation',
+		'Dendritic ulcer' : 'DendriticUlcer',
+		'Marginal keratitis' : 'MarginalKeratitis',
+		'Pingueculum' : 'Pingueculum',
+		'Pterygium' : 'Pterygium',
+		'SPEE' : 'SPEE',
+		'Metallic foreign body' : 'MetallicForeignBody',
+
+		'No description available for this doodle' : 'NONE',
+		'Anterior chamber IOL' : 'ACIOL',
+		'AC maintainer' : 'ACMaintainer',
+		'Adnexal eye template' : 'AdnexalEye',
+		'Angle grade' : 'AngleGrade',
+		'Angle Grade East' : 'AngleGradeEast',
+		'Angle Grade North' : 'AngleGradeNorth',
+		'Angle Grade South' : 'AngleGradeSouth',
+		'Angle Grade West' : 'AngleGradeWest',
+		'Angle new vessels' : 'AngleNV',
+		'Angle recession' : 'AngleRecession',
+		'Anterior PVR' : 'AntPVR',
+		'Anterior segment' : 'AntSeg',
+		'Anterior synechiae' : 'AntSynech',
+		'A pattern' : 'APattern',
+		'Arcuate keratotomy' : 'ArcuateKeratotomy',
+		'Arcuate scotoma' : 'ArcuateScotoma',
+		'Arrow' : 'Arrow',
+		'Biopsy site' : 'BiopsySite',
+		'Trabeculectomy bleb' : 'Bleb',
+		'Blot haemorrhage' : 'BlotHaemorrhage',
+		'Buckle' : 'Buckle',
+		'Buckle operation' : 'BuckleOperation',
+		'Buckle suture' : 'BuckleSuture',
+		'Busacca nodule' : 'BusaccaNodule',
+		'Capsular Tension Ring' : 'CapsularTensionRing',
+		'Double chandelier' : 'ChandelierDouble',
+		'Chandelier' : 'ChandelierSingle',
+		'Choroidal haemorrhage' : 'ChoroidalHaemorrhage',
+		'Choroidal naevus' : 'ChoroidalNaevus',
+		'Cilary injection' : 'CiliaryInjection',
+		'Circinate retinopathy' : 'Circinate',
+		'Circumferential buckle' : 'CircumferentialBuckle',
+		'Choroidal new vessels' : 'CNV',
+		'Conjunctival flap' : 'ConjunctivalFlap',
+		'Conjunctival suture' : 'ConjunctivalSuture',
+		'Corneal abrasion' : 'CornealAbrasion',
+		'Removal of corneal epithelium' : 'CornealErosion',
+		'Corneal graft' : 'CornealGraft',
+		'Corneal inlay' : 'CornealInlay',
+		'Corneal oedema' : 'CornealOedema',
+		'Corneal scar' : 'CornealScar',
+		'Corneal striae' : 'CornealStriae',
+		'Corneal suture' : 'CornealSuture',
+		'Cortical cataract' : 'CorticalCataract',
+		'Cotton wool spot' : 'CottonWoolSpot',
+		'Cryotherapy scar' : 'Cryo',
+		'Cutter iridectomy' : 'CutterPI',
+		'Cystoid macular oedema' : 'CystoidMacularOedema',
+		'Diabetic new vessels' : 'DiabeticNV',
+		'Dialysis' : 'Dialysis',
+		'Disc haemorrhage' : 'DiscHaemorrhage',
+		'Disc pallor' : 'DiscPallor',
+		'Drainage retinotomy' : 'DrainageRetinotomy',
+		'Drainage site' : 'DrainageSite',
+		'Encircling band' : 'EncirclingBand',
+		'Entry site break' : 'EntrySiteBreak',
+		'Epiretinal membrane' : 'EpiretinalMembrane',
+		'Episcleritis' : 'Episcleritis',
+		'Fibrous proliferation' : 'FibrousProliferation',
+		'Fibrovascular Scar' : 'FibrovascularScar',
+		'Focal laser' : 'FocalLaser',
+		'Freehand drawing' : 'Freehand',
+		'Guttata' : 'Fuchs',
+		'Fundus' : 'Fundus',
+		'Geographic atrophy' : 'Geographic',
+		'Gonioscopy' : 'Gonioscopy',
+		'Giant retinal tear' : 'GRT',
+		'Hard drusen' : 'HardDrusen',
+		'Hard exudate' : 'HardExudate',
+		'Hyphaema' : 'Hyphaema',
+		'Hypopyon' : 'Hypopyon',
+		'IatrogenicBreak' : 'IatrogenicBreak',
+		'ILM peel' : 'ILMPeel',
+		'Implantable Collamer Lens' : 'ICL',
+		'Intraocular lens' : 'IOL',
+		'Injection site' : 'InjectionSite',
+		'Inner leaf break' : 'InnerLeafBreak',
+		'Iris' : 'Iris',
+		'Iris hook' : 'IrisHook',
+		'Iris naevus' : 'IrisNaevus',
+		'Intraretinal microvascular abnormalities' : 'IRMA',
+		'Keratic precipitates' : 'KeraticPrecipitates',
+		'Koeppe nodule' : 'KoeppeNodule',
+		'Krukenberg spindle' : 'KrukenbergSpindle',
+		'Label' : 'Label',
+		'Circle of laser photocoagulation' : 'LaserCircle',
+		'Laser demarcation' : 'LaserDemarcation',
+		'LASIK flap' : 'LasikFlap',
+		'Laser spot' : 'LaserSpot',
+		'Lattice' : 'Lattice',
+		'Lens' : 'Lens',
+		'Limbal relaxing incision' : 'LimbalRelaxingIncision',
+		'Macroaneurysm' : 'Macroaneurysm',
+		'Macular dystrophy' : 'MacularDystrophy',
+		'Macular grid laser' : 'MacularGrid',
+		'Macular hole' : 'MacularHole',
+		'Macular thickening' : 'MacularThickening',
+		'Malyugin ring' : 'Malyugin',
+		'Mattress suture' : 'MattressSuture',
+		'Microaneurysm' : 'Microaneurysm',
+		'Nerve fibre defect' : 'NerveFibreDefect',
+		'Nuclear cataract' : 'NuclearCataract',
+		'Optic cup' : 'OpticCup',
+		'Optic disc' : 'OpticDisc',
+		'Optic disc pit' : 'OpticDiscPit',
+		'Orthoptic eye' : 'OrthopticEye',
+		'Outer leaf break' : 'OuterLeafBreak',
+		'Papilloedema' : 'Papilloedema',
+		'Tube patch' : 'Patch',
+		'Posterior chamber IOL' : 'PCIOL',
+		'Peripapillary atrophy' : 'PeripapillaryAtrophy',
+		'Peripheral retinectomy' : 'PeripheralRetinectomy',
+		'Phako incision' : 'PhakoIncision',
+		'Peripheral iridectomy' : 'PI',
+		'Point in line' : 'PointInLine',
+		'Posterior capsule' : 'PosteriorCapsule',
+		'Posterior embryotoxon' : 'PosteriorEmbryotoxon',
+		'Posterior pole' : 'PostPole',
+		'Posterior subcapsular cataract' : 'PostSubcapCataract',
+		'Posterior retinectomy' : 'PosteriorRetinectomy',
+		'Posterior synechia' : 'PosteriorSynechia',
+		'Pre-retinal haemorrhage' : 'PreRetinalHaemorrhage',
+		'Panretinal photocoagulation' : 'PRP',
+		'Panretinal photocoagulation (posterior pole)' : 'PRPPostPole',
+		'Phototherapeutic keratectomy' : 'PTK',
+		'Pupil' : 'Pupil',
+		'Radial sponge' : 'RadialSponge',
+		'Retinal artery occlusion' : 'RetinalArteryOcclusionPostPole',
+		'Retinal haemorrhage' : 'RetinalHaemorrhage',
+		'Retinal touch' : 'RetinalTouch',
+		'Retinal vein occluson' : 'RetinalVeinOcclusionPostPole',
+		'Retinoschisis' : 'Retinoschisis',
+		'Radial keratotomy' : 'RK',
+		'Round hole' : 'RoundHole',
+		'RPE Atrophy' : 'RPEAtrophy',
+		'RPE detachment' : 'RPEDetachment',
+		'RPE Hypertrophy' : 'RPEHypertrophy',
+		'RPE rip' : 'RPERip',
+		'Rhegmatogenous retinal detachment' : 'RRD',
+		'Rubeosis iridis' : 'Rubeosis',
+		'Sector PRP' : 'SectorPRP',
+		'Sector PRP (posterior pole)' : 'SectorPRPPostPole',
+		'Scleral Incision' : 'ScleralIncision',
+		'Sclerostomy' : 'Sclerostomy',
+		'Sector iridectomy' : 'SectorIridectomy',
+		'Shading' : 'Shading',
+		'Side port' : 'SidePort',
+		'Slider' : 'Slider',
+		'Small incision lenticule extraction' : 'SMILE',
+		'Star fold' : 'StarFold',
+		'Subretinal fluid' : 'SubretinalFluid',
+		'Subretinal PFCL' : 'SubretinalPFCL',
+		'Supramid suture' : 'Supramid',
+		'Swollen disc' : 'SwollenDisc',
+		'Parafoveal telangiectasia' : 'Telangiectasis',
+		'Trabectome' : 'Trabectome',
+		'Trabeculectomy conjunctival incision' : 'TrabyConjIncision',
+		'Trabeculectomy flap' : 'TrabyFlap',
+		'Trabeculectomy suture' : 'TrabySuture',
+		'Toric posterior chamber IOL' : 'ToricPCIOL',
+		'Traction retinal detachment' : 'TractionRetinalDetachment',
+		'Transillumination defect' : 'TransilluminationDefect',
+		'Drainage tube' : 'Tube',
+		'Tube extender' : 'TubeExtender',
+		'Ligation suture' : 'TubeLigation',
+		'Up drift' : 'UpDrift',
+		'Up shoot' : 'UpShoot',
+		'Traction ‘U’ tear' : 'UTear',
+		'Vicryl suture' : 'Vicryl',
+		'View obscured' : 'ViewObscured',
+		'Vitreous opacity' : 'VitreousOpacity',
+		'V pattern' : 'VPattern',
+		'Crepitations' : 'Crepitations',
+		'Stenosis' : 'Stenosis',
+		'Wheeze' : 'Wheeze',
+		'Pleural effusion' : 'Effusion',
+		'Left coronary artery' : 'LeftCoronaryArtery',
+		'Drug eluting stent' : 'DrugStent',
+		'Metal stent' : 'MetalStent',
+		'Coronary artery bypass' : 'Bypass',
+		'Bruit' : 'Bruit',
+		'Bruising' : 'Bruising',
+		'Haematoma' : 'Haematoma',
+	}
+
+	$('#big_cross').click(function(){
+		$('#search_bar').val('');
 		$('#results').scrollTop(0);
 		$('#dim_rest').hide();
 		$('#results').hide();
 	});
 
-	function get_element_name($this){
-		return $this.find("span:first").text();
-	}
-	function click_lvl_1($this, callback) {
-		let name = get_element_name($this);
-		let btn_name = name_on_btn[name];
-		let $item = $(".oe-event-sidebar-edit li a:contains("+btn_name+")");
-		tomNeeds.loadClickedItem($item,{},callback);
-	}
-	function click_lvl_2($this, callback){
-		// TODO: use select box if length == 0
-		// so that non toolbar doodles can be
-		// selected
-		//check it exists before creating it
-		let name = get_element_name($this);
-		let $parent = $this.parent().parent().parent();
-		let parent_name = get_element_name($parent);
-		click_lvl_1($parent,function(){
-			setTimeout (function(){
-				let $lvl_2_item = get_doodle_button(parent_name,name,"right");
-				let $thiss = $("#ed_example_selected_doodle").children().find("option:contains('"+name+"')");
-				if ($thiss.length == 0) {
-					console.log(name);
-					console.log("doodle not present");
-					$lvl_2_item.trigger("click");
-					if (typeof(callback) == "function") {
-						callback();
-					}
-				} else {
-					console.log("doodle present");
-					$("#ed_example_selected_doodle").children().find("option").removeAttr('selected');
-					$thiss.attr('selected','selected');
-					$("#ed_example_selected_doodle").trigger('change');
-					if (typeof(callback) == "function") {
-						callback();
-					}
-				}
-			},1000);
-		});
-	}
-	function get_doodle_button(parent_name, name, position) {
-		let canvas_id = lvl_1_to_section_id[parent_name];
-		let doodle_id = lvl_2_to_doodle_id[name];
-		let canvas_doodle_id = "#"+doodle_id+position+"_"+canvas_id;
-		console.log(canvas_doodle_id);
-		let $item = $(canvas_doodle_id).children();
-		return $item;
-	}
-	function click_lvl_3($this, callback){
-		//see if popup exists else select it on select box
-		let name = get_element_name($this);
-		$parent = $this.parent().parent().parent();
-		$grand_parent = $parent.parent().parent().parent();
-		let parent_name = get_element_name($parent);
-		let grand_parent_name = get_element_name($grand_parent);
-		click_lvl_2($parent,function(){
-			console.log("run");
-			let control_id = get_controls_id(grand_parent_name);
-			//	$(control_id).hide(3000);
-			$(control_id).find("div:contains("+name+")").effect("highlight", {}, 6000);
-			//highlight property here
-			/*setTimeout(function(){
-			$("#ed_example_selected_doodle").children().find("option").removeAttr('selected');
-			let $thiss = $("#ed_example_selected_doodle").children().find("option:contains('"+parent_name+"')");
-			$thiss.attr('selected','selected');
-			$("#ed_example_selected_doodle").trigger('change');
-		},410); */
-	});
-}
+	$('body').append('<div id="dim_rest" class="ui-widget-overlay" style="display : none; width: 1280px; height: 835px; z-index: 100;"></div>');
 
-function get_controls_id(name,position){
-	return "#ed_canvas_edit_right_315_controls";
-}
+	</script>
+	<!-- temp stuff enclosed -->
 
-
-let name_on_btn= {'Examination Anterior Segment':'Anterior Segment'};
-var lvl_1_to_section_id = {'Examination Anterior Segment' : 315};
-var lvl_2_to_doodle_id = {
-	'Adenoviral keratitis' : 'AdenoviralKeratitis',
-	'Conjunctivitis' : 'Conjunctivitis',
-	'Corneal epithelial defect' : 'CornealEpithelialDefect',
-	'Corneal laceration' : 'CornealLaceration',
-	'Corneal opacity' : 'CornealOpacity',
-	'Corneal pigmentation' : 'CornealPigmentation',
-	'Dendritic ulcer' : 'DendriticUlcer',
-	'Marginal keratitis' : 'MarginalKeratitis',
-	'Pingueculum' : 'Pingueculum',
-	'Pterygium' : 'Pterygium',
-	'SPEE' : 'SPEE',
-	'Metallic foreign body' : 'MetallicForeignBody',
-
-	'No description available for this doodle' : 'NONE',
-	'Anterior chamber IOL' : 'ACIOL',
-	'AC maintainer' : 'ACMaintainer',
-	'Adnexal eye template' : 'AdnexalEye',
-	'Angle grade' : 'AngleGrade',
-	'Angle Grade East' : 'AngleGradeEast',
-	'Angle Grade North' : 'AngleGradeNorth',
-	'Angle Grade South' : 'AngleGradeSouth',
-	'Angle Grade West' : 'AngleGradeWest',
-	'Angle new vessels' : 'AngleNV',
-	'Angle recession' : 'AngleRecession',
-	'Anterior PVR' : 'AntPVR',
-	'Anterior segment' : 'AntSeg',
-	'Anterior synechiae' : 'AntSynech',
-	'A pattern' : 'APattern',
-	'Arcuate keratotomy' : 'ArcuateKeratotomy',
-	'Arcuate scotoma' : 'ArcuateScotoma',
-	'Arrow' : 'Arrow',
-	'Biopsy site' : 'BiopsySite',
-	'Trabeculectomy bleb' : 'Bleb',
-	'Blot haemorrhage' : 'BlotHaemorrhage',
-	'Buckle' : 'Buckle',
-	'Buckle operation' : 'BuckleOperation',
-	'Buckle suture' : 'BuckleSuture',
-	'Busacca nodule' : 'BusaccaNodule',
-	'Capsular Tension Ring' : 'CapsularTensionRing',
-	'Double chandelier' : 'ChandelierDouble',
-	'Chandelier' : 'ChandelierSingle',
-	'Choroidal haemorrhage' : 'ChoroidalHaemorrhage',
-	'Choroidal naevus' : 'ChoroidalNaevus',
-	'Cilary injection' : 'CiliaryInjection',
-	'Circinate retinopathy' : 'Circinate',
-	'Circumferential buckle' : 'CircumferentialBuckle',
-	'Choroidal new vessels' : 'CNV',
-	'Conjunctival flap' : 'ConjunctivalFlap',
-	'Conjunctival suture' : 'ConjunctivalSuture',
-	'Corneal abrasion' : 'CornealAbrasion',
-	'Removal of corneal epithelium' : 'CornealErosion',
-	'Corneal graft' : 'CornealGraft',
-	'Corneal inlay' : 'CornealInlay',
-	'Corneal oedema' : 'CornealOedema',
-	'Corneal scar' : 'CornealScar',
-	'Corneal striae' : 'CornealStriae',
-	'Corneal suture' : 'CornealSuture',
-	'Cortical cataract' : 'CorticalCataract',
-	'Cotton wool spot' : 'CottonWoolSpot',
-	'Cryotherapy scar' : 'Cryo',
-	'Cutter iridectomy' : 'CutterPI',
-	'Cystoid macular oedema' : 'CystoidMacularOedema',
-	'Diabetic new vessels' : 'DiabeticNV',
-	'Dialysis' : 'Dialysis',
-	'Disc haemorrhage' : 'DiscHaemorrhage',
-	'Disc pallor' : 'DiscPallor',
-	'Drainage retinotomy' : 'DrainageRetinotomy',
-	'Drainage site' : 'DrainageSite',
-	'Encircling band' : 'EncirclingBand',
-	'Entry site break' : 'EntrySiteBreak',
-	'Epiretinal membrane' : 'EpiretinalMembrane',
-	'Episcleritis' : 'Episcleritis',
-	'Fibrous proliferation' : 'FibrousProliferation',
-	'Fibrovascular Scar' : 'FibrovascularScar',
-	'Focal laser' : 'FocalLaser',
-	'Freehand drawing' : 'Freehand',
-	'Guttata' : 'Fuchs',
-	'Fundus' : 'Fundus',
-	'Geographic atrophy' : 'Geographic',
-	'Gonioscopy' : 'Gonioscopy',
-	'Giant retinal tear' : 'GRT',
-	'Hard drusen' : 'HardDrusen',
-	'Hard exudate' : 'HardExudate',
-	'Hyphaema' : 'Hyphaema',
-	'Hypopyon' : 'Hypopyon',
-	'IatrogenicBreak' : 'IatrogenicBreak',
-	'ILM peel' : 'ILMPeel',
-	'Implantable Collamer Lens' : 'ICL',
-	'Intraocular lens' : 'IOL',
-	'Injection site' : 'InjectionSite',
-	'Inner leaf break' : 'InnerLeafBreak',
-	'Iris' : 'Iris',
-	'Iris hook' : 'IrisHook',
-	'Iris naevus' : 'IrisNaevus',
-	'Intraretinal microvascular abnormalities' : 'IRMA',
-	'Keratic precipitates' : 'KeraticPrecipitates',
-	'Koeppe nodule' : 'KoeppeNodule',
-	'Krukenberg spindle' : 'KrukenbergSpindle',
-	'Label' : 'Label',
-	'Circle of laser photocoagulation' : 'LaserCircle',
-	'Laser demarcation' : 'LaserDemarcation',
-	'LASIK flap' : 'LasikFlap',
-	'Laser spot' : 'LaserSpot',
-	'Lattice' : 'Lattice',
-	'Lens' : 'Lens',
-	'Limbal relaxing incision' : 'LimbalRelaxingIncision',
-	'Macroaneurysm' : 'Macroaneurysm',
-	'Macular dystrophy' : 'MacularDystrophy',
-	'Macular grid laser' : 'MacularGrid',
-	'Macular hole' : 'MacularHole',
-	'Macular thickening' : 'MacularThickening',
-	'Malyugin ring' : 'Malyugin',
-	'Mattress suture' : 'MattressSuture',
-	'Microaneurysm' : 'Microaneurysm',
-	'Nerve fibre defect' : 'NerveFibreDefect',
-	'Nuclear cataract' : 'NuclearCataract',
-	'Optic cup' : 'OpticCup',
-	'Optic disc' : 'OpticDisc',
-	'Optic disc pit' : 'OpticDiscPit',
-	'Orthoptic eye' : 'OrthopticEye',
-	'Outer leaf break' : 'OuterLeafBreak',
-	'Papilloedema' : 'Papilloedema',
-	'Tube patch' : 'Patch',
-	'Posterior chamber IOL' : 'PCIOL',
-	'Peripapillary atrophy' : 'PeripapillaryAtrophy',
-	'Peripheral retinectomy' : 'PeripheralRetinectomy',
-	'Phako incision' : 'PhakoIncision',
-	'Peripheral iridectomy' : 'PI',
-	'Point in line' : 'PointInLine',
-	'Posterior capsule' : 'PosteriorCapsule',
-	'Posterior embryotoxon' : 'PosteriorEmbryotoxon',
-	'Posterior pole' : 'PostPole',
-	'Posterior subcapsular cataract' : 'PostSubcapCataract',
-	'Posterior retinectomy' : 'PosteriorRetinectomy',
-	'Posterior synechia' : 'PosteriorSynechia',
-	'Pre-retinal haemorrhage' : 'PreRetinalHaemorrhage',
-	'Panretinal photocoagulation' : 'PRP',
-	'Panretinal photocoagulation (posterior pole)' : 'PRPPostPole',
-	'Phototherapeutic keratectomy' : 'PTK',
-	'Pupil' : 'Pupil',
-	'Radial sponge' : 'RadialSponge',
-	'Retinal artery occlusion' : 'RetinalArteryOcclusionPostPole',
-	'Retinal haemorrhage' : 'RetinalHaemorrhage',
-	'Retinal touch' : 'RetinalTouch',
-	'Retinal vein occluson' : 'RetinalVeinOcclusionPostPole',
-	'Retinoschisis' : 'Retinoschisis',
-	'Radial keratotomy' : 'RK',
-	'Round hole' : 'RoundHole',
-	'RPE Atrophy' : 'RPEAtrophy',
-	'RPE detachment' : 'RPEDetachment',
-	'RPE Hypertrophy' : 'RPEHypertrophy',
-	'RPE rip' : 'RPERip',
-	'Rhegmatogenous retinal detachment' : 'RRD',
-	'Rubeosis iridis' : 'Rubeosis',
-	'Sector PRP' : 'SectorPRP',
-	'Sector PRP (posterior pole)' : 'SectorPRPPostPole',
-	'Scleral Incision' : 'ScleralIncision',
-	'Sclerostomy' : 'Sclerostomy',
-	'Sector iridectomy' : 'SectorIridectomy',
-	'Shading' : 'Shading',
-	'Side port' : 'SidePort',
-	'Slider' : 'Slider',
-	'Small incision lenticule extraction' : 'SMILE',
-	'Star fold' : 'StarFold',
-	'Subretinal fluid' : 'SubretinalFluid',
-	'Subretinal PFCL' : 'SubretinalPFCL',
-	'Supramid suture' : 'Supramid',
-	'Swollen disc' : 'SwollenDisc',
-	'Parafoveal telangiectasia' : 'Telangiectasis',
-	'Trabectome' : 'Trabectome',
-	'Trabeculectomy conjunctival incision' : 'TrabyConjIncision',
-	'Trabeculectomy flap' : 'TrabyFlap',
-	'Trabeculectomy suture' : 'TrabySuture',
-	'Toric posterior chamber IOL' : 'ToricPCIOL',
-	'Traction retinal detachment' : 'TractionRetinalDetachment',
-	'Transillumination defect' : 'TransilluminationDefect',
-	'Drainage tube' : 'Tube',
-	'Tube extender' : 'TubeExtender',
-	'Ligation suture' : 'TubeLigation',
-	'Up drift' : 'UpDrift',
-	'Up shoot' : 'UpShoot',
-	'Traction ‘U’ tear' : 'UTear',
-	'Vicryl suture' : 'Vicryl',
-	'View obscured' : 'ViewObscured',
-	'Vitreous opacity' : 'VitreousOpacity',
-	'V pattern' : 'VPattern',
-	'Crepitations' : 'Crepitations',
-	'Stenosis' : 'Stenosis',
-	'Wheeze' : 'Wheeze',
-	'Pleural effusion' : 'Effusion',
-	'Left coronary artery' : 'LeftCoronaryArtery',
-	'Drug eluting stent' : 'DrugStent',
-	'Metal stent' : 'MetalStent',
-	'Coronary artery bypass' : 'Bypass',
-	'Bruit' : 'Bruit',
-	'Bruising' : 'Bruising',
-	'Haematoma' : 'Haematoma',
-}
-
-$('#big_cross').click(function(){
-	$('#search_bar').val('');
-	$('#results').scrollTop(0);
-	$('#dim_rest').hide();
-	$('#results').hide();
-});
-
-$('body').append('<div id="dim_rest" class="ui-widget-overlay" style="display : none; width: 1280px; height: 835px; z-index: 100;"></div>');
-
-</script>
-<!-- temp stuff enclosed -->
-
-<?php foreach ($this->event_tabs as $tab) { ?>
-	<li<?php if (@$tab['active']) { ?> class="selected"<?php } ?>>
-	<?php if (@$tab['href']) { ?>
-		<a href="<?php echo $tab['href'] ?>"><?php echo $tab['label'] ?></a>
-		<?php } else { //FIXME: don't select?>
-			<a href="#"><?php echo $tab['label'] ?></a>
+	<?php foreach ($this->event_tabs as $tab) { ?>
+		<li<?php if (@$tab['active']) { ?> class="selected"<?php } ?>>
+		<?php if (@$tab['href']) { ?>
+			<a href="<?php echo $tab['href'] ?>"><?php echo $tab['label'] ?></a>
+			<?php } else { //FIXME: don't select?>
+				<a href="#"><?php echo $tab['label'] ?></a>
+				<?php } ?>
+			</li>
 			<?php } ?>
-		</li>
-		<?php } ?>
-	</ul>
+		</ul>
