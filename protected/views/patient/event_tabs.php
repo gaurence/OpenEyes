@@ -243,8 +243,16 @@
   display: inline-block;
   width: 30px;
   height: 17px;
-	top: 12px;
-	left: 380px;
+}
+
+#description_switch {
+		left: 382px;
+		top: 15px;
+}
+
+#children_switch {
+	left: 487px;
+	top: 15px;
 }
 
 /* Hide default HTML checkbox */
@@ -305,17 +313,30 @@ input:checked + .slider:before {
 	top: 15px;
 }
 
+#children_toggle_label {
+	position: absolute;
+	font-size: 0.65em;
+	left: 427px;
+	top: 15px;
+}
+
 		</style>
 
 		<input type="text" id="search_bar"
 		placeholder="Find Canvases, Doodles and More..." />
 		<div id="search_button">
 		</div>
-		<label class="switch">
-			<input type="checkbox" id="description_toggle">
+		<label class="switch" id="description_switch">
+			<input type="checkbox" checked id="description_toggle">
 			<span class="slider round"></span>
 		</label>
 		<span id="description_toggle_label">Descriptions</span>
+
+		<label class="switch" id="children_switch">
+			<input type="checkbox" checked id="children_toggle">
+			<span class="slider round"></span>
+		</label>
+		<span id="children_toggle_label">Show children</span>
 
 
 		<div id="results">
@@ -344,6 +365,7 @@ input:checked + .slider:before {
 		</div>
 
 		<script>
+		var show_children = true;
 		(function($) {
 			"use strict";
 			let opts;
@@ -374,7 +396,10 @@ input:checked + .slider:before {
 								$this.html(highlighted_string);
 								$element.show();
 								if (!last_level) {
-									$element.children().find("li[style='display: none;']").show();
+									//this can be conditional
+									if (show_children == true) {
+										$element.children().find("li[style='display: none;']").show();
+									}
 								}
 							}
 						});
@@ -429,7 +454,7 @@ input:checked + .slider:before {
 				html.clientHeight, html.scrollHeight, html.offsetHeight );
 				$('#dim_rest').css("height", height);
 				$('#dim_rest').show();
-				$('#search_bar').val('');
+				//$('#search_bar').val('');
 				$('#search_bar').trigger("keyup");
 				$('#results').show();
 			});
@@ -755,6 +780,15 @@ input:checked + .slider:before {
 					$('.description_icon').hide();
 					$('.description_note').hide();
 					console.log("unchecked");
+				}
+			});
+			$('#children_toggle').change(function(){
+				if (this.checked) {
+					show_children = true;
+					$('#search_bar').trigger('keyup');
+				} else {
+					show_children = false;
+					$('#search_bar').trigger('keyup');
 				}
 			});
 		});
