@@ -326,19 +326,19 @@ EOSQL;
           "<span class=\"description_icon\">Description:</span>"
           ."<span class=\"description_note\">"
           .$description
-          ."</span><br>"
+          ."<br></span>"
           ) : (""))
         .($warning ? (
           "<span class=\"warning_icon\"></span>"
           ."<span class=\"warning_note\">"
           .$warning
-          ."</span><br>"
+          ."<br></span>"
           ) : (""))
         .($info ? (
           "<span class=\"info_icon\"></span>"
           ."<span class=\"info_note\">"
           .$info
-          ."</span><br>"
+          ."<br></span>"
           ) : (""))
         ."</div>"
         ."</div>"
