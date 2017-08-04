@@ -311,7 +311,20 @@ EOSQL;
       ."data-action-id='EASTB' class='lvl".$lvl."'>"
       .$name."</span>"
       ."</div>"
-      .($allias_minus_name ? ("<span class=\"allias\">".$allias_minus_name."</span>") : (""));
+      .($allias_minus_name ? (
+        "<div class=\"index_row\">"
+        ."<div class=\"index_col\">"
+        ."<span class=\"allias\">"
+        .$allias_minus_name
+        ."</span>"
+        ."</div>"
+        ."<div class=\"index_col\">"
+        ."<span class=\"allias\">"
+        ."Description"
+        ."</span>"
+        ."</div>"
+        ."</div>"
+        ) : (""));
       if ($children) {
         $result .= "<ul class='results_list'>";
         foreach ($children->INDEX as $child) {

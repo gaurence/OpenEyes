@@ -1677,6 +1677,7 @@ The CARRY_FORWARD_FLAG=false is a fudge to prevent lens from copying forward int
 					<TERM_LIST>
 						<TERM>Anterior chamber IOL</TERM>
 						<TERM>Intraocular lens</TERM>
+						<TERM>ACIOL</TERM>
 					</TERM_LIST>
 					<IMG_URL>/assets/tom/ACIOL.png</IMG_URL>
 				</INDEX>
