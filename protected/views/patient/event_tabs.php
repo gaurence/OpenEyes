@@ -21,13 +21,6 @@
 
 	<!-- temp stuff enclosed -->
 	<style>
-	/* TODO:
-	- reduce opacity of background
-	- maybe add arrow to show link between
-	text box and results box
-	- think about sizing
-	- think about allias
-	*/
 	#search_bar_right, #search_bar_left {
 		font-family:Helvetica;
 		position: absolute;
@@ -54,6 +47,7 @@
 		top:6px;
 		cursor: pointer;
 		border: none;
+		/*download this image*/
 		background: url("http://thesuiteworld.com/wp-admin/maint/search-icon-white-png-540.png") no-repeat center center, #747782;
 		background-size: 15px 15px;
 		border-radius: 0 20px 20px 0;
@@ -66,7 +60,6 @@
 	#search_button_left {
 		left: 868px;
 	}
-
 
 	#results {
 		outline: 0px;
@@ -141,7 +134,6 @@
 		padding-left: 25px;
 	}
 
-
 	.result_item:hover,.result_item_with_icon:hover {
 		background-color: #3665ff;
 		color: #fff;
@@ -179,7 +171,6 @@
 	#results > ul >  li > div {
 		position: sticky;
 		top: 0;
-		/*background-color: #9e9e9e;*/
 		z-index: 1000;
 	}
 
@@ -339,10 +330,10 @@
 		#search_options {
 			display: none;
 			position: absolute;
-    	left: 411px;
-    	background-color: #b1b6bb;
-    	height: 38px;
-    	width: 300px;
+			left: 411px;
+			background-color: #b1b6bb;
+			height: 38px;
+			width: 300px;
 		}
 
 		</style>
@@ -371,11 +362,11 @@
 		<div id="results">
 			<a href="#" id="big_cross"></a>
 
-<?php
-	$path = $_SERVER['DOCUMENT_ROOT'];
-	$path .= "/protected/ExaminationSearch.php";
-	include_once($path);
-?>
+			<?php
+			$path = $_SERVER['DOCUMENT_ROOT'];
+			$path .= "/protected/ExaminationSearch.php";
+			include_once($path);
+			?>
 
 
 		</div>
@@ -464,90 +455,91 @@
 		$("#search_bar_right").focus(function(){
 			$('#search_bar_left').val('');
 			last_search_pos = "right";
-				$('#search_bar_right').trigger("keyup");
-				show_results();
+			$('#search_bar_right').trigger("keyup");
+			show_results();
+		});
+		$("#search_bar_left").focus(function(){
+			$('#search_bar_right').val('');
+			last_search_pos = "left";
+			$('#search_bar_left').trigger("keyup");
+			show_results();
+		});
+
+
+		$('.result_item, .result_item_with_icon').click(function(){
+			let $this = $(this);
+			let $span = $this.find("span:first");
+			let lvl = $span.attr("class");
+			switch (lvl) {
+				case "lvl1":
+				click_lvl_1($this);
+				break;
+				case "lvl2":
+				click_lvl_2($this);
+				break;
+				case "lvl3":
+				click_lvl_3($this);
+				break;
+				default:
+			}
+			hide_results();
+		});
+
+		function get_element_name($this){
+			return $this.find("span:first").text();
+		}
+		function click_lvl_1($this, callback) {
+			let name = get_element_name($this);
+			let btn_name = name_on_btn[name];
+			let $item = $(".oe-event-sidebar-edit li a:contains("+btn_name+")");
+			tomNeeds.loadClickedItem($item,{},callback);
+		}
+		function click_lvl_2($this, callback){
+			let name = get_element_name($this);
+			let $parent = $this.parent().parent().parent();
+			let parent_name = get_element_name($parent);
+			click_lvl_1($parent,function(){
+				setTimeout (function(){
+					let $lvl_2_item = get_doodle_button(parent_name,name,last_search_pos);
+					let $selected_doodle = $("#eyedrawwidget_"+last_search_pos+"_315").find("#ed_example_selected_doodle").children().find("option:contains('"+name+"')");
+					if ($selected_doodle.length == 0) {
+						$lvl_2_item.trigger("click");
+						if (typeof(callback) == "function") {
+							callback();
+						}
+					} else {
+						$("#eyedrawwidget_"+last_search_pos+"_315").find("#ed_example_selected_doodle").children().find("option").removeAttr('selected');
+						$selected_doodle.attr('selected','selected');
+						$("#eyedrawwidget_"+last_search_pos+"_315").find("#ed_example_selected_doodle").trigger('change');
+						if (typeof(callback) == "function") {
+							callback();
+						}
+					} //move callback to after if else
+				},1000);
 			});
-			$("#search_bar_left").focus(function(){
-				$('#search_bar_right').val('');
-				last_search_pos = "left";
-					$('#search_bar_left').trigger("keyup");
-					show_results();
-				});
-
-
-			$('.result_item, .result_item_with_icon').click(function(){
-				let $this = $(this);
-				let $span = $this.find("span:first");
-				let lvl = $span.attr("class");
-				switch (lvl) {
-					case "lvl1":
-					click_lvl_1($this);
-					break;
-					case "lvl2":
-					click_lvl_2($this);
-					break;
-					case "lvl3":
-					click_lvl_3($this);
-					break;
-					default:
-				}
-				hide_results();
-			});
-
-			function get_element_name($this){
-				return $this.find("span:first").text();
-			}
-			function click_lvl_1($this, callback) {
-				let name = get_element_name($this);
-				let btn_name = name_on_btn[name];
-				let $item = $(".oe-event-sidebar-edit li a:contains("+btn_name+")");
-				tomNeeds.loadClickedItem($item,{},callback);
-			}
-			function click_lvl_2($this, callback){
-				let name = get_element_name($this);
-				let $parent = $this.parent().parent().parent();
-				let parent_name = get_element_name($parent);
-				click_lvl_1($parent,function(){
-					setTimeout (function(){
-						let $lvl_2_item = get_doodle_button(parent_name,name,last_search_pos);
-						let $selected_doodle = $("#eyedrawwidget_"+last_search_pos+"_315").find("#ed_example_selected_doodle").children().find("option:contains('"+name+"')");
-						if ($selected_doodle.length == 0) {
-							$lvl_2_item.trigger("click");
-							if (typeof(callback) == "function") {
-								callback();
-							}
-						} else {
-							$("#eyedrawwidget_"+last_search_pos+"_315").find("#ed_example_selected_doodle").children().find("option").removeAttr('selected');
-							$selected_doodle.attr('selected','selected');
-							$("#eyedrawwidget_"+last_search_pos+"_315").find("#ed_example_selected_doodle").trigger('change');
-							if (typeof(callback) == "function") {
-								callback();
-							}
-						} //move callback to after if else
-					},1000);
-				});
-			}
-			function get_doodle_button(parent_name, name, position) {
-				let canvas_id = lvl_1_to_section_id[parent_name];
-				let doodle_id = lvl_2_to_doodle_id[name];
-				let canvas_doodle_id = "#"+doodle_id+position+"_"+canvas_id;
-				let $item = $(canvas_doodle_id).children();
-				return $item;
-			}
-			function click_lvl_3($this, callback){
-				//see if popup exists else select it on select box
-				let name = get_element_name($this);
-				$parent = $this.parent().parent().parent();
-				$grand_parent = $parent.parent().parent().parent();
-				let parent_name = get_element_name($parent);
-				let grand_parent_name = get_element_name($grand_parent);
-				click_lvl_2($parent,function(){
-					let control_id = get_controls_id(grand_parent_name,last_search_pos);
-					$(control_id).find("div:contains("+name+")").effect("highlight", {}, 6000);
+		}
+		function get_doodle_button(parent_name, name, position) {
+			let canvas_id = lvl_1_to_section_id[parent_name];
+			let doodle_id = lvl_2_to_doodle_id[name];
+			let canvas_doodle_id = "#"+doodle_id+position+"_"+canvas_id;
+			let $item = $(canvas_doodle_id).children();
+			return $item;
+		}
+		function click_lvl_3($this, callback){
+			//see if popup exists else select it on select box
+			let name = get_element_name($this);
+			$parent = $this.parent().parent().parent();
+			$grand_parent = $parent.parent().parent().parent();
+			let parent_name = get_element_name($parent);
+			let grand_parent_name = get_element_name($grand_parent);
+			click_lvl_2($parent,function(){
+				let control_id = get_controls_id(grand_parent_name,last_search_pos);
+				$(control_id).find("div:contains("+name+")").effect("highlight", {}, 6000);
 			});
 		}
 
 		function get_controls_id(name,position){
+			//change to concatanation
 			return (position == "right" ? "#ed_canvas_edit_right_315_controls": "#ed_canvas_edit_left_315_controls");
 		}
 
@@ -804,34 +796,34 @@
 			var body = document.body,
 			html = document.documentElement;
 			var height = Math.max( body.scrollHeight, body.offsetHeight,
-			html.clientHeight, html.scrollHeight, html.offsetHeight );
-			$('#dim_rest').css("height", height);
-			$('#dim_rest').show();
-			$("body").css("overflow","hidden");
-			$("#results").show();
-			$(".switch").show();
-			$("#description_toggle_label,#children_toggle_label,#search_options").show();
-		}
-		function hide_results(){
-			$('#search_bar_right,#search_bar_left').val('');
-			$('#results').scrollTop(0);
-			$('#dim_rest').hide();
-			$("body").css("overflow","auto");
-			$("#results").hide();
-			$(".switch").hide();
-			$("#description_toggle_label,#children_toggle_label,#search_options").hide();
+				html.clientHeight, html.scrollHeight, html.offsetHeight );
+				$('#dim_rest').css("height", height);
+				$('#dim_rest').show();
+				$("body").css("overflow","hidden");
+				$("#results").show();
+				$(".switch").show();
+				$("#description_toggle_label,#children_toggle_label,#search_options").show();
+			}
+			function hide_results(){
+				$('#search_bar_right,#search_bar_left').val('');
+				$('#results').scrollTop(0);
+				$('#dim_rest').hide();
+				$("body").css("overflow","auto");
+				$("#results").hide();
+				$(".switch").hide();
+				$("#description_toggle_label,#children_toggle_label,#search_options").hide();
 
-		}
-		</script>
-		<!-- temp stuff enclosed -->
+			}
+			</script>
+			<!-- temp stuff enclosed -->
 
-		<?php foreach ($this->event_tabs as $tab) { ?>
-			<li<?php if (@$tab['active']) { ?> class="selected"<?php } ?>>
-			<?php if (@$tab['href']) { ?>
-				<a href="<?php echo $tab['href'] ?>"><?php echo $tab['label'] ?></a>
-				<?php } else { //FIXME: don't select?>
-					<a href="#"><?php echo $tab['label'] ?></a>
+			<?php foreach ($this->event_tabs as $tab) { ?>
+				<li<?php if (@$tab['active']) { ?> class="selected"<?php } ?>>
+				<?php if (@$tab['href']) { ?>
+					<a href="<?php echo $tab['href'] ?>"><?php echo $tab['label'] ?></a>
+					<?php } else { //FIXME: don't select?>
+						<a href="#"><?php echo $tab['label'] ?></a>
+						<?php } ?>
+					</li>
 					<?php } ?>
-				</li>
-				<?php } ?>
-			</ul>
+				</ul>
