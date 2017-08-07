@@ -1954,6 +1954,7 @@ The CARRY_FORWARD_FLAG=false is a fudge to prevent lens from copying forward int
 				<INDEX>
 					<TERM_LIST>
 						<TERM>Guttata</TERM>
+						<TERM>Fuchs</TERM>
 					</TERM_LIST>
 					<IMG_URL>/assets/tom/Fuchs.png</IMG_URL>
 				</INDEX>
@@ -1978,6 +1979,7 @@ The CARRY_FORWARD_FLAG=false is a fudge to prevent lens from copying forward int
 				<INDEX>
 					<TERM_LIST>
 						<TERM>LASIK flap</TERM>
+						<TERM>Laser-assisted in situ keratomileusis</TERM>
 					</TERM_LIST>
 					<IMG_URL>/assets/tom/LasikFlap.png</IMG_URL>
 					<INDEX_LIST>
@@ -2113,6 +2115,7 @@ The CARRY_FORWARD_FLAG=false is a fudge to prevent lens from copying forward int
 				<INDEX>
 					<TERM_LIST>
 						<TERM>Posterior chamber IOL</TERM>
+						<TERM>Intraocular lens</TERM>
 					</TERM_LIST>
 					<IMG_URL>/assets/tom/PCIOL.png</IMG_URL>
 					<INDEX_LIST>
@@ -2223,6 +2226,7 @@ The CARRY_FORWARD_FLAG=false is a fudge to prevent lens from copying forward int
 				<INDEX>
 					<TERM_LIST>
 						<TERM>SPEE</TERM>
+						<TERM>Superficial punctate epithelial erosions</TERM>
 					</TERM_LIST>
 					<IMG_URL>/assets/tom/SPEE.png</IMG_URL>
 				</INDEX>
