@@ -350,8 +350,7 @@
 		<div id="search_options"></div>
 		<input type="text" id="search_bar_right"
 		placeholder="Find Canvases, Doodles and More..." />
-		<div id="search_button_right">
-		</div>
+		<div id="search_button_right"></div>
 		<input type="text" id="search_bar_left"
 		placeholder="Find Canvases, Doodles and More..." />
 		<div id="search_button_left">
@@ -376,7 +375,7 @@
 	$path = $_SERVER['DOCUMENT_ROOT'];
 	$path .= "/protected/ExaminationSearch.php";
 	include_once($path);
-	?>
+?>
 
 
 		</div>
@@ -413,7 +412,6 @@
 								$this.html(highlighted_string);
 								$element.show();
 								if (!last_level) {
-									//this can be conditional
 									if (show_children == true) {
 										$element.children().find("li[style='display: none;']").show();
 									}
@@ -461,44 +459,26 @@
 				return $this;
 			}
 		}(jQuery));
-		var canvas_eyedraw_loaded = false;
 		$("#search_bar_right").search();
 		$("#search_bar_left").search();
 		$("#search_bar_right").focus(function(){
 			$('#search_bar_left').val('');
 			last_search_pos = "right";
-			var body = document.body,
-			html = document.documentElement;
-			var height = Math.max( body.scrollHeight, body.offsetHeight,
-				html.clientHeight, html.scrollHeight, html.offsetHeight );
-				$('#dim_rest').css("height", height);
-				$('#dim_rest').show();
 				$('#search_bar_right').trigger("keyup");
 				show_results();
 			});
 			$("#search_bar_left").focus(function(){
 				$('#search_bar_right').val('');
 				last_search_pos = "left";
-				var body = document.body,
-				html = document.documentElement;
-				var height = Math.max( body.scrollHeight, body.offsetHeight,
-					html.clientHeight, html.scrollHeight, html.offsetHeight );
-					$('#dim_rest').css("height", height);
-					$('#dim_rest').show();
 					$('#search_bar_left').trigger("keyup");
 					show_results();
 				});
 
 
-			$("#search_bar_right").blur(function(){
-				//$('#results').hide();
-			});
-
 			$('.result_item, .result_item_with_icon').click(function(){
 				let $this = $(this);
 				let $span = $this.find("span:first");
 				let lvl = $span.attr("class");
-				let name = $span.text();
 				switch (lvl) {
 					case "lvl1":
 					click_lvl_1($this);
@@ -510,12 +490,8 @@
 					click_lvl_3($this);
 					break;
 					default:
-
 				}
-				$('#results').scrollTop(0);
-				$('#dim_rest').hide();
 				hide_results();
-				$("#search_bar_right,#search_bar_left").val('');
 			});
 
 			function get_element_name($this){
@@ -528,33 +504,26 @@
 				tomNeeds.loadClickedItem($item,{},callback);
 			}
 			function click_lvl_2($this, callback){
-				// TODO: use select box if length == 0
-				// so that non toolbar doodles can be
-				// selected
-				//check it exists before creating it
 				let name = get_element_name($this);
 				let $parent = $this.parent().parent().parent();
 				let parent_name = get_element_name($parent);
 				click_lvl_1($parent,function(){
 					setTimeout (function(){
 						let $lvl_2_item = get_doodle_button(parent_name,name,last_search_pos);
-						let $thiss = $("#eyedrawwidget_"+last_search_pos+"_315").find("#ed_example_selected_doodle").children().find("option:contains('"+name+"')");
-						if ($thiss.length == 0) {
-							console.log(name);
-							console.log("doodle not present");
+						let $selected_doodle = $("#eyedrawwidget_"+last_search_pos+"_315").find("#ed_example_selected_doodle").children().find("option:contains('"+name+"')");
+						if ($selected_doodle.length == 0) {
 							$lvl_2_item.trigger("click");
 							if (typeof(callback) == "function") {
 								callback();
 							}
 						} else {
-							console.log("doodle present");
 							$("#eyedrawwidget_"+last_search_pos+"_315").find("#ed_example_selected_doodle").children().find("option").removeAttr('selected');
-							$thiss.attr('selected','selected');
+							$selected_doodle.attr('selected','selected');
 							$("#eyedrawwidget_"+last_search_pos+"_315").find("#ed_example_selected_doodle").trigger('change');
 							if (typeof(callback) == "function") {
 								callback();
 							}
-						}
+						} //move callback to after if else
 					},1000);
 				});
 			}
@@ -562,7 +531,6 @@
 				let canvas_id = lvl_1_to_section_id[parent_name];
 				let doodle_id = lvl_2_to_doodle_id[name];
 				let canvas_doodle_id = "#"+doodle_id+position+"_"+canvas_id;
-				console.log(canvas_doodle_id);
 				let $item = $(canvas_doodle_id).children();
 				return $item;
 			}
@@ -574,17 +542,8 @@
 				let parent_name = get_element_name($parent);
 				let grand_parent_name = get_element_name($grand_parent);
 				click_lvl_2($parent,function(){
-					console.log("run");
 					let control_id = get_controls_id(grand_parent_name,last_search_pos);
-					//	$(control_id).hide(3000);
 					$(control_id).find("div:contains("+name+")").effect("highlight", {}, 6000);
-					//highlight property here
-					/*setTimeout(function(){
-					$("#ed_example_selected_doodle").children().find("option").removeAttr('selected');
-					let $thiss = $("#ed_example_selected_doodle").children().find("option:contains('"+parent_name+"')");
-					$thiss.attr('selected','selected');
-					$("#ed_example_selected_doodle").trigger('change');
-				},410); */
 			});
 		}
 
@@ -797,9 +756,6 @@
 		}
 
 		$('#big_cross').click(function(){
-			$('#search_bar_right,#search_bar_left').val('');
-			$('#results').scrollTop(0);
-			$('#dim_rest').hide();
 			hide_results();
 		});
 
@@ -828,18 +784,14 @@
 			});
 
 			$(window).click(function() {
-				$('#dim_rest').hide();
 				hide_results();
-				$('#search_bar_right').val('');
-				$('#search_bar_left').val('');
-				//Hide the menus if visible
 			});
 
 			$('.switch').click(function(){
 				event.stopPropagation();
 			});
 
-			$('#results').click(function(event){
+			$('#results').click(function(){
 				event.stopPropagation();
 			});
 		});
@@ -849,12 +801,21 @@
 		});
 
 		function show_results(){
+			var body = document.body,
+			html = document.documentElement;
+			var height = Math.max( body.scrollHeight, body.offsetHeight,
+			html.clientHeight, html.scrollHeight, html.offsetHeight );
+			$('#dim_rest').css("height", height);
+			$('#dim_rest').show();
 			$("body").css("overflow","hidden");
 			$("#results").show();
 			$(".switch").show();
 			$("#description_toggle_label,#children_toggle_label,#search_options").show();
 		}
 		function hide_results(){
+			$('#search_bar_right,#search_bar_left').val('');
+			$('#results').scrollTop(0);
+			$('#dim_rest').hide();
 			$("body").css("overflow","auto");
 			$("#results").hide();
 			$(".switch").hide();
