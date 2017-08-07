@@ -332,13 +332,13 @@ EOSQL;
           "<span class=\"warning_icon\"></span>"
           ."<span class=\"warning_note\">"
           .$warning
-          ."<br></span>"
+          ."</span>"
           ) : (""))
         .($info ? (
           "<span class=\"info_icon\"></span>"
           ."<span class=\"info_note\">"
           .$info
-          ."<br></span>"
+          ."</span>"
           ) : (""))
         ."</div>"
         ."</div>"

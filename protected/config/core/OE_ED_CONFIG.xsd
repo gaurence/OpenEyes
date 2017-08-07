@@ -12,6 +12,12 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element minOccurs="0" name="IMG_URL" type="xs:string"/>
+			<xs:element minOccurs="0" name="DESCRIPTION" type="xs:string"/>
+			<xs:element minOccurs="0" name="GENERAL_NOTE" type="xs:string"/>
+			<xs:element minOccurs="0" name="WARNING_NOTE" type="xs:string"/>
+			<xs:element minOccurs="0" name="OPEN_ELEMENT_CLASS_NAME" type="xs:string"/>
+			<xs:element minOccurs="0" name="GOTO_DOODLE_CLASS_NAME" type="xs:string"/>
+			<xs:element minOccurs="0" name="GOTO_PROPERTY" type="xs:string"/>
 			<xs:element name="INDEX_LIST" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
@@ -19,12 +25,6 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element minOccurs="0" name="DESCRIPTION" type="xs:string"/>
-			<xs:element minOccurs="0" name="GENERAL_NOTE" type="xs:string"/>
-			<xs:element minOccurs="0" name="WARNING_NOTE" type="xs:string"/>
-			<xs:element minOccurs="0" name="OPEN_ELEMENT_CLASS_NAME" type="xs:string"/>
-			<xs:element minOccurs="0" name="GOTO_DOODLE_CLASS_NAME" type="xs:string"/>
-			<xs:element minOccurs="0" name="GOTO_PROPERTY" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="OE_ED_CONFIG">
