@@ -1716,6 +1716,7 @@ The CARRY_FORWARD_FLAG=false is a fudge to prevent lens from copying forward int
 						<INDEX>
 							<TERM_LIST>
 								<TERM>PXE</TERM>
+								<TERM>Pseudoxanthoma elasticum</TERM>
 							</TERM_LIST>
 							<GOTO_PROPERTY>PXE</GOTO_PROPERTY>
 						</INDEX>
