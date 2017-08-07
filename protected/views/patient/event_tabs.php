@@ -167,7 +167,7 @@
 		background: #fff url(/assets/tom/bigCross.png) center no-repeat;
 		display: block;
 		cursor: pointer;
-		left: 1203px;
+		left: 1202px;
 		top: 133px;
 		width: 32px;
 	}
@@ -199,18 +199,23 @@
 	.index_row {
 		display: flex; /* equal height of the children */
 		width: 930px;
+		margin-bottom: -10px;
 	}
 
 	.index_col_left {
 		flex: 0.85; /* additionally, equal width */
 		position: relative;
-		top: -10px;
+		top: -7px;
 		margin-left: 21px;
+	}
+	li li li .index_col_left {
+		top: -11px;
 	}
 	.index_col_right {
 		flex: 2; /* additionally, equal width */
 		position: relative;
 		top: -25px;
+		margin-left: 10px;
 	}
 
 
@@ -255,13 +260,13 @@
 		}
 
 		#description_switch {
-			left: 439px;
-			top: 15px;
+			left: 446px;
+			top: 12px;
 		}
 
 		#children_switch {
 			left: 588px;
-			top: 15px;
+			top: 12px;
 		}
 
 		/* Hide default HTML checkbox */
@@ -319,7 +324,7 @@
 			display: none;
 			position: absolute;
 			font-size: 0.65em;
-			left: 380px;
+			left: 368px;
 			top: 15px;
 		}
 
@@ -355,7 +360,7 @@
 			<input type="checkbox" checked id="description_toggle">
 			<span class="slider round"></span>
 		</label>
-		<span id="description_toggle_label">Descriptions</span>
+		<span id="description_toggle_label">Show descriptions</span>
 
 		<label class="switch" id="children_switch">
 			<input type="checkbox" checked id="children_toggle">

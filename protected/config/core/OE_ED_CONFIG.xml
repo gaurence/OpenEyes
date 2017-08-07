@@ -1682,7 +1682,7 @@ The CARRY_FORWARD_FLAG=false is a fudge to prevent lens from copying forward int
 						<TERM>AC</TERM>
 					</TERM_LIST>
 					<IMG_URL>/assets/tom/ACIOL.png</IMG_URL>
-					<DESCRIPTION>Anterior chamber lens are fixed with the support of iris. Primarily used as a backup lens when there is damage to the Posterior Chamber.AC IOL is also used in refractive surgery – implanting a lens in phakic eye to correct the refractive power.</DESCRIPTION>
+					<DESCRIPTION>Anterior chamber lens are fixed with the support of iris. Primarily used as a backup lens when there is damage to the Posterior Chamber. AC IOL is also used in refractive surgery – implanting a lens in phakic eye to correct the refractive power.</DESCRIPTION>
 					<GENERAL_NOTE>This is a general note</GENERAL_NOTE>
 					<WARNING_NOTE>This is a warning note</WARNING_NOTE>
 					<GOTO_DOODLE_CLASS_NAME>ACIOL</GOTO_DOODLE_CLASS_NAME>
