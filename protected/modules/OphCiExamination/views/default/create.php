@@ -46,7 +46,9 @@
 
 		<?php $this->displayErrors($errors)?>
 
-		<?php $this->renderPartial('//patient/event_elements', array('form' => $form));?>
+		<?php
+		$this->renderPartial('index_search');
+		$this->renderPartial('//patient/event_elements', array('form' => $form));?>
 		<?php $this->displayErrors($errors, true)?>
 
 	<?php $this->endWidget()?>
