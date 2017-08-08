@@ -1,12 +1,12 @@
 <?php
-namespace app\components;
+//namespace app\components;
 
 use yii\base\Widget;
 use yii\helpers\Html;
 
 class IndexSearch extends BaseCWidget
 {
-    public $event_type;
+    public $event_type = "examination";
 
     public function init()
     {
@@ -16,6 +16,6 @@ class IndexSearch extends BaseCWidget
     public function run()
     {
       //or just render
-      return $this->renderPartial('IndexSearch_'.$event_type);
+      return $this->render('IndexSearch_examination');
     }
 }

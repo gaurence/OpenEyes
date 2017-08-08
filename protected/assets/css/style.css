@@ -8066,8 +8066,6 @@ table.detailview tr th {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-
-
 /* IndexSearch css -- Probably needs a better location */
 #search_bar_right, #search_bar_left {
   font-family:Helvetica;
@@ -8103,7 +8101,7 @@ table.detailview tr th {
   display: inline-block;
   width: 20px;
   height: 28px;
-  z-index: 1004
+  z-index: 1004;
 }
 #search_button_left {
   left: 868px;

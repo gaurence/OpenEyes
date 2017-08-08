@@ -1,4 +1,4 @@
-<?php $this->renderPartial('IndexSearch_header'); ?>
+<?php $this->render('IndexSearch_header'); ?>
   <div id="results">
     <a href="#" id="big_cross"></a>
 
