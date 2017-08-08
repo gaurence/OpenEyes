@@ -7961,7 +7961,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : Dec 9, 2016, 11:56:22 AM
     Author     : sabi
 */
@@ -8066,3 +8066,321 @@ table.detailview tr th {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
+
+
+/* IndexSearch css -- Probably needs a better location */
+#search_bar_right, #search_bar_left {
+  font-family:Helvetica;
+  position: absolute;
+  left: 85px;
+  top: 5px;
+  box-sizing: border-box;
+  font-size: 12px;
+  vertical-align: top;
+  padding: 0 10px;
+  font-size: 10px;
+  width: 200px;
+  height: 30px;
+  border: 1px solid #b3b3b3;
+  border-radius: 10px 0 0 10px;
+  z-index: 1003;
+}
+#search_bar_left {
+  left: 669px;
+}
+#search_button_right, #search_button_left {
+  font-family:Helvetica;
+  position: absolute;
+  left: 284px;
+  top:6px;
+  cursor: pointer;
+  border: none;
+  /*download this image*/
+  background: url("http://thesuiteworld.com/wp-admin/maint/search-icon-white-png-540.png") no-repeat center center, #747782;
+  background-size: 15px 15px;
+  border-radius: 0 20px 20px 0;
+  padding: 10px 25px;
+  display: inline-block;
+  width: 20px;
+  height: 28px;
+  z-index: 1004
+}
+#search_button_left {
+  left: 868px;
+}
+
+#results {
+  outline: 0px;
+  z-index: 1005;
+  height: 539px;
+  width: 1024px;
+  top: 48px;
+  left: 12px;
+  display: none;
+  overflow:scroll;
+  background-color: #fff;
+  padding: 0px;
+  font-size: .8rem;
+  box-shadow: 2px 2px 2px 2px #666666;
+  border-radius: 7px;
+  font-family: Helvetica, Arial, sans-serif;
+  border: 1px solid #aaaaaa/*{borderColorContent}*/;
+  color: #222222/*{fcContent}*/;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.5;
+  cursor: auto;
+  position: absolute;
+  background: #fff;
+  background-image: url(/assets/tom/line.png);
+  background-size: 4px;
+  background-repeat: repeat-y;
+  background-position: 33.33%;
+}
+
+.results_list {
+  margin: 0;
+  list-style: none;
+  padding: 10px;
+}
+.results_list .results_list {
+  padding: 0px;
+  padding-left: 45px;
+}
+.icon {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  bottom: 5px;
+}
+
+.result_item,.result_item_with_icon {
+  width: 222px;
+  display: block;
+  margin: 0 0 0px 0;
+  height: 19px;
+  line-height: 19px;
+  background-color: #EEEEED;
+  background-size: 524px 500px;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 16px 16px;
+  color: #0b59da;
+  cursor: pointer;
+  font-size: .75rem;
+  box-sizing: border-box;
+  text-align: -webkit-match-parent;
+  margin-bottom: 4px;
+  list-style-position: inside;
+  font-family: inherit;
+  padding-left: 12px;
+  border-radius: 3px;
+}
+.result_item_with_icon{
+  padding-left: 25px;
+}
+
+.result_item:hover,.result_item_with_icon:hover {
+  background-color: #3665ff;
+  color: #fff;
+  cursor: pointer;
+
+}
+.arrow {
+  position: relative;
+
+}
+
+.lvl1,.lvl2,.lvl3 {
+}
+
+.search_highlight {
+  font-style: inherit;
+  background-color: yellow;
+  color : black;
+}
+
+#big_cross {
+  position: fixed;
+  background: #fff url(/assets/tom/bigCross.png) center no-repeat;
+  display: block;
+  cursor: pointer;
+  left: 1202px;
+  top: 133px;
+  width: 32px;
+}
+
+li ul li ul li .result_item {
+  background-color: transparent;
+}
+
+#results > ul >  li > div {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#results > ul >  li > div:hover {
+  background-color: #3665ff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.allias {
+  font-size: 0.7em;
+  font-style: italic;
+  color: grey;
+  position: relative;
+}
+
+.index_row {
+  display: flex; /* equal height of the children */
+  width: 930px;
+  margin-bottom: -10px;
+}
+
+.index_col_left {
+  flex: 0.85; /* additionally, equal width */
+  position: relative;
+  top: -7px;
+  margin-left: 21px;
+}
+li li li .index_col_left {
+  top: -11px;
+}
+.index_col_right {
+  flex: 2; /* additionally, equal width */
+  position: relative;
+  top: -25px;
+  margin-left: 10px;
+}
+
+
+
+.warning_icon,.info_icon {
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-color: white;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  position: relative;
+  top: 3px;
+}
+
+.warning_icon {
+  top: 4px;
+  background-image: url("/assets/tom/warning.png");	}
+
+  .info_icon {
+    background-image: url("/assets/tom/info.png");
+  }
+  .description_icon {
+    font-size: 0.8em;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .warning_note,.info_note,.description_note{
+    font-size: 0.8em;
+    padding-left: 6px;
+    padding-right: 20px;
+  }
+
+
+  /* The switch - the box around the slider */
+  .switch {
+    display: none;
+    position: absolute;
+    width: 30px;
+    height: 17px;
+  }
+
+  #description_switch {
+    left: 446px;
+    top: 12px;
+  }
+
+  #children_switch {
+    left: 588px;
+    top: 12px;
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {display:none;}
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 17px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  #description_toggle_label {
+    display: none;
+    position: absolute;
+    font-size: 0.65em;
+    left: 368px;
+    top: 15px;
+  }
+
+  #children_toggle_label {
+    display: none;
+    position: absolute;
+    font-size: 0.65em;
+    left: 527px;
+    top: 15px;
+  }
+
+  #search_options {
+    display: none;
+    position: absolute;
+    left: 411px;
+    background-color: #b1b6bb;
+    height: 38px;
+    width: 300px;
+  }
+/* end of IndexSearch css*/
