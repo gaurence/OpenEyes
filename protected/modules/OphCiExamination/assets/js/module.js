@@ -1747,6 +1747,9 @@ function OphCiExamination_NearVisualAcuity_init() {
 function OphCiExamination_DRGrading_dirtyCheck(_drawing) {
     var dr_grade = $('.' + OE_MODEL_PREFIX+dr_grade_et_class);
     var grades = gradeCalculator(_drawing);
+    if (grades === false)
+      return;
+
     var retinopathy = grades[0],
         maculopathy = grades[1],
         ret_photo		= grades[2] ? '1' : '0',
@@ -1903,18 +1906,13 @@ function OphCiExamination_PosteriorPole_init() {
 
             if (!$('#drgrading_dirty').is(":visible")) {
                 var grades = gradeCalculator(_drawing);
-
-                updateDRGrades(_drawing, grades[0], grades[1], grades[2], grades[3], grades[4], grades[5]);
+                if (grades !== false)
+                    updateDRGrades(_drawing, grades[0], grades[1], grades[2], grades[3], grades[4], grades[5]);
             }
         };
 
-        if (ED.getInstance(drawingName)) {
-            func();
-        }
-        else {
-            edChecker = getOEEyeDrawChecker();
-            edChecker.registerForReady(func);
-        }
+        edChecker = getOEEyeDrawChecker();
+        edChecker.registerForReady(func);
     });
 }
 
