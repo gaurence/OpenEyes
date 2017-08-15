@@ -906,10 +906,12 @@ class OphCiExamination_API extends \BaseAPI
 
     /**
      * get the va from the given episode for the left side of the episode patient.
-     * @param Pateint $patient
-     * @param bool $include_nr_values
-     * @param string $before_date
-     * @param bool $use_context
+     *
+     * @param Patient $patient
+     * @param bool    $include_nr_values
+     * @param string  $before_date
+     * @param bool    $use_context
+     *
      * @return OphCiExamination_VisualAcuity_Reading
      */
     public function getLetterVisualAcuityForEpisodeLeft($patient, $include_nr_values = false, $before_date = NULL, $use_context = true)
@@ -932,10 +934,12 @@ class OphCiExamination_API extends \BaseAPI
 
     /**
      * get the va from the given episode for the right side of the episode patient.
-     * @param Pateint $patient
+     *
+     * @param Patient $patient
      * @param bool    $include_nr_values
-     * @param string $before_date
-     * @param bool $use_context
+     * @param string  $before_date
+     * @param bool    $use_context
+     *
      * @return OphCiExamination_VisualAcuity_Reading
      */
     public function getLetterVisualAcuityForEpisodeRight($patient, $include_nr_values = false, $before_date = NULL, $use_context = true)
@@ -958,15 +962,17 @@ class OphCiExamination_API extends \BaseAPI
     /**
      * Get the VA string for both sides.
      *
-     * @param $episode
-     * @param bool $include_nr_values flag to indicate whether NR flag values should be used for the text
+     * @param Patient $patient
+     * @param bool    $include_nr_values flag to indicate whether NR flag values should be used for the text
+     * @param string  $before_date
+     * @param bool    $use_context
      *
      * @return string
      */
-    public function getLetterVisualAcuityForEpisodeBoth($episode, $include_nr_values = false)
+    public function getLetterVisualAcuityForEpisodeBoth($patient, $include_nr_values = false, $before_date = NULL, $use_context = true)
     {
-        $left = $this->getLetterVisualAcuityForEpisodeLeft($episode->patient, $include_nr_values);
-        $right = $this->getLetterVisualAcuityForEpisodeRight($episode->patient, $include_nr_values);
+        $left = $this->getLetterVisualAcuityForEpisodeLeft($patient, $include_nr_values, $before_date, $use_context);
+        $right = $this->getLetterVisualAcuityForEpisodeRight($patient, $include_nr_values, $before_date, $use_context);
 
         return ($right ? $right : 'not recorded') . ' on the right and ' . ($left ? $left : 'not recorded') . ' on the left';
     }
@@ -1499,7 +1505,7 @@ class OphCiExamination_API extends \BaseAPI
     public function getOCTForSide($patient, $side , $use_context = true)
     {
         $checker = ($side === 'left') ? 'hasLeft' : 'hasRight';
-        foreach ($this->getElements('models\Element_OphCiExamination_OCT', $patient, $use_context) as $el) {
+        foreach ($this->getElements('OEModule\OphCiExamination\models\Element_OphCiExamination_OCT', $patient, $use_context) as $el) {
             if ($el->$checker()) {
                 return array($el->{$side . '_crt'}, $el->{$side . '_sft'});
             }
