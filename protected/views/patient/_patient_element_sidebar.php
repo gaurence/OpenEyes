@@ -43,6 +43,7 @@
 </aside>
 <div class="nsb-popup-history">
   <span class="nsb-popup-cross-icon"></span>
+  <div class="nsb-popup-actions">
   <ul class="nsb-popup-row">
     <li class="nsb-popup-element">
       <div class="nsb-popup-block" id="nsb-popup-history-img">
@@ -96,15 +97,20 @@
     </li>
   </ul>
 </div>
+</div>
 
 <style>
+.nsb-popup-actions {
+  margin-top: 40px;
+  margin-left: 40px;
+}
 .nsb-popup-cross-icon {
   background-size: 40px 40px;
   display: block;
   height: 40px;
   width: 40px;
-  margin-top: 38px;
-  margin-left: 60px;
+  margin-top: 6px;
+  margin-left: 994px;
   position: fixed;
   z-index: 1101;
 }
@@ -208,8 +214,8 @@
   /*color: #222222;*/
   box-sizing: border-box;
   line-height: .8rem;
-  padding-left: 40px;
-  padding-top: 100px;
+  padding-left: 0;
+  padding-top: 0;
 }
 
 
