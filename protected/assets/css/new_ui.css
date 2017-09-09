@@ -1824,9 +1824,9 @@ label.highlight {
   background-color: #df5151;
   color: #fff;
 }
-.nsb-block {
+.nsb-sidebar-block {
   background-image: url(../img/arrow.gif);
 }
-.nsb-block:hover {
+.nsb-sidebar-block:hover {
   background-image: url(../img/arrowon.gif);
 }
