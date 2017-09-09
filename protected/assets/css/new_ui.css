@@ -1830,3 +1830,9 @@ label.highlight {
 .nsb-sidebar-block:hover {
   background-image: url(../img/arrowon.gif);
 }
+.nsb-popup-add-icon {
+  background-image: url(../img/add_icon.png);
+}
+.nsb-popup-cross-icon {
+  background-image: url(../img/big_cross.png);
+}
