@@ -1,4 +1,4 @@
-<aside class="column sidebar episodes-and-events">
+<aside class="column sidebar episodes-and-events" style="z-index: 2000">
   <div class="oe-scroll-wrapper" style="height:2000px">
     <div class="all-panels"></div>
     <div class="nsb-sidebar-container">
@@ -40,7 +40,16 @@
   </div>
 
 </aside>
-<div class="nsb-popup-history">
+<div style="z-index: 1000;
+    position: fixed;
+    width: 100%;">
+    
+
+
+
+</div>
+
+<div id="nsb-popup-history">
   <div class="nsb-popup-bar">
     <span class="nsb-popup-swipe">Swipe Right to Close Navigator</span>
     <span class="nsb-popup-cross-icon"></span>
@@ -131,7 +140,7 @@
   display: inline-block;
   height: 34px;
   width: 34px;
-  z-index: 1101;
+  z-index: 3101;
   margin:0;
   padding: 0;
   cursor: pointer;
@@ -212,6 +221,9 @@
 .nsb-sidebar-block:hover {
   color: #fff;
 }
+#nsb-history:hover #nsb-popup-history  {
+  display: block;
+}
 .nsb-sidebar-header {
   color: #0e386f;
   font-size: 1.5rem;
@@ -228,7 +240,7 @@
   position: fixed;
   margin-left: 180px;
   margin-top: 40px;
-  z-index: 1100;
+  z-index: 3100;
   background-color: green;
   width: 1045px; /* use .nsb-popup-* syntax or something*/
   height: 480px;
@@ -255,25 +267,4 @@
 }
 </style>
 <script>
-  $('#nsb-history').mouseenter(function(event) {
-    console.log('entered');
-    $('.nsb-popup-history').show();
-    //prevent hiding for
-    $('#nsb-history').on('hover',function(e){
-      console.log('nsb-history');
-      e.stopPropagation();
-    });
-    $('#nsb-popup-history').on('hover',function(e){
-      console.log('nsb-popup-history');
-      e.stopPropagation();
-    });
-    //hide
-    $(window).on('hover',function(){
-      console.log('body');
-      $('#nsb-history').off('hover');
-      $('.nsb-popup-history').off('hover');
-      $('.nsb-popup-history').hide();
-      $(window).off('hover');
-    });
-  });
 </script>

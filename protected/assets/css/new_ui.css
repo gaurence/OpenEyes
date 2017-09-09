@@ -1828,6 +1828,7 @@ label.highlight {
   background-image: url(../img/arrow.gif);
 }
 .nsb-sidebar-block:hover {
+  color: #fff;
   background-image: url(../img/arrowon.gif);
 }
 .nsb-popup-add-icon {
