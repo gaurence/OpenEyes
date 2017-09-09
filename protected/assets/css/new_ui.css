@@ -1836,3 +1836,48 @@ label.highlight {
 .nsb-popup-cross-icon {
   background-image: url(../img/big_cross.png);
 }
+#nsb-popup-img-risks {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(../img/risks.jpg);
+}
+#nsb-popup-img-medication {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(../img/medication.jpg);
+}
+#nsb-popup-img-history {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(../img/history.jpg);
+}
+#nsb-popup-img-dia {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(../img/dia.jpg);
+}
+#nsb-popup-img-systemic {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(../img/systemic.jpg);
+}

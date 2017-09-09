@@ -2,10 +2,9 @@
   <div class="oe-scroll-wrapper" style="height:2000px">
     <div class="all-panels"></div>
     <div class="nsb-sidebar-container">
-      <h1 class="nsb-sidebar-header">Contents</h1>
       <ul class="nsb-sidebar-list">
         <li class="nsb-sidebar-element">
-          <div class="nsb-sidebar-block">
+          <div class="nsb-sidebar-block" id="nsb-history">
             HISTORY
           </div>
         </li>
@@ -42,31 +41,35 @@
 
 </aside>
 <div class="nsb-popup-history">
-  <span class="nsb-popup-cross-icon"></span>
+  <div class="nsb-popup-bar">
+    <span class="nsb-popup-swipe">Swipe Right to Close Navigator</span>
+    <span class="nsb-popup-cross-icon"></span>
+  </div>
+  <span class="nsb-popup-title">History</span>
   <div class="nsb-popup-actions">
   <ul class="nsb-popup-row">
     <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-history-img">
+      <div class="nsb-popup-block" id="nsb-popup-img-history">
         <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Presenting Complaint</span>
+        <span class="nsb-popup-block-title">History or Presenting Complaint</span>
       </div>
     </li>
     <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-history-img">
+      <div class="nsb-popup-block" id="nsb-popup-img-dia">
         <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Presenting Complaint</span>
+        <span class="nsb-popup-block-title">Previous Ophthalmic Surgery</span>
       </div>
     </li>
     <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-history-img">
+      <div class="nsb-popup-block" id="nsb-popup-img-systemic">
         <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Presenting Complaint</span>
+        <span class="nsb-popup-block-title">Previous Systemic Diagnosis</span>
       </div>
     </li>
     <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-history-img">
+      <div class="nsb-popup-block" id="nsb-popup-img-medication">
         <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Presenting Complaint</span>
+        <span class="nsb-popup-block-title">Previous Medication</span>
       </div>
     </li>
   </ul>
@@ -74,25 +77,25 @@
     <li class="nsb-popup-element">
       <div class="nsb-popup-block" id="nsb-popup-history-img">
         <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Presenting Complaint</span>
+        <span class="nsb-popup-block-title">Allergies</span>
+      </div>
+    </li>
+    <li class="nsb-popup-element">
+      <div class="nsb-popup-block" id="nsb-popup-img-risks">
+        <span class="nsb-popup-add-icon"></span>
+        <span class="nsb-popup-block-title">Risks</span>
       </div>
     </li>
     <li class="nsb-popup-element">
       <div class="nsb-popup-block" id="nsb-popup-history-img">
         <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Presenting Complaint</span>
+        <span class="nsb-popup-block-title">Social History</span>
       </div>
     </li>
     <li class="nsb-popup-element">
       <div class="nsb-popup-block" id="nsb-popup-history-img">
         <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Presenting Complaint</span>
-      </div>
-    </li>
-    <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-history-img">
-        <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Presenting Complaint</span>
+        <span class="nsb-popup-block-title">Family History</span>
       </div>
     </li>
   </ul>
@@ -100,50 +103,75 @@
 </div>
 
 <style>
-.nsb-popup-actions {
-  margin-top: 40px;
+.nsb-popup-bar {
+  display: inline-block;
+}
+.nsb-popup-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-left: 36px;
+  color: #222222;
+}
+.nsb-popup-swipe {
+  color: #ffaa0d;
+  font-style: italic;
+  text-align: center;
+  width: 955px;
+  display: inline-block;
   margin-left: 40px;
+  vertical-align: top;
+  margin-top: 10px;
+}
+.nsb-popup-actions {
+  margin-left: 36px;
+  margin-top: 4px;
 }
 .nsb-popup-cross-icon {
-  background-size: 40px 40px;
-  display: block;
-  height: 40px;
-  width: 40px;
-  margin-top: 6px;
-  margin-left: 994px;
-  position: fixed;
+  background-size: 34px 34px;
+  display: inline-block;
+  height: 34px;
+  width: 34px;
   z-index: 1101;
+  margin:0;
+  padding: 0;
+  cursor: pointer;
 }
 .nsb-popup-add-icon {
-  background-size: 40px 40px;
+  background-size: 50px 50px;
   display: block;
-  height: 40px;
-  width: 40px;
-  margin-top: 38px;
-  margin-left: 60px;
+  height: 50px;
+  width: 50px;
+  margin-top: 55px;
+  margin-left: 86px;
   position: fixed;
 }
-.nsb-popup-element {
+.nsb-popup-element { /*Try mouseenter event details to see if leave both*/
   float: left;
-  margin-right: 20px;
+  margin-right: 29px;
+}
+.nsb-popup-element:last-child {
+  margin-right: 0;
 }
 .nsb-popup-block-title {
   font-family: "Helvetica", Helvetica, Arial, sans-serif;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 .nsb-popup-row {
   list-style: none;
   margin: 0;
   padding: 0;
   display: inline-block;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
+}
+.nsb-popup-row:last-child {
+  margin-bottom: 0;
 }
 .nsb-popup-block {
-  width: 165px;
-  height: 128px;
+  width: 222px;
+  height: 159px;
   background-repeat: no-repeat;
-  background-size: 165px 128px;
+  background-size: 245px 175px;
   text-align: center;
   align-content: center;
   border-radius: 5px;
@@ -180,7 +208,6 @@
   font-family: "Helvetica", Helvetica, Arial, sans-serif;
   background-repeat: no-repeat;
   background-position: 97% 50%;
-  text-align: center;
 }
 .nsb-sidebar-block:hover {
   color: #fff;
@@ -194,9 +221,10 @@
   line-height: 40px;
 }
 .nsb-sidebar-container {
-  margin-top: 0;
+  margin-top: 40px;
 }
-.nsb-popup-history{
+#nsb-popup-history{
+  display: none;
   position: fixed;
   margin-left: 180px;
   margin-top: 40px;
@@ -215,7 +243,7 @@
   box-sizing: border-box;
   line-height: .8rem;
   padding-left: 0;
-  padding-top: 0;
+  padding-top: 5px;
 }
 
 
@@ -226,3 +254,26 @@
   color: #fff;
 }
 </style>
+<script>
+  $('#nsb-history').mouseenter(function(event) {
+    console.log('entered');
+    $('.nsb-popup-history').show();
+    //prevent hiding for
+    $('#nsb-history').on('hover',function(e){
+      console.log('nsb-history');
+      e.stopPropagation();
+    });
+    $('#nsb-popup-history').on('hover',function(e){
+      console.log('nsb-popup-history');
+      e.stopPropagation();
+    });
+    //hide
+    $(window).on('hover',function(){
+      console.log('body');
+      $('#nsb-history').off('hover');
+      $('.nsb-popup-history').off('hover');
+      $('.nsb-popup-history').hide();
+      $(window).off('hover');
+    });
+  });
+</script>
