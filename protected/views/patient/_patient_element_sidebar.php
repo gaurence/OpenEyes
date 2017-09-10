@@ -15,8 +15,16 @@
                 <ul class="nsb-popup-row">
                   <li class="nsb-popup-element">
                     <div class="nsb-popup-block" id="nsb-popup-img-history">
-                      <span class="nsb-popup-add-icon"></span>
-                      <span class="nsb-popup-block-title">History or Presenting Complaint</span>
+                      <div class="view1" hidden="true">
+                        <span class="nsb-popup-add-icon"></span>
+                        <span class="nsb-popup-block-title">History or Presenting Complaint</span>
+                      </div>
+                      <div class="view2">
+                        <div class="nsb-popup-goto">
+                          Goto >>
+                        </div>
+                        <span class="nsb-popup-block-title">History or Presenting Complaint</span>
+                      </div>
                     </div>
                   </li>
                   <li class="nsb-popup-element">
@@ -145,6 +153,20 @@
   margin-top: 55px;
   margin-left: 55px;
   position: fixed;
+}
+.nsb-popup-goto {
+  display: block;
+  height: 20px;
+  width: 100px;
+  margin-top: 70px;
+  margin-left: 30px;
+  position: fixed;
+  border: blue 1px solid;
+  border-radius: 10px;
+  background-color: blue;
+  font-size: 0.8rem;
+  vertical-align: middle;
+  text-align: center;
 }
 .nsb-popup-element { /*Try mouseenter event details to see if leave both*/
   float: left;
