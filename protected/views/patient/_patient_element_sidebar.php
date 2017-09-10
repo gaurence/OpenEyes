@@ -7,7 +7,7 @@
             HISTORY
             <div id="nsb-popup-history">
               <div class="nsb-popup-bar">
-                <span class="nsb-popup-swipe">Swipe Right to Close Navigator ></span>
+                <span class="nsb-popup-swipe">Swipe Right to Close Navigator →</span>
                 <span class="nsb-popup-cross-icon"></span>
               </div>
               <span class="nsb-popup-title" hidden="true">History</span>
