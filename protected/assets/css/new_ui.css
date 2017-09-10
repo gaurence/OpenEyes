@@ -1841,44 +1841,80 @@ label.highlight {
   background-image:
     linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.4)
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.55)
     ),
-    url(../img/risks.jpg);
+    url(../img/risks.png);
+}
+#nsb-popup-img-risks:hover {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.25)
+    ),
+    url(../img/risks.png);
 }
 #nsb-popup-img-medication {
   background-image:
     linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.4)
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.55)
     ),
-    url(../img/medication.jpg);
+    url(../img/medication.png);
 }
 #nsb-popup-img-history {
   background-image:
     linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.4)
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.55)
     ),
-    url(../img/history.jpg);
+    url(../img/history.png);
 }
-#nsb-popup-img-dia {
+#nsb-popup-img-opthalmic {
   background-image:
     linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.4)
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.55)
     ),
-    url(../img/dia.jpg);
+    url(../img/opthalmic.png);
 }
 #nsb-popup-img-systemic {
   background-image:
     linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.4)
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.55)
     ),
-    url(../img/systemic.jpg);
+    url(../img/systemic.png);
+}
+#nsb-popup-img-allergies {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url(../img/allergies.png);
+}
+#nsb-popup-social {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url(../img/social.png);
+}
+#nsb-popup-family {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url(../img/family.png);
 }

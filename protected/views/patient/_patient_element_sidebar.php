@@ -7,10 +7,10 @@
             HISTORY
             <div id="nsb-popup-history">
               <div class="nsb-popup-bar">
-                <span class="nsb-popup-swipe">Swipe Right to Close Navigator</span>
+                <span class="nsb-popup-swipe">Swipe Right to Close Navigator ></span>
                 <span class="nsb-popup-cross-icon"></span>
               </div>
-              <span class="nsb-popup-title">History</span>
+              <span class="nsb-popup-title" hidden="true">History</span>
               <div class="nsb-popup-actions">
                 <ul class="nsb-popup-row">
                   <li class="nsb-popup-element">
@@ -20,7 +20,7 @@
                     </div>
                   </li>
                   <li class="nsb-popup-element">
-                    <div class="nsb-popup-block" id="nsb-popup-img-dia">
+                    <div class="nsb-popup-block" id="nsb-popup-img-opthalmic">
                       <span class="nsb-popup-add-icon"></span>
                       <span class="nsb-popup-block-title">Previous Ophthalmic Surgery</span>
                     </div>
@@ -40,7 +40,7 @@
                 </ul>
                 <ul class="nsb-popup-row">
                   <li class="nsb-popup-element">
-                    <div class="nsb-popup-block" id="nsb-popup-history-img">
+                    <div class="nsb-popup-block" id="nsb-popup-img-allergies">
                       <span class="nsb-popup-add-icon"></span>
                       <span class="nsb-popup-block-title">Allergies</span>
                     </div>
@@ -52,13 +52,13 @@
                     </div>
                   </li>
                   <li class="nsb-popup-element">
-                    <div class="nsb-popup-block" id="nsb-popup-history-img">
+                    <div class="nsb-popup-block" id="nsb-popup-social">
                       <span class="nsb-popup-add-icon"></span>
                       <span class="nsb-popup-block-title">Social History</span>
                     </div>
                   </li>
                   <li class="nsb-popup-element">
-                    <div class="nsb-popup-block" id="nsb-popup-history-img">
+                    <div class="nsb-popup-block" id="nsb-popup-family">
                       <span class="nsb-popup-add-icon"></span>
                       <span class="nsb-popup-block-title">Family History</span>
                     </div>
@@ -107,12 +107,13 @@
   display: inline-block;
 }
 .nsb-popup-title {
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   font-weight: 400;
   margin-left: 36px;
   color: #222222;
 }
 .nsb-popup-swipe {
+  font-weight: normal;
   color: #ffaa0d;
   font-style: italic;
   text-align: center;
@@ -120,7 +121,7 @@
   display: inline-block;
   margin-left: 40px;
   vertical-align: top;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 .nsb-popup-actions {
   margin-left: 36px;
@@ -142,12 +143,12 @@
   height: 50px;
   width: 50px;
   margin-top: 55px;
-  margin-left: 86px;
+  margin-left: 55px;
   position: fixed;
 }
 .nsb-popup-element { /*Try mouseenter event details to see if leave both*/
   float: left;
-  margin-right: 29px;
+  margin-right: 112px;
 }
 .nsb-popup-element:last-child {
   margin-right: 0;
@@ -155,7 +156,7 @@
 .nsb-popup-block-title {
   font-family: "Helvetica", Helvetica, Arial, sans-serif;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 .nsb-popup-row {
   list-style: none;
@@ -168,20 +169,21 @@
   margin-bottom: 0;
 }
 .nsb-popup-block {
-  width: 222px;
+  /*border: 3px solid black;*/
+  font-weight: normal;
+  width: 159px;
   height: 159px;
   background-repeat: no-repeat;
-  background-size: 245px 175px;
+  background-size: 159px 159px;
   text-align: center;
   align-content: center;
-  border-radius: 5px;
+  /*border-radius: 5px;*/
   display: inline-block;
   padding-top: 2px;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24);
   cursor: pointer;
 }
 .nsb-popup-block:hover {
-  opacity: 0.8;
 }
 #nsb-popup-history-img {
   background-image:
@@ -198,8 +200,8 @@
     margin:0;
   }
   .nsb-sidebar-block {
-    background-color: #777b7e;
-    color: #dcdcdc;
+    background-color: #0e386f;
+    color: #fff;
     padding-top: 32px;
     padding-left: 16px;
     font-size: 1.0rem;
@@ -212,6 +214,7 @@
   }
   .nsb-sidebar-block:hover {
     color: #fff;
+    font-weight: bold;
   }
   #nsb-history:hover #nsb-popup-history {
     display: block;
@@ -256,6 +259,7 @@
     margin-left: 35px;
   }
   .nsb-button {
+    display: none;
     width: 40px;
     height: 20px;
     border-radius: 5px;
