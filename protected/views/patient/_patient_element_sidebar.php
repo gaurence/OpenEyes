@@ -65,8 +65,10 @@
                   </li>
                 </ul>
               </div>
+              <button class="nsb-button">View 1</button>
+              <button class="nsb-button">View 2</button>
+              <button class="nsb-button">View 3</button>
             </div>
-
           </div>
         </li>
         <li class="nsb-sidebar-element">
@@ -250,6 +252,22 @@
     padding-left: 0;
     padding-top: 5px;
   }
+  .nsb-button:first-of-type {
+    margin-left: 35px;
+  }
+  .nsb-button {
+    width: 40px;
+    height: 20px;
+    border-radius: 5px;
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 0;
+  }
+  .nsb-button:focus {
+    outline: none;
+  }
 
 
 
@@ -270,6 +288,6 @@
       $('#nsb-popup-history').hide();
       setTimeout(function(){
         alert('Element has been added');
-        $('#nsb-popup-history').css('display','');},50);
+        $('#nsb-popup-history').css('display','');},200);
     });
   </script>
