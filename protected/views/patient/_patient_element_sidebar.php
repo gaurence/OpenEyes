@@ -1,11 +1,72 @@
-<aside class="column sidebar episodes-and-events" style="z-index: 2000">
-  <div class="oe-scroll-wrapper" style="height:2000px">
-    <div class="all-panels"></div>
-    <div class="nsb-sidebar-container">
+    <div class="nsb-sidebar-container" style="z-index: 1000;
+    position: fixed;
+    width: 100%;">
       <ul class="nsb-sidebar-list">
         <li class="nsb-sidebar-element">
           <div class="nsb-sidebar-block" id="nsb-history">
             HISTORY
+            <div id="nsb-popup-history">
+              <div class="nsb-popup-bar">
+                <span class="nsb-popup-swipe">Swipe Right to Close Navigator</span>
+                <span class="nsb-popup-cross-icon"></span>
+              </div>
+              <span class="nsb-popup-title">History</span>
+              <div class="nsb-popup-actions">
+                <ul class="nsb-popup-row">
+                  <li class="nsb-popup-element">
+                    <div class="nsb-popup-block" id="nsb-popup-img-history">
+                      <span class="nsb-popup-add-icon"></span>
+                      <span class="nsb-popup-block-title">History or Presenting Complaint</span>
+                    </div>
+                  </li>
+                  <li class="nsb-popup-element">
+                    <div class="nsb-popup-block" id="nsb-popup-img-dia">
+                      <span class="nsb-popup-add-icon"></span>
+                      <span class="nsb-popup-block-title">Previous Ophthalmic Surgery</span>
+                    </div>
+                  </li>
+                  <li class="nsb-popup-element">
+                    <div class="nsb-popup-block" id="nsb-popup-img-systemic">
+                      <span class="nsb-popup-add-icon"></span>
+                      <span class="nsb-popup-block-title">Previous Systemic Diagnosis</span>
+                    </div>
+                  </li>
+                  <li class="nsb-popup-element">
+                    <div class="nsb-popup-block" id="nsb-popup-img-medication">
+                      <span class="nsb-popup-add-icon"></span>
+                      <span class="nsb-popup-block-title">Previous Medication</span>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="nsb-popup-row">
+                  <li class="nsb-popup-element">
+                    <div class="nsb-popup-block" id="nsb-popup-history-img">
+                      <span class="nsb-popup-add-icon"></span>
+                      <span class="nsb-popup-block-title">Allergies</span>
+                    </div>
+                  </li>
+                  <li class="nsb-popup-element">
+                    <div class="nsb-popup-block" id="nsb-popup-img-risks">
+                      <span class="nsb-popup-add-icon"></span>
+                      <span class="nsb-popup-block-title">Risks</span>
+                    </div>
+                  </li>
+                  <li class="nsb-popup-element">
+                    <div class="nsb-popup-block" id="nsb-popup-history-img">
+                      <span class="nsb-popup-add-icon"></span>
+                      <span class="nsb-popup-block-title">Social History</span>
+                    </div>
+                  </li>
+                  <li class="nsb-popup-element">
+                    <div class="nsb-popup-block" id="nsb-popup-history-img">
+                      <span class="nsb-popup-add-icon"></span>
+                      <span class="nsb-popup-block-title">Family History</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </li>
         <li class="nsb-sidebar-element">
@@ -35,81 +96,9 @@
         </li>
       </ul>
     </div>
-
-
   </div>
 
-</aside>
-<div style="z-index: 1000;
-    position: fixed;
-    width: 100%;">
-    
 
-
-
-</div>
-
-<div id="nsb-popup-history">
-  <div class="nsb-popup-bar">
-    <span class="nsb-popup-swipe">Swipe Right to Close Navigator</span>
-    <span class="nsb-popup-cross-icon"></span>
-  </div>
-  <span class="nsb-popup-title">History</span>
-  <div class="nsb-popup-actions">
-  <ul class="nsb-popup-row">
-    <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-img-history">
-        <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">History or Presenting Complaint</span>
-      </div>
-    </li>
-    <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-img-dia">
-        <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Previous Ophthalmic Surgery</span>
-      </div>
-    </li>
-    <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-img-systemic">
-        <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Previous Systemic Diagnosis</span>
-      </div>
-    </li>
-    <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-img-medication">
-        <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Previous Medication</span>
-      </div>
-    </li>
-  </ul>
-  <ul class="nsb-popup-row">
-    <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-history-img">
-        <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Allergies</span>
-      </div>
-    </li>
-    <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-img-risks">
-        <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Risks</span>
-      </div>
-    </li>
-    <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-history-img">
-        <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Social History</span>
-      </div>
-    </li>
-    <li class="nsb-popup-element">
-      <div class="nsb-popup-block" id="nsb-popup-history-img">
-        <span class="nsb-popup-add-icon"></span>
-        <span class="nsb-popup-block-title">Family History</span>
-      </div>
-    </li>
-  </ul>
-</div>
-</div>
 
 <style>
 .nsb-popup-bar {
@@ -194,77 +183,93 @@
 }
 #nsb-popup-history-img {
   background-image:
-    linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.4)
+  linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.4)
     ),
     url(https://corticalchauvinism.files.wordpress.com/2015/02/doctor-taking-medication-history-ashx.jpg);
-}
-.nsb-sidebar-list {
-  list-style: none;
-  margin:0;
-}
-.nsb-sidebar-block {
-  background-color: #777b7e;
-  color: #dcdcdc;
-  padding-top: 32px;
-  padding-left: 16px;
-  font-size: 1.0rem;
-  line-height: 1.0rem;
-  border-top: #9a9a9a 1px solid;
-  height: 80px;
-  font-family: "Helvetica", Helvetica, Arial, sans-serif;
-  background-repeat: no-repeat;
-  background-position: 97% 50%;
-}
-.nsb-sidebar-block:hover {
-  color: #fff;
-}
-#nsb-history:hover #nsb-popup-history  {
-  display: block;
-}
-.nsb-sidebar-header {
-  color: #0e386f;
-  font-size: 1.5rem;
-  font-style: italic;
-  margin: 0;
-  font-weight: 300;
-  line-height: 40px;
-}
-.nsb-sidebar-container {
-  margin-top: 40px;
-}
-#nsb-popup-history{
-  display: none;
-  position: fixed;
-  margin-left: 180px;
-  margin-top: 40px;
-  z-index: 3100;
-  background-color: green;
-  width: 1045px; /* use .nsb-popup-* syntax or something*/
-  height: 480px;
-  font-family: "Helvetica", Helvetica, Arial, sans-serif;
-  background-color: #fff;
-  font-size: .8rem;
-  box-shadow: 2px 2px 2px 2px #666666;
-  border-radius: 7px;
-  font-family: Helvetica, Arial, sans-serif;
-  border: 1px solid #aaaaaa;
-  /*color: #222222;*/
-  box-sizing: border-box;
-  line-height: .8rem;
-  padding-left: 0;
-  padding-top: 5px;
-}
+  }
+  .nsb-sidebar-list {
+    width: 179px;
+    list-style: none;
+    margin:0;
+  }
+  .nsb-sidebar-block {
+    background-color: #777b7e;
+    color: #dcdcdc;
+    padding-top: 32px;
+    padding-left: 16px;
+    font-size: 1.0rem;
+    line-height: 1.0rem;
+    border-top: #9a9a9a 1px solid;
+    height: 80px;
+    font-family: "Helvetica", Helvetica, Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+  }
+  .nsb-sidebar-block:hover {
+    color: #fff;
+  }
+  #nsb-history:hover #nsb-popup-history {
+    display: block;
+  }
+  .nsb-sidebar-header {
+    color: #0e386f;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 0;
+    font-weight: 300;
+    line-height: 40px;
+  }
+  .nsb-sidebar-container {
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    margin-top: 40px;
+  }
+  #nsb-popup-history {
+    display: none;
+    position: fixed;
+    margin-left: 163px;
+    margin-top: -49px;
+    z-index: 3100;
+    background-color: green;
+    width: 1045px; /* use .nsb-popup-* syntax or something*/
+    height: 480px;
+    font-family: "Helvetica", Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    font-size: .8rem;
+    box-shadow: 2px 2px 2px 2px #666666;
+    border-radius: 7px;
+    font-family: Helvetica, Arial, sans-serif;
+    border: 1px solid #aaaaaa;
+    /*color: #222222;*/
+    box-sizing: border-box;
+    line-height: .8rem;
+    padding-left: 0;
+    padding-top: 5px;
+  }
 
 
 
 
-.oe-event-sidebar-edit a.error {
-  background-color: #bf4040;
-  color: #fff;
-}
-</style>
-<script>
-</script>
+  .oe-event-sidebar-edit a.error {
+    background-color: #bf4040;
+    color: #fff;
+  }
+  </style>
+  <script>
+    $('.nsb-popup-cross-icon').click(function(){
+      $('#nsb-popup-history').hide();
+      setTimeout(function(){
+        $('#nsb-popup-history').css('display','');
+      },200);
+    });
+    $('.nsb-popup-block').click(function(){
+      $('#nsb-popup-history').hide();
+      setTimeout(function(){
+        alert('Element has been added');
+        $('#nsb-popup-history').css('display','');},50);
+    });
+  </script>
