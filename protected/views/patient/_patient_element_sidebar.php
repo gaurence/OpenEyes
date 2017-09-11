@@ -15,13 +15,24 @@
                 <ul class="nsb-popup-row">
                   <li class="nsb-popup-element">
                     <div class="nsb-popup-block" id="nsb-popup-img-history">
-                      <div class="view1" hidden="true">
+                      <div class="view1">
                         <span class="nsb-popup-add-icon"></span>
                         <span class="nsb-popup-block-title">History or Presenting Complaint</span>
                       </div>
-                      <div class="view2">
+                      <div class="view2" hidden="true">
                         <div class="nsb-popup-goto">
                           Goto >>
+                        </div>
+                        <div class="nsb-popup-snapshot">
+                          Blured vision, Mild, Gradual onset, Both eyes, More than 6 months
+                        </div>
+                        <div class="view3" hidden="true">
+                          <div class="nsb-popup-goto">
+                            Goto Error>>
+                          </div>
+                          <div class="nsb-popup-snapshot">
+                            Description cannot be blank
+                          </div>
                         </div>
                         <span class="nsb-popup-block-title">History or Presenting Complaint</span>
                       </div>
@@ -29,46 +40,116 @@
                   </li>
                   <li class="nsb-popup-element">
                     <div class="nsb-popup-block" id="nsb-popup-img-opthalmic">
-                      <span class="nsb-popup-add-icon"></span>
-                      <span class="nsb-popup-block-title">Previous Ophthalmic Surgery</span>
+                      <div class="view1">
+                        <span class="nsb-popup-add-icon"></span>
+                        <span class="nsb-popup-block-title">Previous Ophthalmic Surgery</span>
+                      </div>
+                      <div class="view2" hidden="true">
+                        <div class="nsb-popup-goto">
+                          Goto >>
+                        </div>
+                        <div class="nsb-popup-snapshot">
+                        </div>
+                        <span class="nsb-popup-block-title">Previous Ophthalmic Surgery</span>
+                      </div>
                     </div>
                   </li>
                   <li class="nsb-popup-element">
                     <div class="nsb-popup-block" id="nsb-popup-img-systemic">
-                      <span class="nsb-popup-add-icon"></span>
-                      <span class="nsb-popup-block-title">Previous Systemic Diagnosis</span>
+                      <div class="view1">
+                        <span class="nsb-popup-add-icon"></span>
+                        <span class="nsb-popup-block-title">Previous Systemic Diagnosis</span>
+                      </div>
+                      <div class="view2" hidden="true">
+                        <div class="nsb-popup-goto">
+                          Goto >>
+                        </div>
+                        <div class="nsb-popup-snapshot">
+                        </div>
+                        <span class="nsb-popup-block-title">Previous Systemic Diagnosis</span>
+                      </div>
                     </div>
                   </li>
                   <li class="nsb-popup-element">
                     <div class="nsb-popup-block" id="nsb-popup-img-medication">
-                      <span class="nsb-popup-add-icon"></span>
-                      <span class="nsb-popup-block-title">Previous Medication</span>
+                      <div class="view1">
+                        <span class="nsb-popup-add-icon"></span>
+                        <span class="nsb-popup-block-title">Previous Medication</span>
+                      </div>
+                      <div class="view2" hidden="true">
+                        <div class="nsb-popup-goto">
+                          Goto >>
+                        </div>
+                        <div class="nsb-popup-snapshot">
+                        </div>
+                        <span class="nsb-popup-block-title">Previous Medication</span>
+                      </div>
                     </div>
                   </li>
                 </ul>
                 <ul class="nsb-popup-row">
                   <li class="nsb-popup-element">
                     <div class="nsb-popup-block" id="nsb-popup-img-allergies">
-                      <span class="nsb-popup-add-icon"></span>
-                      <span class="nsb-popup-block-title">Allergies</span>
+                      <div class="view1">
+                        <span class="nsb-popup-add-icon"></span>
+                        <span class="nsb-popup-block-title">Allergies</span>
+                      </div>
+                      <div class="view2" hidden="true">
+                        <div class="nsb-popup-goto">
+                          Goto >>
+                        </div>
+                        <div class="nsb-popup-snapshot">
+                        </div>
+                        <span class="nsb-popup-block-title">Allergies</span>
+                      </div>
                     </div>
                   </li>
                   <li class="nsb-popup-element">
                     <div class="nsb-popup-block" id="nsb-popup-img-risks">
-                      <span class="nsb-popup-add-icon"></span>
-                      <span class="nsb-popup-block-title">Risks</span>
+                      <div class="view1">
+                        <span class="nsb-popup-add-icon"></span>
+                        <span class="nsb-popup-block-title">Risks</span>
+                      </div>
+                      <div class="view2" hidden="view2">
+                        <div class="nsb-popup-goto">
+                          Goto >>
+                        </div>
+                        <div class="nsb-popup-snapshot">
+                        </div>
+                        <span class="nsb-popup-block-title">Risks</span>
+                      </div>
                     </div>
                   </li>
                   <li class="nsb-popup-element">
                     <div class="nsb-popup-block" id="nsb-popup-social">
-                      <span class="nsb-popup-add-icon"></span>
-                      <span class="nsb-popup-block-title">Social History</span>
+                      <div class="view1">
+                        <span class="nsb-popup-add-icon"></span>
+                        <span class="nsb-popup-block-title">Social History</span>
+                      </div>
+                      <div class="view2" hidden="true">
+                        <div class="nsb-popup-goto">
+                          Goto >>
+                        </div>
+                        <div class="nsb-popup-snapshot">
+                        </div>
+                        <span class="nsb-popup-block-title">Social History</span>
+                      </div>
                     </div>
                   </li>
                   <li class="nsb-popup-element">
                     <div class="nsb-popup-block" id="nsb-popup-family">
-                      <span class="nsb-popup-add-icon"></span>
-                      <span class="nsb-popup-block-title">Family History</span>
+                      <div class="view1">
+                        <span class="nsb-popup-add-icon"></span>
+                        <span class="nsb-popup-block-title">Family History</span>
+                      </div>
+                      <div class="view2" hidden="">
+                        <div class="nsb-popup-goto">
+                          Goto >>
+                        </div>
+                        <div class="nsb-popup-snapshot">
+                        </div>
+                        <span class="nsb-popup-block-title">Family History</span>
+                      </div>
                     </div>
                   </li>
                 </ul>
@@ -158,15 +239,26 @@
   display: block;
   height: 20px;
   width: 100px;
-  margin-top: 70px;
+  margin-top: 65px;
   margin-left: 30px;
   position: fixed;
-  border: blue 1px solid;
   border-radius: 10px;
-  background-color: blue;
-  font-size: 0.8rem;
+  background-color: #0b68e4;
+  font-size: 0.9rem;
   vertical-align: middle;
   text-align: center;
+  line-height: 1.3;
+} /*view 3 red goto and red border around block and red font for snapshot of error(s)*/
+.nsb-popup-snapshot {
+  display: block;
+  height: 50px;
+  width: 136px;
+  margin-top: 100px;
+  margin-left: 10px;
+  position: fixed;
+  font-size: 0.7rem;
+  vertical-align: bottom;
+  text-align: left;
 }
 .nsb-popup-element { /*Try mouseenter event details to see if leave both*/
   float: left;
@@ -310,10 +402,33 @@
         $('#nsb-popup-history').css('display','');
       },200);
     });
+
     $('.nsb-popup-block').click(function(){
+      let $this = $(this);
       $('#nsb-popup-history').hide();
       setTimeout(function(){
-        alert('Element has been added');
+        if ($this.find('.view1:first').css('display') != 'none'){
+          $this.find('.view1').hide();
+          $this.find('.view2').show();
+          alert('Element has been added');
+        } else {
+          alert('Moved to element');
+        }
         $('#nsb-popup-history').css('display','');},200);
     });
+
+  /*  $('.nsb-popup-block').click(function(){
+      console.log("clicked");
+      $('#nsb-popup-history').hide();
+      setTimeout(function(){
+        if ($(this).find('.view1').is(":visible")){
+          $(this).find('.view1').hide();
+          $(this).find('.view2').show();
+          alert('Element has been added');
+          $('#nsb-popup-history').css('display','');},200);
+        } else {
+          alert('Moved to element');
+          $('#nsb-popup-history').css('display','');},200);
+        }
+    });*/
   </script>
