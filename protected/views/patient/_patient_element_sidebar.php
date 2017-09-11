@@ -1400,6 +1400,7 @@
   position: fixed;
 }
 .nsb-popup-goto {
+  color: #fff;
   display: block;
   height: 20px;
   width: 100px;
@@ -1413,6 +1414,7 @@
   text-align: center;
 } /*view 3 red goto and red border around block and red font for snapshot of error(s)*/
 .nsb-popup-error {
+  color: #fff;
   display: block;
   height: 20px;
   width: 100px;
@@ -1426,6 +1428,7 @@
   text-align: center;
 } /*view 3 red goto and red border around block and red font for snapshot of error(s)*/
 .nsb-popup-snapshot {
+  color: #fff;
   display: block;
   height: 50px;
   width: 136px;
@@ -1503,7 +1506,8 @@
     background-position: 97% 50%;
   }
   .nsb-sidebar-block:hover {
-    color: #fff;
+    color: #0e386f;
+    background-color: #fff;
     font-weight: bold;
   }
   #nsb-history:hover .nsb-popup-history {
@@ -1621,8 +1625,8 @@
           case 'History or Presenting Complaint':
             $('.has-icon:contains(Comorbidities):first').trigger('click');
             break;
-          case 'Previous Opthalmic Surgery':
-            $('.has-icon:contains(Previous Opthalmic Surgery):first').trigger('click');
+          case 'Previous Ophthalmic Surgery':
+            $('.has-icon:contains(Previous Ophthalmic Surgery):first').trigger('click');
             break;
           case 'Previous Systemic Diagnosis':
             $('.has-icon:contains(Systemic Diagnoses):first').trigger('click');
@@ -1648,11 +1652,11 @@
         if ($this.find('.view1:first').css('display') != 'none'){
           $this.find('.view1').hide();
           $this.find('.view2').show();
-          alert('Element has been added');
+        //  alert('Element has been added');
         } else if($this.find('.view2:first').css('display') != 'none') {
-          alert('Moved to element');
+        //  alert('Moved to element');
         } else {
-          alert('Moved to error');
+        //  alert('Moved to error');
         }
         $('.nsb-popup-history').css('display','');},200);
     });
@@ -1672,19 +1676,4 @@
       $('.main_view2').hide();
       $('.main_view3').show();
     });
-
-  /*  $('.nsb-popup-block').click(function(){
-      console.log("clicked");
-      $('#nsb-popup-history').hide();
-      setTimeout(function(){
-        if ($(this).find('.view1').is(":visible")){
-          $(this).find('.view1').hide();
-          $(this).find('.view2').show();
-          alert('Element has been added');
-          $('#nsb-popup-history').css('display','');},200);
-        } else {
-          alert('Moved to element');
-          $('#nsb-popup-history').css('display','');},200);
-        }
-    });*/
   </script>
