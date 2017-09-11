@@ -15,7 +15,7 @@
                 <ul class="nsb-popup-row">
                   <li class="nsb-popup-element">
                     <div class="nsb-popup-block" id="nsb-popup-img-history">
-                      <div class="view1">
+                      <div class="view1" hidden="true">
                         <span class="nsb-popup-add-icon"></span>
                         <span class="nsb-popup-block-title">History or Presenting Complaint</span>
                       </div>
@@ -26,13 +26,14 @@
                         <div class="nsb-popup-snapshot">
                           Blured vision, Mild, Gradual onset, Both eyes, More than 6 months
                         </div>
-                        <div class="view3" hidden="true">
-                          <div class="nsb-popup-goto">
-                            Goto Error>>
-                          </div>
-                          <div class="nsb-popup-snapshot">
-                            Description cannot be blank
-                          </div>
+                        <span class="nsb-popup-block-title">History or Presenting Complaint</span>
+                      </div>
+                      <div class="view3">
+                        <div class="nsb-popup-error">
+                          Goto Error >>
+                        </div>
+                        <div class="nsb-popup-snapshot">
+                          Description cannot be blank
                         </div>
                         <span class="nsb-popup-block-title">History or Presenting Complaint</span>
                       </div>
@@ -244,10 +245,22 @@
   position: fixed;
   border-radius: 10px;
   background-color: #0b68e4;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   vertical-align: middle;
   text-align: center;
-  line-height: 1.3;
+} /*view 3 red goto and red border around block and red font for snapshot of error(s)*/
+.nsb-popup-error {
+  display: block;
+  height: 20px;
+  width: 100px;
+  margin-top: 65px;
+  margin-left: 30px;
+  position: fixed;
+  border-radius: 10px;
+  background-color: #cc0e27;
+  font-size: 0.8rem;
+  vertical-align: middle;
+  text-align: center;
 } /*view 3 red goto and red border around block and red font for snapshot of error(s)*/
 .nsb-popup-snapshot {
   display: block;
@@ -411,8 +424,10 @@
           $this.find('.view1').hide();
           $this.find('.view2').show();
           alert('Element has been added');
-        } else {
+        } else if($this.find('.view2:first').css('display') != 'none') {
           alert('Moved to element');
+        } else {
+          alert('Moved to error');
         }
         $('#nsb-popup-history').css('display','');},200);
     });
