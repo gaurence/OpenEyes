@@ -1473,10 +1473,12 @@
   /*border-radius: 5px;*/
   display: inline-block;
   padding-top: 2px;
-  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5), 0 2px 5px 0 rgba(0,0,0,0.24);
+  transition: all .518s cubic-bezier(0.4,0.0,0.2,1);
   cursor: pointer;
 }
 .nsb-popup-block:hover {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.10), 0 3px 12px 0 rgba(0,0,0,0.26);
 }
 #nsb-popup-history-img {
   background-image:
