@@ -1,4 +1,42 @@
-    <div class="nsb-sidebar-container" style="z-index: 1000;
+
+
+
+<aside class="column sidebar episodes-and-events" hidden="true">
+    <div class="oe-scroll-wrapper" style="height:2000px">
+        <div class="all-panels"></div>
+    </div>
+
+</aside>
+
+
+<script type="text/javascript">
+    new OpenEyes.UI.Sidebar(
+      $('.sidebar .oe-scroll-wrapper')
+    );
+    $(document).ready(function() {
+        event_sidebar = new OpenEyes.UI.PatientSidebar($('aside.episodes-and-events'), {
+            patient_sidebar_json: '<?php echo $this->getElementTree() ?>',
+            tree_id: 'patient-sidebar-elements'
+            <?php if ($this->event->id) {?>,
+            event_id: <?= $this->event->id ?>
+            <?php } ?>
+        });
+    });
+</script>
+
+<style>
+    .oe-event-sidebar-edit a.error {
+        background-color: #bf4040;
+        color: #fff;
+    }
+</style>
+
+
+
+
+
+
+    <div class="nsb-sidebar-container" style="
     position: fixed;
     width: 100%;">
       <ul class="nsb-sidebar-list">
@@ -1551,6 +1589,12 @@
   .nsb-red {
     color: #cc0e27;
   }
+  .nsb-sidebar-container:hover {
+    z-index: 1000;
+  }
+  .nsb-sidebar-container {
+    z-index: 0;
+  }
 
 
 
@@ -1572,6 +1616,35 @@
       let $this = $(this);
       $('.nsb-popup-history').hide();
       setTimeout(function(){
+        let title = $this.find('.nsb-popup-block-title:first').text();
+        switch (title) {
+          case 'History or Presenting Complaint':
+            $('.has-icon:contains(Comorbidities):first').trigger('click');
+            break;
+          case 'Previous Opthalmic Surgery':
+            $('.has-icon:contains(Previous Opthalmic Surgery):first').trigger('click');
+            break;
+          case 'Previous Systemic Diagnosis':
+            $('.has-icon:contains(Systemic Diagnoses):first').trigger('click');
+            break;
+          case 'Previous Medication':
+            $('.has-icon:contains(Medications):first').trigger('click');
+            break;
+          case 'Allergies':
+            $('.has-icon:contains(Allergies):first').trigger('click');
+            break;
+          case 'Risks':
+            $('.has-icon:contains(Risks):first').trigger('click');
+            break;
+          case 'Social History':
+            $('.has-icon:contains(Social History):first').trigger('click');
+            break;
+          case 'Family History':
+            $('.has-icon:contains(Family History):first').trigger('click');
+            break;
+          default :
+            break;
+        }
         if ($this.find('.view1:first').css('display') != 'none'){
           $this.find('.view1').hide();
           $this.find('.view2').show();
