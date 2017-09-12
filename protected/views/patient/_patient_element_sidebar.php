@@ -36,7 +36,7 @@
 
 
 
-    <div class="nsb-sidebar-container" style=" z-type: 1100;
+    <div class="nsb-sidebar-container" style="
     position: fixed;
     width: 100%;">
       <ul class="nsb-sidebar-list">
@@ -44,6 +44,7 @@
           <div class="main_view1">
             <div class="nsb-sidebar-block" id="nsb-history">
               HISTORY
+              <span class="nsb-added">Presenting Complaint, Ophthalmic Surgery, Systemic Diagnosis, Mediation, Allergies, Risks, Social, Family<br/><br/><span class="nsb-instruct">Move pointer / Click here to add...</span></span>
               <div class="nsb-popup-history">
                 <div class="nsb-popup-bar">
                   <span class="nsb-popup-swipe">Swipe Right to Close Navigator →</span>
@@ -204,7 +205,7 @@
           <div class="main_view2" hidden="true">
             <div class="nsb-sidebar-block" id="nsb-history">
               HISTORY
-              <span class="nsb-added">History, Previous Systemic Diagnosis, Allergies, Risks</span>
+                <span class="nsb-added"><span class="nsb-present">Presenting Complaint</span>, Ophthalmic Surgery, <span class="nsb-present">Systemic Diagnosis</span>, Mediation, <span class="nsb-present">Allergies</span>, <span class="nsb-present">Risks</span>, Social, Family<br/><br/><span class="nsb-instruct">Move pointer / Click here to see more...</span></span>
               <div class="nsb-popup-history">
                 <div class="nsb-popup-bar">
                   <span class="nsb-popup-swipe">Swipe Right to Close Navigator →</span>
@@ -365,7 +366,7 @@
           <div class="main_view3" hidden="true">
             <div class="nsb-sidebar-block" id="nsb-history">
               HISTORY
-              <span class="nsb-added"><span class="nsb-red">History</span>, Previous Medication, <span class="nsb-red">Social History</span>, <span class="nsb-red">Family History</span></span>
+              <span class="nsb-added"><span class="nsb-red">Presenting Complaint</span>, Ophthalmic Surgery, Systemic Diagnosis, <span class="nsb-present">Mediation</span>, Allergies, Risks, <span class="nsb-red">Social</span>, <span class="nsb-red">Family</span><br/><br/><span class="nsb-instruct">Move pointer / Click here to see more...</span></span>
               <div class="nsb-popup-history">
                 <div class="nsb-popup-bar">
                   <span class="nsb-popup-swipe">Swipe Right to Close Navigator →</span>
@@ -1370,7 +1371,7 @@
   color: #ffaa0d;
   font-style: italic;
   text-align: center;
-  width: 955px;
+  width: 789px;
   display: inline-block;
   margin-left: 40px;
   vertical-align: top;
@@ -1385,7 +1386,6 @@
   display: inline-block;
   height: 34px;
   width: 34px;
-  z-index: 3101;
   margin:0;
   padding: 0;
   cursor: pointer;
@@ -1441,7 +1441,7 @@
 }
 .nsb-popup-element { /*Try mouseenter event details to see if leave both*/
   float: left;
-  margin-right: 112px;
+  margin-right: 56px; /*112 / 2 = 56*/
 }
 .nsb-popup-element:last-child {
   margin-right: 0;
@@ -1456,7 +1456,7 @@
   margin: 0;
   padding: 0;
   display: inline-block;
-  margin-bottom: 60px;
+  margin-bottom: 30px; /*60 / 2  = 30*/
 }
 .nsb-popup-row:last-child {
   margin-bottom: 0;
@@ -1496,12 +1496,13 @@
     margin:0;
   }
   .nsb-sidebar-block {
-    background-color: #0e386f;
+    background-color: #4d546a;
     color: #fff;
-    padding-top: 32px;
-    padding-left: 16px;
-    font-size: 1.0rem;
-    line-height: 1.0rem;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size: 13px;
+    text-align: left;
+    line-height: 10px;
     border-top: #9a9a9a 1px solid;
     height: 80px;
     font-family: "Helvetica", Helvetica, Arial, sans-serif;
@@ -1512,6 +1513,26 @@
     color: #0e386f;
     background-color: #fff;
     /*font-weight: bold;*/
+  }
+  .nsb-sidebar-block:hover .nsb-added {
+    color: #0e386f;
+  }
+  .nsb-sidebar-block:hover .nsb-instruct {
+    display: none;
+    color: #0e386f;
+  }
+  .nsb-instruct {
+    display:block;
+    font-style: italic;
+    font-size: 9px;
+    width: 100%;
+    position: relative;
+    margin-top: -5px;
+    color: #fff;
+  }
+  .nsb-present {
+    color: #58a0ff;
+    /*color: #46a747;*/
   }
   #nsb-history:hover .nsb-popup-history {
     display: block;
@@ -1525,7 +1546,6 @@
     line-height: 40px;
   }
   .nsb-sidebar-container {
-    z-index: 1000;
     position: fixed;
     width: 100%;
     margin-top: 40px;
@@ -1533,12 +1553,11 @@
   .nsb-popup-history {
     display: none;
     position: fixed;
-    margin-left: 163px;
-    margin-top: -49px;
-    z-index: 3100;
+    margin-left: 174px; /*was 163*/
+    margin-top: -17px; /**/
     background-color: green;
-    width: 1045px; /* use .nsb-popup-* syntax or something*/
-    height: 480px;
+    width: 877px; /* use .nsb-popup-* syntax or something*/
+    height: 440px; /*480 - 30 = 450*/
     font-family: "Helvetica", Helvetica, Arial, sans-serif;
     background-color: #fff;
     font-size: .8rem;
@@ -1553,19 +1572,19 @@
     padding-top: 5px;
   }
   #nsb-function {
-    margin-top: -129px;
+    margin-top: -97px;
   }
   #nsb-refraction {
-    margin-top: -209px;
+    margin-top: -177px;
   }
   #nsb-antseg {
-    margin-top: -289px;
+    margin-top: -257px;
   }
   #nsb-fundus {
-    margin-top: -369px;
+    margin-top: -337px;
   }
   #nsb-management {
-    margin-top: -449px;
+    margin-top: -417px;
   }
   .nsb-button:first-of-type {
     margin-left: 55px;
@@ -1577,30 +1596,31 @@
     font-size: 10px;
     margin-left: 10px;
     margin-right: 0px;
-    margin-top: 27px;
+    margin-top: 14px; /*27/2 = 14*/
     padding: 0;
   }
   .nsb-button:focus {
     outline: none;
   }
   .nsb-added {
+    color: #adadad;
     position: fixed;
     display: block;
-    font-size: 0.6rem;
+    font-size: 10px;
     width: 160px;
-    line-height: 1.3;
-    margin-top: 5px;
-    font-style: italic;
+    /*line-height: 8px;*/
+    margin-top: 2px;
+    /*font-style: italic;*/
     font-weight: normal;
   }
   .nsb-red {
-    color: #cc0e27;
+    color: #ff304b;
   }
   .nsb-sidebar-container:hover {
     z-index: 1000;
   }
   .nsb-sidebar-container {
-    z-index: 0;
+    /*z-index: 0;*/
   }
 
 
@@ -1615,6 +1635,9 @@
     $('.nsb-popup-cross-icon').click(function(){
       $('.nsb-popup-history').hide();
       setTimeout(function(){
+        console.log('closed');
+        $('.nsb-sidebar-container').css('z-index','0');
+        console.log($('.nsb-sidebar-container').css('z-index'));
         $('.nsb-popup-history').css('display','');
       },200);
     });
@@ -1661,6 +1684,8 @@
         } else {
         //  alert('Moved to error');
         }
+        console.log("item clicked");
+        $('.nsb-sidebar-container').css('z-index','0');
         $('.nsb-popup-history').css('display','');},200);
     });
 
@@ -1681,13 +1706,11 @@
     });
 
     $('.nsb-sidebar-block').mouseenter(function(event) {
-      $('.ui-widget-overlay').css('height','30000px');
-      $('.ui-widget-overlay').css('width','30000px');
-      $('.ui-widget-overlay').css('z-index','600');
-
-      $('.ui-widget-overlay').show();
+      console.log("entered");
+      $('.nsb-sidebar-container').css('z-index','1000');
     });
     $('.nsb-sidebar-block').mouseleave(function(event) {
-      $('.ui-widget-overlay').hide();
+      console.log("left");
+      $('.nsb-sidebar-container').css('z-index','0');
     });
   </script>
