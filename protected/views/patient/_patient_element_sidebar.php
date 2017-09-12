@@ -1528,7 +1528,8 @@
     width: 100%;
     position: relative;
     margin-top: -5px;
-    color: #fff;
+    /*color: #fff;*/
+    color: #ffaa0d;
   }
   .nsb-present {
     color: #58a0ff;
