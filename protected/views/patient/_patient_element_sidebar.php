@@ -36,7 +36,7 @@
 
 
 
-    <div class="nsb-sidebar-container" style="
+    <div class="nsb-sidebar-container" style=" z-type: 1100;
     position: fixed;
     width: 100%;">
       <ul class="nsb-sidebar-list">
@@ -1473,12 +1473,13 @@
   /*border-radius: 5px;*/
   display: inline-block;
   padding-top: 2px;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5), 0 2px 5px 0 rgba(0,0,0,0.24);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 2px 5px 0 rgba(0,0,0,0.24);
   transition: all .518s cubic-bezier(0.4,0.0,0.2,1);
   cursor: pointer;
 }
 .nsb-popup-block:hover {
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.10), 0 3px 12px 0 rgba(0,0,0,0.26);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.25), 0 3px 6px 0 rgba(0,0,0,0.25);
+  /*box-shadow: 0 1px 3px 0 rgba(0,0,0,0.10), 0 3px 12px 0 rgba(0,0,0,0.26);*/
 }
 #nsb-popup-history-img {
   background-image:
@@ -1510,7 +1511,7 @@
   .nsb-sidebar-block:hover {
     color: #0e386f;
     background-color: #fff;
-    font-weight: bold;
+    /*font-weight: bold;*/
   }
   #nsb-history:hover .nsb-popup-history {
     display: block;
@@ -1677,5 +1678,16 @@
       $('.main_view1').hide();
       $('.main_view2').hide();
       $('.main_view3').show();
+    });
+
+    $('.nsb-sidebar-block').mouseenter(function(event) {
+      $('.ui-widget-overlay').css('height','30000px');
+      $('.ui-widget-overlay').css('width','30000px');
+      $('.ui-widget-overlay').css('z-index','600');
+
+      $('.ui-widget-overlay').show();
+    });
+    $('.nsb-sidebar-block').mouseleave(function(event) {
+      $('.ui-widget-overlay').hide();
     });
   </script>
